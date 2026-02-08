@@ -1,1 +1,9 @@
+:root {
+  --bg: #0a0f14;
+  --text: #d6e2f0;
+  --accent: #00ffcc;
+  --muted: #7a8a9e;
+  --terminal-green: #33ff33;
+  --font-mono: "Courier New", monospace;
+}
 
