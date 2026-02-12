@@ -1,0 +1,170 @@
+/*
+    Name: Rayyan Umair
+    File: styles.css
+    Date: 12 February 2026
+    Description: Executive emerald-gold digital business card
+    Course: INFT1206 – Assignment 3 Part 1
+*/
+
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #021a14, #063d2e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ================= LAYOUT ================= */
+
+.page-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================= CARD ================= */
+
+.card {
+    width: min(420px, 92vw);
+    aspect-ratio: 3.5 / 2;
+    background: #063d2e;
+    border-radius: 14px;
+    border: 1px solid #b9972f;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65);
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.75);
+}
+
+/* ================= WATERMARK ================= */
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: 25px;
+    top: 25px;
+    opacity: 0.05;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z'/%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+}
+
+/* ================= TOP SECTION ================= */
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-header {
+    max-width: 65%;
+}
+
+.card-name {
+    margin: 0;
+    font-size: 20px;
+    font-family: Georgia, serif;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.card-title {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #e5d3a1;
+}
+
+/* ================= IMAGE ================= */
+
+.profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #d4af37;
+}
+
+/* ================= DIVIDER ================= */
+
+.card-divider {
+    height: 1px;
+    margin: 14px 0;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+}
+
+/* ================= CONTACT ================= */
+
+.contact-info {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+    fill: #d4af37;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.contact-info a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-info a:hover {
+    opacity: 0.7;
+}
+
+/* ================= FOOTER ================= */
+
+.card-footer {
+    text-align: center;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    color: #022c22;
+    text-decoration: none;
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
