@@ -1,1 +1,8 @@
-
+:root {
+  --bg-black: #050505;
+  --terminal-green: #00ff88;
+  --terminal-dim: rgba(0, 255, 136, 0.6);
+  --loader-bg: #111;
+  --loader-fill: #00ff88;
+  --font-mono: "Courier New", monospace;
+}
