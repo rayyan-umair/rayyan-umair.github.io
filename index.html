@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayyan Umair | IT Support & Cybersecurity</title>
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/terminal.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Terminal Boot -->
+    <div id="terminal">
+      <div id="terminal-output"></div>
+      <div id="terminal-input">
+        <span class="prompt">&gt;</span>
+        <span id="cursor"></span>
+      </div>
+    </div>
+
+    <!-- Loader -->
+    <div id="loader" class="hidden">
+      <div id="loader-bar"></div>
+    </div>
+
+  </div>
+
+  <script type="module" src="js/boot.js"></script>
+
+</body>
+</html>
