@@ -12,13 +12,24 @@ document.addEventListener("keydown", async (e) => {
 });
 
 async function startBoot() {
-  await typeLine("Initializing secure interface...");
-  await typeLine("Establishing network topology...");
-  await typeLine("Loading core modules...");
-  await typeLine("System ready.");
+  await typeLine("[BOOT] Initializing secure runtime environment...");
+  await typeLine("[NET] Verifying network integrity...");
+  await typeLine("[AUTH] Validating system identity...");
+  await typeLine("[CORE] Loading operational modules...");
+  await typeLine("[OK] Environment stable.");
+
   await runLoader();
 
-  await typeLine("");
-  await typeLine(SYSTEM.name);
-  await typeLine(SYSTEM.role);
+  // Fade terminal slightly
+  const terminal = document.getElementById("terminal");
+  terminal.style.transition = "opacity 0.8s ease";
+  terminal.style.opacity = "0.2";
+
+  // Reveal identity section
+  const identity = document.getElementById("identity");
+  identity.classList.remove("hidden");
+
+  setTimeout(() => {
+    identity.classList.add("show");
+  }, 100);
 }
