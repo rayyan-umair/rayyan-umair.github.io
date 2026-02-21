@@ -1,25 +1,11 @@
-#terminal {
-  padding: 40px;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-#terminal-output {
-  margin-bottom: 20px;
-}
-
-.prompt {
-  margin-right: 6px;
-}
-
 #cursor {
-  display: inline-block;
-  width: 10px;
-  height: 18px;
-  background: var(--terminal-green);
-  animation: blink 1s infinite;
+  display:inline-block;
+  width:10px;
+  height:18px;
+  background:var(--green);
+  animation:blink 1s infinite;
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% { opacity:0; }
 }
