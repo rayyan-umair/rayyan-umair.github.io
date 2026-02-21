@@ -1,16 +1,20 @@
-#loader {
-  position:fixed;
-  bottom:40px;
-  left:40px;
-  width:300px;
-  height:6px;
-  background:#111;
-  z-index:3;
+#loader-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#loader-bar {
-  height:100%;
-  width:0%;
-  background:var(--green);
-  transition:width 0.05s linear;
+.loader-bar {
+  width: 300px;
+  height: 8px;
+  background: #111;
+}
+
+.loader-progress {
+  height: 100%;
+  width: 0%;
+  background: var(--secondary);
+  transition: width 0.05s linear;
 }
