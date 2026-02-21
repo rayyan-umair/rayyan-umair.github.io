@@ -1,1 +1,17 @@
-
+{
+  "summary": "IT Support and Cybersecurity specialist with a strong foundation in systems administration, network security, and infrastructure management. Committed to building secure, resilient environments through structured thinking and disciplined engineering practice.",
+  "info": [
+    { "label": "LOCATION",   "value": "Canada" },
+    { "label": "FOCUS",      "value": "Cybersecurity & IT Support" },
+    { "label": "STATUS",     "value": "Open to Opportunities" },
+    { "label": "CLEARANCE",  "value": "Available Upon Request" }
+  ],
+  "skills": [
+    { "name": "Network Security",        "level": 85 },
+    { "name": "IT Support & Helpdesk",   "level": 90 },
+    { "name": "Linux Administration",    "level": 78 },
+    { "name": "Windows Server",          "level": 82 },
+    { "name": "Threat Analysis",         "level": 72 },
+    { "name": "Scripting (Bash / PS)",   "level": 70 }
+  ]
+}
