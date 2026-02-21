@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rayyan Umair | IT Support & Cybersecurity</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rayyan Umair | Cybersecurity</title>
 
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/variables.css">
@@ -12,44 +12,45 @@
 <link rel="stylesheet" href="css/loader.css">
 <link rel="stylesheet" href="css/nodes.css">
 <link rel="stylesheet" href="css/overlays.css">
+
 </head>
 <body>
 
-<div id="app">
-
-  <canvas id="globe"></canvas>
-
-  <div id="terminal">
-    <div id="terminal-output"></div>
-    <div id="terminal-input">
-      <span>&gt;</span>
-      <span id="cursor"></span>
-    </div>
-  </div>
-
-  <div id="loader" class="hidden">
-    <div id="loader-bar"></div>
-  </div>
-
-  <div id="identity" class="hidden">
-    <div class="identity-container">
-      <div class="access">ACCESS GRANTED</div>
-      <div class="welcome">Welcome.</div>
-      <div class="connected">Connected to the system interface of</div>
-      <h1 class="name">Rayyan Umair</h1>
-      <div class="role">IT Support & Cybersecurity</div>
-      <div class="enter-interface">Click to enter interface</div>
-    </div>
-  </div>
-
-  <div id="node-layer"></div>
-
-  <div id="overlay" class="hidden">
-    <div id="overlay-content"></div>
-  </div>
-
+<div id="boot-screen">
+  <div id="terminal-output"></div>
+  <div class="enter-hint">Press ENTER to begin</div>
 </div>
 
-<script type="module" src="js/boot.js"></script>
+<div id="loader-screen" class="hidden">
+  <div class="loader-bar">
+    <div class="loader-progress"></div>
+  </div>
+</div>
+
+<div id="identity-screen" class="hidden">
+  <h1>Welcome.</h1>
+  <h2>Rayyan Umair</h2>
+  <p>IT Support • Cybersecurity • Systems</p>
+  <button id="enter-interface">Enter Interface</button>
+</div>
+
+<canvas id="network-canvas"></canvas>
+
+<div id="node-container" class="hidden"></div>
+
+<div id="overlay" class="hidden">
+  <div class="overlay-content">
+    <button id="close-overlay">×</button>
+    <div id="overlay-body"></div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/boot.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/visuals.js"></script>
+<script src="js/nodes.js"></script>
+<script src="js/overlays.js"></script>
+
 </body>
 </html>
