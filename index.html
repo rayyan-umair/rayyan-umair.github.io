@@ -1,56 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rayyan Umair | Cybersecurity</title>
-
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/terminal.css">
-<link rel="stylesheet" href="css/loader.css">
-<link rel="stylesheet" href="css/nodes.css">
-<link rel="stylesheet" href="css/overlays.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayyan Umair — System Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@100;200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
-<div id="boot-screen">
-  <div id="terminal-output"></div>
-  <div class="enter-hint">Press ENTER to begin</div>
-</div>
-
-<div id="loader-screen" class="hidden">
-  <div class="loader-bar">
-    <div class="loader-progress"></div>
+  <!-- PHASE 1: Boot Terminal -->
+  <div id="boot-screen" class="phase active">
+    <div class="scanline"></div>
+    <div class="boot-terminal">
+      <div class="terminal-header">
+        <span class="terminal-tag">SYS://INIT</span>
+        <span class="terminal-status blink">▮</span>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-art">
+          <pre>
+  ██████╗ ██╗   ██╗
+  ██╔══██╗██║   ██║
+  ██████╔╝██║   ██║
+  ██╔══██╗██║   ██║
+  ██║  ██║╚██████╔╝
+  ╚═╝  ╚═╝ ╚═════╝  v2.4.1
+          </pre>
+        </div>
+        <div class="terminal-prompt">
+          <span class="prompt-prefix">SECURE_SHELL@RAYYAN-NET:~$</span>
+          <span class="prompt-text"> AWAITING INPUT</span>
+        </div>
+        <div class="press-enter-wrap">
+          <span class="press-enter-text">Press <kbd>ENTER</kbd> to initialize</span>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<div id="identity-screen" class="hidden">
-  <h1>Welcome.</h1>
-  <h2>Rayyan Umair</h2>
-  <p>IT Support • Cybersecurity • Systems</p>
-  <button id="enter-interface">Enter Interface</button>
-</div>
-
-<canvas id="network-canvas"></canvas>
-
-<div id="node-container" class="hidden"></div>
-
-<div id="overlay" class="hidden">
-  <div class="overlay-content">
-    <button id="close-overlay">×</button>
-    <div id="overlay-body"></div>
+  <!-- PHASE 2: Boot Sequence -->
+  <div id="boot-sequence" class="phase">
+    <div class="scanline"></div>
+    <div class="boot-log-container">
+      <div class="log-header">
+        <span>SYSTEM BOOTSTRAP — SECURE ENVIRONMENT</span>
+        <span id="log-timestamp"></span>
+      </div>
+      <div id="log-lines"></div>
+      <div id="loader-wrap" class="hidden">
+        <div class="loader-label">
+          <span>LOADING OPERATIONAL MODULES</span>
+          <span id="loader-pct">0%</span>
+        </div>
+        <div class="loader-track">
+          <div id="loader-bar"></div>
+          <div class="loader-segments"></div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<script src="js/config.js"></script>
-<script src="js/boot.js"></script>
-<script src="js/loader.js"></script>
-<script src="js/visuals.js"></script>
-<script src="js/nodes.js"></script>
-<script src="js/overlays.js"></script>
+  <!-- PHASE 4: Identity Reveal -->
+  <div id="identity-screen" class="phase">
+    <div class="scanline"></div>
+    <div class="identity-container">
+      <div class="identity-badge">
+        <span class="badge-label">ACCESS GRANTED</span>
+        <div class="badge-line"></div>
+      </div>
+      <p class="identity-welcome">Connected to the system interface of</p>
+      <h1 class="identity-name">Rayyan Umair</h1>
+      <p class="identity-roles">IT Support &nbsp;•&nbsp; Cybersecurity &nbsp;•&nbsp; Systems</p>
+      <button id="enter-btn" class="enter-button">
+        <span class="btn-text">ENTER INTERFACE</span>
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+    <div class="corner-tl corner-decor"></div>
+    <div class="corner-tr corner-decor"></div>
+    <div class="corner-bl corner-decor"></div>
+    <div class="corner-br corner-decor"></div>
+  </div>
 
+  <!-- PHASE 5: Main Interface -->
+  <div id="main-interface" class="phase">
+    <canvas id="network-canvas"></canvas>
+
+    <!-- HUD Elements -->
+    <div class="hud-top-left">
+      <div class="hud-label">RAYYAN UMAIR</div>
+      <div class="hud-sub">IT SUPPORT · CYBERSECURITY · SYSTEMS</div>
+    </div>
+    <div class="hud-top-right">
+      <div class="hud-label" id="hud-time"></div>
+      <div class="hud-sub">INTERFACE ONLINE</div>
+    </div>
+    <div class="hud-bottom-center">
+      <span class="hud-hint">SELECT A NODE TO EXPLORE</span>
+    </div>
+    <div class="hud-corner-tl"></div>
+    <div class="hud-corner-tr"></div>
+    <div class="hud-corner-bl"></div>
+    <div class="hud-corner-br"></div>
+
+    <!-- Nodes -->
+    <div id="nodes-container"></div>
+  </div>
+
+  <!-- Overlay System -->
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-bg"></div>
+    <div class="overlay-card">
+      <div class="overlay-header">
+        <div class="overlay-title-wrap">
+          <span class="overlay-tag">NODE://</span>
+          <h2 id="overlay-title"></h2>
+        </div>
+        <button id="overlay-close" class="overlay-close">
+          <span>✕</span>
+        </button>
+      </div>
+      <div class="overlay-divider"></div>
+      <div id="overlay-content" class="overlay-content"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/visuals.js"></script>
+  <script src="js/nodes.js"></script>
+  <script src="js/overlays.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
