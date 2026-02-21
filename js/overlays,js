@@ -1,1 +1,14 @@
+export function initOverlay(){
+  document.addEventListener("node:selected", async e=>{
+    const overlay=document.getElementById("overlay");
+    const content=document.getElementById("overlay-content");
 
+    overlay.classList.remove("hidden");
+
+    const res=await fetch(`data/${e.detail}.json`);
+    const data=await res.json();
+
+    content.innerHTML=`<h2>${data.title}</h2><p>${data.content}</p>
+    <br><button onclick="document.getElementById('overlay').classList.add('hidden')">Close</button>`;
+  });
+}
