@@ -1,16 +1,24 @@
-import { MODULES } from "./config.js";
+const nodeContainer = document.getElementById("node-container");
 
-export function initNodes(){
-  const layer=document.getElementById("node-layer");
-  MODULES.forEach(m=>{
-    const btn=document.createElement("button");
-    btn.className="node";
-    btn.textContent=m.label;
-    btn.style.left=m.x+"%";
-    btn.style.top=m.y+"%";
-    btn.onclick=()=>document.dispatchEvent(
-      new CustomEvent("node:selected",{detail:m.id})
-    );
-    layer.appendChild(btn);
+function showIdentity() {
+  document.getElementById("loader-screen").classList.add("hidden");
+  document.getElementById("identity-screen").classList.remove("hidden");
+}
+
+document.getElementById("enter-interface").addEventListener("click", () => {
+  document.getElementById("identity-screen").classList.add("hidden");
+  nodeContainer.classList.remove("hidden");
+  createNodes();
+});
+
+function createNodes() {
+  NODES.forEach(n => {
+    const node = document.createElement("div");
+    node.className = "node";
+    node.style.left = n.x + "%";
+    node.style.top = n.y + "%";
+
+    node.addEventListener("click", () => openOverlay(n.content));
+    nodeContainer.appendChild(node);
   });
 }
