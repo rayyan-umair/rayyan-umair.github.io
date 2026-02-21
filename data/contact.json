@@ -1,1 +1,23 @@
-
+{
+  "links": [
+    {
+      "label": "EMAIL",
+      "value": "rayyan@example.com",
+      "url": "mailto:rayyan@example.com",
+      "icon": "✉️"
+    },
+    {
+      "label": "LINKEDIN",
+      "value": "linkedin.com/in/rayyan-umair",
+      "url": "https://linkedin.com/in/rayyan-umair",
+      "icon": "🔗"
+    },
+    {
+      "label": "GITHUB",
+      "value": "github.com/rayyan-umair",
+      "url": "https://github.com/rayyan-umair",
+      "icon": "⌨️"
+    }
+  ],
+  "note": "Available for IT support roles, cybersecurity positions, and infrastructure projects. Response time typically within 24 hours."
+}
