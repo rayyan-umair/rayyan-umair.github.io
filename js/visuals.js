@@ -1,28 +1,37 @@
-export function initGlobe(){
-  const canvas=document.getElementById("globe");
-  const ctx=canvas.getContext("2d");
+const canvas = document.getElementById("network-canvas");
+const ctx = canvas.getContext("2d");
 
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-  const points=[];
-  for(let i=0;i<120;i++){
-    points.push({
-      x:Math.random()*canvas.width,
-      y:Math.random()*canvas.height
-    });
-  }
+let points = [];
 
-  function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="#00ff88";
-    points.forEach(p=>{
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-
-  draw();
+for (let i = 0; i < 80; i++) {
+  points.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5
+  });
 }
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  points.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+    ctx.fillStyle = "#00ccff";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
