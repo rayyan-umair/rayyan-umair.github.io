@@ -1,1 +1,77 @@
-
+{
+  "summary": "IT Support and Cybersecurity professional with hands-on experience across Tier 1 and Tier 2 environments. I fix what breaks, manage access, and keep systems stable. I stay unusually calm when others cannot, speak plainly when things are unclear, and follow problems until they are truly resolved.",
+  "thesis": "Technology evolves quickly. Responsibility does not.",
+  "location": "Oshawa, ON, Canada",
+  "status": "Open to full-time office-based and hybrid roles",
+  "education": [
+    {
+      "degree": "Bachelor of Information Technology (Information Security)",
+      "institution": "Ontario Tech University",
+      "period": "Fall 2025 — Spring 2027",
+      "note": "In Progress"
+    },
+    {
+      "degree": "Diploma in Systems Management & Cybersecurity",
+      "institution": "Oulton College",
+      "period": "Fall 2024 — Spring 2025",
+      "note": "Graduated with Honors · GPA 3.9"
+    }
+  ],
+  "languages": ["English", "Urdu / Hindi", "Punjabi"],
+  "skills": [
+    {
+      "category": "SUPPORT & OPERATIONS",
+      "color": "amber",
+      "items": [
+        { "name": "Tier 1 & Tier 2 IT Support",         "level": 92, "context": "Enterprise & client-facing environments" },
+        { "name": "Incident Management & Escalation",    "level": 88, "context": "Documented, methodical, calm under pressure" },
+        { "name": "Ticketing Systems & Documentation",   "level": 90, "context": "Detailed records, resolution tracking" },
+        { "name": "Hardware & Software Installation",    "level": 85, "context": "Endpoint config, patching, imaging" }
+      ]
+    },
+    {
+      "category": "SECURITY",
+      "color": "cyan",
+      "items": [
+        { "name": "SIEM Monitoring",                     "level": 75, "context": "Alert review, IOC identification" },
+        { "name": "Vulnerability Scanning",              "level": 78, "context": "Risk assessments, remediation reporting" },
+        { "name": "Penetration Testing (Assisted)",      "level": 70, "context": "Web & network environments, supervised" },
+        { "name": "Endpoint Hardening",                  "level": 80, "context": "Baseline configuration, patch management" }
+      ]
+    },
+    {
+      "category": "SYSTEMS & NETWORKING",
+      "color": "green",
+      "items": [
+        { "name": "Windows OS & Active Directory",       "level": 88, "context": "User accounts, MFA, access management" },
+        { "name": "LAN / WAN Fundamentals",             "level": 82, "context": "Network troubleshooting & architecture" },
+        { "name": "Linux (CLI & Admin)",                "level": 72, "context": "Kali, Ubuntu, system administration" },
+        { "name": "Virtualization",                     "level": 75, "context": "VirtualBox, VMware lab environments" }
+      ]
+    },
+    {
+      "category": "TOOLS & SCRIPTING",
+      "color": "purple",
+      "items": [
+        { "name": "Wireshark",                          "level": 76, "context": "Packet capture & protocol dissection" },
+        { "name": "Nmap",                               "level": 74, "context": "Network enumeration & scanning" },
+        { "name": "Python / Bash / PowerShell",         "level": 68, "context": "Automation, scripting, task management" },
+        { "name": "Kali Linux Tools",                   "level": 70, "context": "Pen testing toolkit, CTF practice" }
+      ]
+    }
+  ],
+  "toolBadges": [
+    { "name": "Wireshark",       "cat": "network"   },
+    { "name": "Nmap",            "cat": "network"   },
+    { "name": "Kali Linux",      "cat": "security"  },
+    { "name": "Splunk",          "cat": "security"  },
+    { "name": "Active Directory","cat": "systems"   },
+    { "name": "Windows Server",  "cat": "systems"   },
+    { "name": "VirtualBox",      "cat": "systems"   },
+    { "name": "VMware",          "cat": "systems"   },
+    { "name": "Python",          "cat": "scripting" },
+    { "name": "Bash",            "cat": "scripting" },
+    { "name": "PowerShell",      "cat": "scripting" },
+    { "name": "Linux CLI",       "cat": "systems"   }
+  ]
+}
