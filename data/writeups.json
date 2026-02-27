@@ -1,0 +1,34 @@
+{
+  "writeups": [
+    {
+      "name": "TryHackMe — Basic Pentesting",
+      "platform": "TryHackMe",
+      "difficulty": "EASY",
+      "category": "Penetration Testing",
+      "summary": "Enumerated services on a vulnerable VM. Identified open ports using Nmap, discovered a vulnerable SMB share, used enum4linux for user enumeration, and escalated privileges via weak SSH credentials.",
+      "tools": ["Nmap", "enum4linux", "Hydra", "SSH"],
+      "lesson": "Never underestimate credential hygiene. The initial foothold came from a default password that had never been changed.",
+      "link": "https://github.com/rayyan-umair"
+    },
+    {
+      "name": "TryHackMe — OWASP Top 10",
+      "platform": "TryHackMe",
+      "difficulty": "EASY",
+      "category": "Web Security",
+      "summary": "Worked through all 10 OWASP vulnerability categories in a controlled lab. Demonstrated injection, broken authentication, sensitive data exposure, and security misconfiguration exploitation.",
+      "tools": ["Burp Suite", "curl", "Browser DevTools"],
+      "lesson": "Most web vulnerabilities are not exotic — they are basic mistakes repeated at scale. Injection and misconfiguration account for the majority of real breaches.",
+      "link": "https://github.com/rayyan-umair"
+    },
+    {
+      "name": "Academic Lab — Network Segmentation",
+      "platform": "Oulton College",
+      "difficulty": "MEDIUM",
+      "category": "Network Security",
+      "summary": "Designed and implemented a segmented network in VirtualBox with pfSense as the firewall. Created separate VLANs for DMZ, internal, and management traffic. Verified isolation using packet captures.",
+      "tools": ["pfSense", "VirtualBox", "Wireshark", "VLAN config"],
+      "lesson": "Segmentation is not just configuration — it is architecture. Getting it wrong means a single compromised host can pivot freely across your network.",
+      "link": null
+    }
+  ]
+}
