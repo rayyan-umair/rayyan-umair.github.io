@@ -1,0 +1,8 @@
+{
+  "links": [
+    { "port": "443", "service": "https", "label": "LinkedIn",  "handle": "linkedin.com/in/rayyanumair",     "url": "https://www.linkedin.com/in/rayyanumair/" },
+    { "port": "22",  "service": "ssh",   "label": "GitHub",    "handle": "github.com/rayyan-umair",          "url": "https://github.com/rayyan-umair" },
+    { "port": "25",  "service": "smtp",  "label": "Email",     "handle": "reach.rayyan1@gmail.com",          "url": "mailto:reach.rayyan1@gmail.com" },
+    { "port": "80",  "service": "http",  "label": "Portfolio", "handle": "rayyan-umair.github.io",           "url": "https://rayyan-umair.github.io" }
+  ]
+}
