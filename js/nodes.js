@@ -1,20 +1,16 @@
 /* ═══════════════════════════════════════════════════════════════
-   nodes.js — Node creation, positioning, hover, click events
-   Owns: DOM node elements, staggered spawn, click dispatch
+   nodes.js — Node creation + hover signaling to visuals v3.0
 ═══════════════════════════════════════════════════════════════ */
 
 const Nodes = (() => {
 
-  const _layer     = document.getElementById('nodes-layer');
-  let   _onSelect  = null;
+  const _layer    = document.getElementById('nodes-layer');
+  let   _onSelect = null;
 
-  /* ── Build a single node element ─────────────────────── */
   function _buildNode(cfg) {
-    const el = document.createElement('div');
+    const el      = document.createElement('div');
     el.className  = 'node-el';
     el.dataset.id = cfg.id;
-
-    // Desktop: absolute position
     el.style.left = `${cfg.x}%`;
     el.style.top  = `${cfg.y}%`;
 
@@ -27,25 +23,30 @@ const Nodes = (() => {
       <span class="node-label">${cfg.label}</span>
     `;
 
-    // Staggered spawn
     setTimeout(() => el.classList.add('spawned'), cfg.delay);
 
+    el.addEventListener('mouseenter', () => { Visuals.setHovered(cfg.id); Audio.nodePing(); });
+    el.addEventListener('mouseleave', () => Visuals.clearHovered());
+
     el.addEventListener('click', () => {
+      Visuals.markVisited(cfg.id);
       if (_onSelect) _onSelect(cfg.id);
     });
 
-    // Touch-friendly: slightly larger hit area on mobile via CSS
+    // Touch
+    el.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      Visuals.markVisited(cfg.id);
+      if (_onSelect) _onSelect(cfg.id);
+    }, { passive: false });
+
     return el;
   }
 
-  /* ── Public API ───────────────────────────────────────── */
   function init(onSelect) {
-    _onSelect     = onSelect;
+    _onSelect        = onSelect;
     _layer.innerHTML = '';
-
-    CONFIG.nodes.forEach(nodeCfg => {
-      _layer.appendChild(_buildNode(nodeCfg));
-    });
+    CONFIG.nodes.forEach(n => _layer.appendChild(_buildNode(n)));
   }
 
   return { init };
