@@ -1,0 +1,28 @@
+{
+  "games": [
+    {
+      "name": "THREAT CLASSIFIER",
+      "icon": "◈",
+      "tagline": "Analyze network packets. Allow or block.",
+      "skill": "IDS logic · Packet analysis · Network threats"
+    },
+    {
+      "name": "PHISHING SPOTTER",
+      "icon": "◉",
+      "tagline": "Identify the red flags before you click.",
+      "skill": "Email analysis · Social engineering awareness"
+    },
+    {
+      "name": "CIPHER CHALLENGE",
+      "icon": "⊕",
+      "tagline": "Intercept. Decode. Decrypt.",
+      "skill": "Cryptography · Caesar cipher · Frequency analysis"
+    },
+    {
+      "name": "TERMINAL ESCAPE",
+      "icon": "⌘",
+      "tagline": "You're locked in as guest. Get root.",
+      "skill": "Linux · Privilege escalation · sudo misconfiguration"
+    }
+  ]
+}
