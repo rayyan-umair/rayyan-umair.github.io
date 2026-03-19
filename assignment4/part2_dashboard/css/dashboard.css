@@ -1,0 +1,656 @@
+/*
+    Name:        Rayyan Umair
+    File:        css/dashboard.css
+    Date:        19 March 2026
+    Description: External stylesheet for dashboard.html.
+                 Interactive Skills Dashboard.
+                 Dark executive aesthetic matching resume.html.
+                 Layout built with CSS Grid and Flexbox.
+                 No table-based layout used anywhere.
+    Course:      INFT1206 – Assignment 4 Part 2
+*/
+
+/* ── CSS Custom Properties ──────────────────────────────────
+   Central colour and spacing tokens used throughout.
+   Changing a value here updates the whole page.
+─────────────────────────────────────────────────────────── */
+:root {
+    --bg-base:        #08080f;
+    --bg-card:        #0e0e1a;
+    --bg-card-hover:  #131325;
+    --accent:         #4f7cff;
+    --accent-glow:    rgba(79, 124, 255, 0.12);
+    --accent-dim:     rgba(79, 124, 255, 0.08);
+    --text-primary:   #e8e8f5;
+    --text-secondary: #a0a0c0;
+    --text-muted:     #50506a;
+    --border:         rgba(79, 124, 255, 0.14);
+    --border-bright:  rgba(79, 124, 255, 0.45);
+    --mono:           'Courier New', 'Lucida Console', monospace;
+    --serif:          Georgia, 'Times New Roman', serif;
+    --radius:         4px;
+    --transition:     0.3s ease;
+    --green:          #00e676;
+    --amber:          #f5a623;
+    --cyan:           #00d4ff;
+    --purple:         #b388ff;
+    --red:            #ff5370;
+}
+
+/* ── Reset ──────────────────────────────────────────────────
+   Remove default browser margins, padding and box model quirks.
+─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--mono);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: none; /* default cursor hidden — custom cursor used */
+}
+
+/* ── Custom Cursor ──────────────────────────────────────────
+   Interactive Feature: Two-part cursor.
+   Dot snaps instantly. Ring lags behind smoothly via JS.
+   Both scale up on hover over interactive elements.
+─────────────────────────────────────────────────────────── */
+#cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+
+#cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(79, 124, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+/* Cursor expands on interactive element hover */
+body.cursor-hover #cursor      { width: 16px; height: 16px; }
+body.cursor-hover #cursor-ring { width: 44px; height: 44px; border-color: var(--accent); }
+
+/* ── Background Canvas ──────────────────────────────────────
+   Fixed behind all content. Animated node network via JS.
+─────────────────────────────────────────────────────────── */
+#bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+}
+
+/* ── Page Wrapper ───────────────────────────────────────────
+   Centers content and provides consistent padding.
+─────────────────────────────────────────────────────────── */
+#page-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+}
+
+/* ── Header ─────────────────────────────────────────────────
+   CSS Grid: title block left, meta info right.
+   Animation: fades and slides in on load via JS.
+─────────────────────────────────────────────────────────── */
+#site-header {
+    padding: 64px 0 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* JS adds this class to trigger the fade-in */
+#site-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.header-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+/* Dashboard title — typographic identity mark */
+.header-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 6vw, 72px);
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -1px;
+    font-weight: normal;
+}
+
+.header-title span { color: var(--accent); }
+
+.header-subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+    letter-spacing: 1.5px;
+    margin-top: 14px;
+    font-style: italic;
+}
+
+/* Right block: status and summary stats */
+.header-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* Animated green pulsing dot badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1;   }
+    50%       { opacity: 0.3; }
+}
+
+.header-stats {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+/* ── Filter Bar ─────────────────────────────────────────────
+   Interactive Feature 1: Filter buttons to show skills
+   by category. Active state highlighted in accent colour.
+   Controlled by initFilters() in dashboard.js.
+─────────────────────────────────────────────────────────── */
+#filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-right: 8px;
+}
+
+/* Individual filter button */
+.filter-btn {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 7px 16px;
+    cursor: none;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.filter-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+/* Active filter button — highlighted */
+.filter-btn.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-glow);
+}
+
+/* ── Skills Grid ────────────────────────────────────────────
+   CSS Grid: responsive three-column layout.
+   Cards fade in on scroll via initScrollReveal() in JS.
+─────────────────────────────────────────────────────────── */
+#skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+/* ── Skill Card ─────────────────────────────────────────────
+   Interactive Feature 2: Click to flip the card.
+   Front shows the skill progress indicator.
+   Back shows detail, context, and next steps.
+   Uses CSS 3D transform via JS toggling .flipped class.
+─────────────────────────────────────────────────────────── */
+
+/* Outer card container — sets up the 3D flip context */
+.skill-card {
+    perspective: 1000px;
+    height: 280px;
+    cursor: none;
+}
+
+/* Hidden cards (filtered out) */
+.skill-card.hidden {
+    display: none;
+}
+
+/* Reveal animation */
+.skill-card.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.skill-card.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Inner wrapper that physically rotates */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Flip the inner wrapper when .flipped is added by JS */
+.skill-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Shared styles for both faces */
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+/* Hover glow on the front face */
+.skill-card:hover .card-front {
+    border-color: var(--border-bright);
+    box-shadow: 0 0 28px var(--accent-glow);
+}
+
+/* Back face starts rotated 180deg so it is hidden initially */
+.card-back {
+    transform: rotateY(180deg);
+    border-color: var(--border-bright);
+    background: var(--bg-card-hover);
+    justify-content: space-between;
+}
+
+/* ── Card Front ─────────────────────────────────────────────
+   Shows: category label, skill name, description, progress bar.
+─────────────────────────────────────────────────────────── */
+
+/* Small category label at top of card */
+.card-category {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Colour variants for each category */
+.card-category.security   { color: var(--cyan);   }
+.card-category.networking { color: var(--accent);  }
+.card-category.systems    { color: var(--green);  }
+.card-category.scripting  { color: var(--purple); }
+.card-category.support    { color: var(--amber);  }
+.card-category.tools      { color: var(--red);    }
+
+/* Skill name heading */
+.card-name {
+    font-size: 17px;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+/* Short description below the name */
+.card-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+}
+
+/* Progress percentage display */
+.card-pct-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.card-pct-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.card-pct-value {
+    font-size: 16px;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+/* Progress bar track */
+.card-bar-wrap {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+/* Bar fill — starts at 0, animated to data-level by JS */
+.card-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 2px;
+    transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Bar colour variants per category */
+.card-bar.security   { background: var(--cyan);   }
+.card-bar.networking { background: var(--accent);  }
+.card-bar.systems    { background: var(--green);  }
+.card-bar.scripting  { background: var(--purple); }
+.card-bar.support    { background: var(--amber);  }
+.card-bar.tools      { background: var(--red);    }
+
+/* Flip hint at bottom of card front */
+.card-flip-hint {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: right;
+}
+
+/* ── Card Back ───────────────────────────────────────────────
+   Shows: skill name, proficiency level badge, context detail,
+   tools used, and next steps.
+─────────────────────────────────────────────────────────── */
+
+.back-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.back-name {
+    font-size: 15px;
+    color: var(--text-primary);
+    line-height: 1.3;
+    max-width: 65%;
+}
+
+/* Proficiency tier badge (Beginner / Intermediate / Advanced) */
+.back-level {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: 1px solid;
+    flex-shrink: 0;
+}
+
+.back-level.beginner     { color: var(--amber);  border-color: rgba(245,166, 35, 0.35); }
+.back-level.intermediate { color: var(--cyan);   border-color: rgba(  0,212,255, 0.35); }
+.back-level.advanced     { color: var(--green);  border-color: rgba(  0,230,118, 0.35); }
+
+.back-context {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    flex: 1;
+}
+
+/* Tags showing tools or environments used */
+.back-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.back-tool-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+
+/* Next steps / goal line at bottom of card back */
+.back-next {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+}
+
+.back-next span {
+    color: var(--accent);
+}
+
+/* Flip-back hint */
+.back-flip-hint {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: right;
+    margin-top: 8px;
+}
+
+/* ── Summary Bar ────────────────────────────────────────────
+   Aggregate stats row below the skills grid.
+   Animation: values count up from 0 via JS on scroll.
+─────────────────────────────────────────────────────────── */
+#summary-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 64px;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#summary-bar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    border-right: 1px solid var(--border);
+}
+
+.stat-block:last-child {
+    border-right: none;
+}
+
+/* Large animated number */
+.stat-value {
+    font-family: var(--serif);
+    font-size: 40px;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.stat-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* ── Legend ─────────────────────────────────────────────────
+   Category colour key below the summary bar.
+─────────────────────────────────────────────────────────── */
+#legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 64px;
+    padding: 20px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+/* Colour dot for each legend entry */
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-dot.security   { background: var(--cyan);   }
+.legend-dot.networking { background: var(--accent);  }
+.legend-dot.systems    { background: var(--green);  }
+.legend-dot.scripting  { background: var(--purple); }
+.legend-dot.support    { background: var(--amber);  }
+.legend-dot.tools      { background: var(--red);    }
+
+/* ── Footer ──────────────────────────────────────────────────
+   Simple closing row.
+─────────────────────────────────────────────────────────── */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text   { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; }
+.footer-thesis { font-size: 10px; color: var(--accent); letter-spacing: 2px; font-style: italic; }
+
+/* ── Scroll Reveal ───────────────────────────────────────────
+   Cards and sections start invisible.
+   JS adds .visible when they scroll into view.
+─────────────────────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Responsive ──────────────────────────────────────────────
+   Collapse grids on smaller screens.
+─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    #skills-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+    #site-header  { grid-template-columns: 1fr; }
+    .header-meta  { align-items: flex-start; text-align: left; }
+    #skills-grid  { grid-template-columns: 1fr; }
+    #summary-bar  { grid-template-columns: 1fr 1fr; }
+    #page-wrap    { padding: 0 16px 60px; }
+}
