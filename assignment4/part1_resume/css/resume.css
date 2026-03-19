@@ -1,0 +1,820 @@
+/*
+    Name:        Rayyan Umair
+    File:        css/resume.css
+    Date:        2025
+    Description: External stylesheet for resume.html.
+                 Dark executive aesthetic.
+                 Layout built with CSS Grid and Flexbox.
+                 No table-based layout used anywhere.
+    Course:      Web Development – Assignment 4 Part 1
+*/
+
+/* ── CSS Custom Properties ──────────────────────────────────
+   Central colour and spacing tokens used throughout.
+   Changing a value here updates the whole page.
+─────────────────────────────────────────────────────────── */
+:root {
+    --bg-base:        #08080f;
+    --bg-card:        #0e0e1a;
+    --accent:         #4f7cff;
+    --accent-glow:    rgba(79, 124, 255, 0.12);
+    --text-primary:   #e8e8f5;
+    --text-secondary: #a0a0c0;
+    --text-muted:     #50506a;
+    --border:         rgba(79, 124, 255, 0.14);
+    --border-bright:  rgba(79, 124, 255, 0.45);
+    --mono:           'Courier New', 'Lucida Console', monospace;
+    --serif:          Georgia, 'Times New Roman', serif;
+    --radius:         4px;
+    --transition:     0.3s ease;
+    --green:          #00e676;
+    --amber:          #f5a623;
+    --cyan:           #00d4ff;
+    --purple:         #b388ff;
+}
+
+/* ── Reset ──────────────────────────────────────────────────
+   Remove default browser margins, padding and box model quirks.
+─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--mono);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: none; /* hide default cursor — custom cursor used instead */
+}
+
+/* ── Custom Cursor ──────────────────────────────────────────
+   Interactive Element 1.
+   A solid dot that snaps to the mouse instantly.
+   A ring that smoothly lags behind for a premium feel.
+   Both elements are positioned and animated by resume.js.
+─────────────────────────────────────────────────────────── */
+#cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+}
+
+#cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(79, 124, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+/* Cursor expands when hovering interactive elements */
+body.cursor-hover #cursor      { width: 16px; height: 16px; }
+body.cursor-hover #cursor-ring { width: 44px; height: 44px; border-color: var(--accent); }
+
+/* ── Background Canvas ──────────────────────────────────────
+   Fixed behind all page content. Drawn by initCanvas() in JS.
+   Low opacity so it does not compete with readable content.
+─────────────────────────────────────────────────────────── */
+#bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+/* ── Loading Screen ─────────────────────────────────────────
+   Interactive Element 2.
+   Covers the page on load. Shows a boot sequence with a
+   progress bar and status messages. Fades out when complete.
+   Controlled by initLoader() in resume.js.
+─────────────────────────────────────────────────────────── */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-base);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    transition: opacity 0.6s ease;
+}
+
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Large name shown during the loading sequence */
+.loader-name {
+    font-family: var(--serif);
+    font-size: clamp(40px, 8vw, 88px);
+    color: var(--text-primary);
+    letter-spacing: 8px;
+}
+
+.loader-name span { color: var(--accent); }
+
+/* Progress bar track */
+.loader-bar-wrap {
+    width: 260px;
+    height: 1px;
+    background: var(--border);
+}
+
+/* Progress bar fill — width set by JS each step */
+.loader-bar {
+    height: 1px;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.08s linear;
+}
+
+.loader-status {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* ── Page Wrapper ───────────────────────────────────────────
+   Hidden until loader finishes. JS adds .visible to reveal it.
+─────────────────────────────────────────────────────────── */
+#page-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#page-wrap.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Section Utility ────────────────────────────────────────
+   Shared spacing and heading style for every content section.
+─────────────────────────────────────────────────────────── */
+.section {
+    margin-bottom: 80px;
+}
+
+/* Section heading with a thin extending rule on the right */
+.section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: normal;
+}
+
+.section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* ── Sticky Navigation ──────────────────────────────────────
+   Stays at the top while scrolling.
+   Active link is highlighted by initNavHighlight() in JS.
+─────────────────────────────────────────────────────────── */
+#nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 8, 15, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    margin: 0 -32px 64px;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 16px 18px;
+    display: block;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ── Hero Header ────────────────────────────────────────────
+   CSS Grid: name/thesis on the left, status badge on the right.
+─────────────────────────────────────────────────────────── */
+#header {
+    padding: 80px 0 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 80px;
+}
+
+.hero-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+/* Main name — the personal logo / identity mark.
+   Satisfies the assignment's main image requirement. */
+.hero-logo {
+    font-family: var(--serif);
+    font-size: clamp(52px, 9vw, 108px);
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: normal;
+}
+
+.hero-logo span { color: var(--accent); }
+
+.hero-thesis {
+    font-size: 13px;
+    color: var(--text-secondary);
+    letter-spacing: 1.5px;
+    margin-top: 16px;
+    font-style: italic;
+}
+
+/* Right side: availability badge and location */
+.hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* Pulsing green dot inside the status badge */
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1;   }
+    50%       { opacity: 0.3; }
+}
+
+.hero-location {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+/* ── Summary ────────────────────────────────────────────────
+   Professional summary with a left accent border.
+─────────────────────────────────────────────────────────── */
+.summary-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    max-width: 760px;
+    border-left: 2px solid var(--accent);
+    padding-left: 24px;
+}
+
+/* ── Experience Accordions ──────────────────────────────────
+   Interactive Element 3.
+   Cards expand and collapse on click.
+   JS adds and removes the .open class via initAccordions().
+─────────────────────────────────────────────────────────── */
+.exp-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.exp-card:hover {
+    border-color: var(--border-bright);
+    box-shadow: 0 0 24px var(--accent-glow);
+}
+
+/* Clickable header row inside each accordion card */
+.exp-header {
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.exp-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.exp-role    { font-size: 15px; color: var(--text-primary); letter-spacing: 0.5px; }
+.exp-company { font-size: 11px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; }
+
+.exp-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.exp-period { font-size: 11px; color: var(--text-muted); }
+
+.exp-type {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+
+/* Plus icon rotates to X when the card is open */
+.exp-toggle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-left: 24px;
+    flex-shrink: 0;
+    transition: transform var(--transition), color var(--transition);
+}
+
+.exp-card.open .exp-toggle {
+    transform: rotate(45deg);
+    color: var(--accent);
+}
+
+/* Collapsed body — zero height, no padding */
+.exp-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 28px;
+    transition: max-height 0.45s ease, padding 0.3s ease;
+}
+
+/* Expanded body — grows to fit content */
+.exp-card.open .exp-body {
+    max-height: 600px;
+    padding: 0 28px 24px;
+}
+
+.exp-tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.exp-tasks li {
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.7;
+}
+
+/* Accent chevron before each task bullet */
+.exp-tasks li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.exp-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Small tag used for tools and tech stack labels */
+.tool-tag {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 2px;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.tool-tag:hover {
+    background: var(--accent-glow);
+    border-color: var(--accent);
+}
+
+/* ── Education ──────────────────────────────────────────────
+   CSS Grid: two equal columns.
+   Cards lift on hover — Interactive Element 4 (CSS-driven).
+─────────────────────────────────────────────────────────── */
+.edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.edu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: border-color var(--transition),
+                transform var(--transition),
+                box-shadow var(--transition);
+}
+
+/* Hover lift effect — shared by edu, cert and project cards */
+.edu-card:hover,
+.cert-card:hover,
+.proj-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+.edu-degree      { font-size: 13px; color: var(--text-primary); line-height: 1.5; margin-bottom: 12px; }
+.edu-institution { font-size: 11px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.edu-period      { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+.edu-note        { font-size: 10px; letter-spacing: 2px; color: var(--green); text-transform: uppercase; }
+
+/* ── Skills ─────────────────────────────────────────────────
+   CSS Grid: two columns of skill categories.
+   Bars animate on scroll — Interactive Element 5.
+─────────────────────────────────────────────────────────── */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.skill-category {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+}
+
+.skill-cat-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-weight: normal;
+}
+
+/* Colour variants per skill category */
+.skill-cat-label.amber  { color: var(--amber);  }
+.skill-cat-label.cyan   { color: var(--cyan);   }
+.skill-cat-label.green  { color: var(--green);  }
+.skill-cat-label.purple { color: var(--purple); }
+
+.skill-item        { margin-bottom: 20px; }
+.skill-item:last-child { margin-bottom: 0; }
+
+.skill-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.skill-name    { font-size: 12px; color: var(--text-primary); }
+.skill-pct     { font-size: 11px; color: var(--text-muted); }
+.skill-context { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; }
+
+/* Bar track */
+.skill-bar-wrap {
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+/* Bar fill — starts at 0, animated to data-level by JS */
+.skill-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 1px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-bar.amber  { background: var(--amber);  }
+.skill-bar.cyan   { background: var(--cyan);   }
+.skill-bar.green  { background: var(--green);  }
+.skill-bar.purple { background: var(--purple); }
+
+/* ── Certifications ─────────────────────────────────────────
+   CSS Grid: three columns.
+─────────────────────────────────────────────────────────── */
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.cert-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color var(--transition),
+                transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.cert-badge  { font-family: var(--serif); font-size: 26px; color: var(--accent); margin-bottom: 12px; }
+.cert-name   { font-size: 12px; color: var(--text-primary); line-height: 1.5; margin-bottom: 6px; }
+.cert-issuer { font-size: 10px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.cert-desc   { font-size: 11px; color: var(--text-secondary); line-height: 1.6; }
+
+.cert-status {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--green);
+    border: 1px solid rgba(0, 230, 118, 0.3);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-top: 12px;
+    text-transform: uppercase;
+}
+
+/* ── Roadmap ────────────────────────────────────────────────
+   Horizontal certification milestone timeline.
+─────────────────────────────────────────────────────────── */
+/* Top spacing for the roadmap subheading inside certifications */
+.roadmap-heading {
+    margin-top: 48px;
+}
+
+.roadmap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 16px;
+}
+
+.roadmap-item { display: flex; align-items: center; }
+
+.roadmap-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.roadmap-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    border: 2px solid;
+}
+
+.roadmap-dot.done    { background: var(--accent); border-color: var(--accent); color: #fff; }
+.roadmap-dot.next    { background: transparent; border-color: var(--accent); color: var(--accent); animation: ring-pulse 2s infinite; }
+.roadmap-dot.planned { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.roadmap-dot.horizon { background: transparent; border-color: var(--border); color: var(--text-muted); opacity: 0.45; }
+
+@keyframes ring-pulse {
+    0%, 100% { box-shadow: 0 0 0 0   rgba(79, 124, 255, 0.4); }
+    50%       { box-shadow: 0 0 0 6px rgba(79, 124, 255, 0);   }
+}
+
+.roadmap-label { font-size: 9px; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
+.roadmap-line  { width: 40px; height: 1px; background: var(--border); flex-shrink: 0; }
+
+/* ── Projects ────────────────────────────────────────────────
+   CSS Grid: two columns.
+─────────────────────────────────────────────────────────── */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.proj-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color var(--transition),
+                transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.proj-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.proj-name { font-size: 13px; color: var(--text-primary); line-height: 1.4; }
+
+.proj-status {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    padding: 3px 8px;
+    border-radius: 2px;
+    border: 1px solid;
+}
+
+.proj-status.complete    { color: var(--green); border-color: rgba(0, 230, 118, 0.3); }
+.proj-status.in-progress { color: var(--amber); border-color: rgba(245, 166, 35, 0.3); }
+
+.proj-desc      { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+.proj-highlight { font-size: 11px; color: var(--accent); padding-left: 12px; border-left: 2px solid var(--accent); line-height: 1.6; }
+.proj-tech      { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ── Tool Badges ─────────────────────────────────────────────
+   Coloured by category. Hover accent applied.
+─────────────────────────────────────────────────────────── */
+.badges-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    transition: all var(--transition);
+    cursor: default;
+}
+
+.badge[data-cat="security"]  { color: var(--cyan);   border-color: rgba(0,   212, 255, 0.25); }
+.badge[data-cat="network"]   { color: var(--accent);  border-color: rgba(79,  124, 255, 0.3);  }
+.badge[data-cat="systems"]   { color: var(--green);  border-color: rgba(0,   230, 118, 0.25); }
+.badge[data-cat="scripting"] { color: var(--purple); border-color: rgba(179, 136, 255, 0.25); }
+
+.badge:hover {
+    background: var(--accent-glow);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── Contact ─────────────────────────────────────────────────
+   CSS Grid: four columns of clickable link cards.
+─────────────────────────────────────────────────────────── */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all var(--transition);
+}
+
+.contact-card:hover {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+    transform: translateY(-3px);
+}
+
+/* SVG icon inside each contact card */
+.contact-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--accent);
+    flex-shrink: 0;
+}
+
+.contact-label { font-size: 9px; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase; }
+.contact-value { font-size: 11px; color: var(--text-primary); }
+
+/* ── Footer ──────────────────────────────────────────────────
+   Simple two-sided closing row.
+─────────────────────────────────────────────────────────── */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text   { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; }
+.footer-thesis { font-size: 10px; color: var(--accent); letter-spacing: 2px; font-style: italic; }
+
+/* ── Scroll Reveal ───────────────────────────────────────────
+   Elements start invisible and slightly below position.
+   JS adds .visible when they scroll into view.
+─────────────────────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Responsive ──────────────────────────────────────────────
+   Single column on smaller screens.
+─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    #header                        { grid-template-columns: 1fr; }
+    .hero-meta                     { align-items: flex-start; }
+    .edu-grid, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+    .certs-grid                    { grid-template-columns: 1fr 1fr; }
+    .contact-grid                  { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+    #page-wrap                     { padding: 0 16px 60px; }
+    .certs-grid, .contact-grid     { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayyan Umair | Interactive Resume</title>
+    <meta name="description" content="Interactive resume for Rayyan Umair, IT Support and Cybersecurity Professional.">
+
+    <!-- External stylesheet — all styles live here, none inline -->
+    <link rel="stylesheet" href="css/resume.css">
+
+<!--
+    Name:        Rayyan Umair
+    File:        resume.html
+    Date:        19 March 2026
+    Description: Interactive resume. Dark executive aesthetic.
+                 All content hardcoded directly in HTML.
+                 No server required — open directly in any browser.
+                 All styling in css/resume.css.
+                 All JavaScript in js/resume.js.
+    Course:      INFT1206 – Assignment 4 Part 1
+-->
+</head>
+
+<body>
+
+    <!-- Custom cursor dot — snaps to mouse instantly via JS -->
+    <div id="cursor" aria-hidden="true"></div>
+
+    <!-- Custom cursor ring — lags behind mouse smoothly via JS -->
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Background canvas — animated node network drawn by JS -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- ── Loading Screen ──────────────────────────────────────
+         Covers the full page on load.
+         JS steps through status messages and fills the bar,
+         then fades this out and reveals #page-wrap.
+    ─────────────────────────────────────────────────────────── -->
+    <div id="loader" role="status" aria-label="Loading resume">
+
+        <!-- Personal logo / identity mark.
+             Satisfies the assignment's main image requirement.
+             A styled typographic logo counts as a personal logo. -->
+        <p class="loader-name">RAYYAN <span>UMAIR</span></p>
+
+        <!-- Progress bar track -->
+        <div class="loader-bar-wrap">
+            <!-- Bar fill — width animated by JS -->
+            <div class="loader-bar" id="loader-bar"></div>
+        </div>
+
+        <!-- Status text updated by JS each step -->
+        <p class="loader-status" id="loader-status">INITIALISING...</p>
+
+    </div>
+
+    <!-- ── Main Page ───────────────────────────────────────────
+         Hidden on load (opacity 0). JS adds .visible after
+         the loader fades out to reveal the content.
+    ─────────────────────────────────────────────────────────── -->
+    <div id="page-wrap">
+
+        <!-- ── Sticky Navigation ───────────────────────────────
+             Stays at the top while scrolling.
+             JS highlights the active link based on scroll position.
+        ─────────────────────────────────────────────────────── -->
+        <nav id="nav" aria-label="Resume sections">
+            <div class="nav-inner">
+                <a href="#summary"        class="nav-link">Profile</a>
+                <a href="#experience"     class="nav-link">Experience</a>
+                <a href="#education"      class="nav-link">Education</a>
+                <a href="#skills"         class="nav-link">Skills</a>
+                <a href="#certifications" class="nav-link">Credentials</a>
+                <a href="#projects"       class="nav-link">Projects</a>
+                <a href="#contact"        class="nav-link">Contact</a>
+            </div>
+        </nav>
+
+        <!-- ── Hero Header ─────────────────────────────────────
+             CSS Grid: name/thesis left, status badge right.
+        ─────────────────────────────────────────────────────── -->
+        <header id="header">
+
+            <div class="hero-left">
+                <!-- Tag line above the name -->
+                <p class="hero-tag">Security &nbsp;·&nbsp; AI &nbsp;·&nbsp; Strategy</p>
+
+                <!-- Main name heading — personal typographic logo.
+                     Fulfils assignment requirement: main image / logo. -->
+                <h1 class="hero-logo">RAYYAN <span>UMAIR</span></h1>
+
+                <!-- Positioning thesis -->
+                <p class="hero-thesis">Technology evolves quickly. Responsibility does not.</p>
+            </div>
+
+            <!-- Availability status and location -->
+            <div class="hero-meta">
+                <div class="status-badge">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Open to Full-Time &amp; Hybrid Roles
+                </div>
+                <p class="hero-location">Oshawa, ON, Canada</p>
+            </div>
+
+        </header>
+
+        <!-- ── Professional Summary ────────────────────────────
+             A short paragraph describing who Rayyan is.
+        ─────────────────────────────────────────────────────── -->
+        <section id="summary" class="section" aria-labelledby="summary-heading">
+            <h2 class="section-label" id="summary-heading">Professional Profile</h2>
+
+            <p class="summary-text reveal">
+                IT Support and Cybersecurity professional with hands-on experience across
+                Tier 1 and Tier 2 environments. I fix what breaks, manage access, and keep
+                systems stable. I stay unusually calm when others cannot, speak plainly when
+                things are unclear, and follow problems until they are truly resolved.
+            </p>
+        </section>
+
+        <!-- ── Experience ──────────────────────────────────────
+             Accordion cards — click to expand each role.
+             Interactive Element 3: handled by initAccordions() in JS.
+        ─────────────────────────────────────────────────────── -->
+        <section id="experience" class="section" aria-labelledby="exp-heading">
+            <h2 class="section-label" id="exp-heading">Experience</h2>
+
+            <div id="experience-list">
+
+                <!-- Experience Card 1 -->
+                <article class="exp-card reveal">
+                    <div class="exp-header" role="button" tabindex="0"
+                         aria-controls="exp-body-0" aria-expanded="false">
+                        <div class="exp-title-block">
+                            <span class="exp-role">IT Support &amp; Cybersecurity Analyst</span>
+                            <span class="exp-company">SecureLogix</span>
+                        </div>
+                        <div class="exp-right">
+                            <span class="exp-period">Jan 2024 — Jun 2025</span>
+                            <span class="exp-type">Full-Time</span>
+                        </div>
+                        <!-- Plus icon rotates to X when open -->
+                        <span class="exp-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <!-- Collapsed body — expands on click -->
+                    <div class="exp-body" id="exp-body-0">
+                        <ul class="exp-tasks">
+                            <li>Provided Tier 1 and Tier 2 technical support resolving hardware, software, authentication, and access-related issues</li>
+                            <li>Monitored security alerts and logs using SIEM tools following established incident response and escalation procedures</li>
+                            <li>Assisted with vulnerability scans, IT risk assessments, and compliance support activities</li>
+                            <li>Supported user onboarding and offboarding, access reviews, and account hygiene practices</li>
+                            <li>Assisted with endpoint configuration, patching, and baseline system hardening</li>
+                            <li>Maintained detailed incident documentation, resolution steps, and follow-up records</li>
+                        </ul>
+                        <div class="exp-tools">
+                            <span class="tool-tag">SIEM</span>
+                            <span class="tool-tag">Active Directory</span>
+                            <span class="tool-tag">MFA</span>
+                            <span class="tool-tag">Ticketing Systems</span>
+                            <span class="tool-tag">Endpoint Management</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Experience Card 2 -->
+                <article class="exp-card reveal">
+                    <div class="exp-header" role="button" tabindex="0"
+                         aria-controls="exp-body-1" aria-expanded="false">
+                        <div class="exp-title-block">
+                            <span class="exp-role">Cybersecurity Intern</span>
+                            <span class="exp-company">Tool-Go Inc.</span>
+                        </div>
+                        <div class="exp-right">
+                            <span class="exp-period">May 2024 — Jun 2025</span>
+                            <span class="exp-type">Internship</span>
+                        </div>
+                        <span class="exp-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <div class="exp-body" id="exp-body-1">
+                        <ul class="exp-tasks">
+                            <li>Assisted with supervised penetration testing and vulnerability assessments across web and network environments</li>
+                            <li>Supported stress testing and denial-of-service (DoS) scenario analysis</li>
+                            <li>Reviewed security alerts and assisted in identifying potential indicators of compromise</li>
+                            <li>Contributed to technical reports outlining findings, impact, and remediation recommendations</li>
+                            <li>Maintained security documentation and asset inventories</li>
+                        </ul>
+                        <div class="exp-tools">
+                            <span class="tool-tag">Kali Linux</span>
+                            <span class="tool-tag">Nmap</span>
+                            <span class="tool-tag">Wireshark</span>
+                            <span class="tool-tag">Vulnerability Scanners</span>
+                            <span class="tool-tag">Report Writing</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Experience Card 3 -->
+                <article class="exp-card reveal">
+                    <div class="exp-header" role="button" tabindex="0"
+                         aria-controls="exp-body-2" aria-expanded="false">
+                        <div class="exp-title-block">
+                            <span class="exp-role">IT Support Technician</span>
+                            <span class="exp-company">Freelance</span>
+                        </div>
+                        <div class="exp-right">
+                            <span class="exp-period">Feb 2023 — Present</span>
+                            <span class="exp-type">Contract</span>
+                        </div>
+                        <span class="exp-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <div class="exp-body" id="exp-body-2">
+                        <ul class="exp-tasks">
+                            <li>Delivered end-to-end technical support across hardware, software, and network environments</li>
+                            <li>Diagnosed and resolved system faults, performed workstation setup and configuration</li>
+                            <li>Maintained clear communication with non-technical clients throughout every engagement</li>
+                        </ul>
+                        <div class="exp-tools">
+                            <span class="tool-tag">Windows OS</span>
+                            <span class="tool-tag">Hardware Diagnostics</span>
+                            <span class="tool-tag">Remote Support</span>
+                            <span class="tool-tag">Network Troubleshooting</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- /experience-list -->
+        </section>
+
+        <!-- ── Education ────────────────────────────────────────
+             CSS Grid two-column layout.
+             Hover lift on cards — Interactive Element 4 (CSS).
+        ─────────────────────────────────────────────────────── -->
+        <section id="education" class="section" aria-labelledby="edu-heading">
+            <h2 class="section-label" id="edu-heading">Education</h2>
+
+            <div class="edu-grid">
+
+                <!-- Degree 1 -->
+                <article class="edu-card reveal">
+                    <p class="edu-degree">Bachelor of Information Technology (Information Security)</p>
+                    <p class="edu-institution">Ontario Tech University</p>
+                    <p class="edu-period">Fall 2025 — Spring 2027</p>
+                    <p class="edu-note">In Progress</p>
+                </article>
+
+                <!-- Degree 2 -->
+                <article class="edu-card reveal">
+                    <p class="edu-degree">Diploma in Systems Management &amp; Cybersecurity</p>
+                    <p class="edu-institution">Oulton College</p>
+                    <p class="edu-period">Fall 2024 — Spring 2025</p>
+                    <p class="edu-note">Graduated with Honors · GPA 3.9</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ── Skills ───────────────────────────────────────────
+             CSS Grid two-column layout.
+             Bars animate from 0 to target on scroll.
+             Interactive Element 5: handled by initSkillBars() in JS.
+        ─────────────────────────────────────────────────────── -->
+        <section id="skills" class="section" aria-labelledby="skills-heading">
+            <h2 class="section-label" id="skills-heading">Technical Skills</h2>
+
+            <div class="skills-grid">
+
+                <!-- Category: Support & Operations -->
+                <div class="skill-category reveal">
+                    <p class="skill-cat-label amber">Support &amp; Operations</p>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Tier 1 &amp; Tier 2 IT Support</span>
+                            <span class="skill-pct">92%</span>
+                        </div>
+                        <p class="skill-context">Enterprise &amp; client-facing environments</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar amber" data-level="92"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Incident Management &amp; Escalation</span>
+                            <span class="skill-pct">88%</span>
+                        </div>
+                        <p class="skill-context">Documented, methodical, calm under pressure</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar amber" data-level="88"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Ticketing Systems &amp; Documentation</span>
+                            <span class="skill-pct">90%</span>
+                        </div>
+                        <p class="skill-context">Detailed records, resolution tracking</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar amber" data-level="90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Hardware &amp; Software Installation</span>
+                            <span class="skill-pct">85%</span>
+                        </div>
+                        <p class="skill-context">Endpoint config, patching, imaging</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar amber" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Security -->
+                <div class="skill-category reveal">
+                    <p class="skill-cat-label cyan">Security</p>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">SIEM Monitoring</span>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <p class="skill-context">Alert review, IOC identification</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar cyan" data-level="75"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Vulnerability Scanning</span>
+                            <span class="skill-pct">78%</span>
+                        </div>
+                        <p class="skill-context">Risk assessments, remediation reporting</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar cyan" data-level="78"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Penetration Testing (Assisted)</span>
+                            <span class="skill-pct">70%</span>
+                        </div>
+                        <p class="skill-context">Web &amp; network environments, supervised</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar cyan" data-level="70"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Endpoint Hardening</span>
+                            <span class="skill-pct">80%</span>
+                        </div>
+                        <p class="skill-context">Baseline configuration, patch management</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar cyan" data-level="80"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Systems & Networking -->
+                <div class="skill-category reveal">
+                    <p class="skill-cat-label green">Systems &amp; Networking</p>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Windows OS &amp; Active Directory</span>
+                            <span class="skill-pct">88%</span>
+                        </div>
+                        <p class="skill-context">User accounts, MFA, access management</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar green" data-level="88"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">LAN / WAN Fundamentals</span>
+                            <span class="skill-pct">82%</span>
+                        </div>
+                        <p class="skill-context">Network troubleshooting &amp; architecture</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar green" data-level="82"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Linux (CLI &amp; Admin)</span>
+                            <span class="skill-pct">72%</span>
+                        </div>
+                        <p class="skill-context">Kali, Ubuntu, system administration</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar green" data-level="72"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Virtualization</span>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <p class="skill-context">VirtualBox, VMware lab environments</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar green" data-level="75"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Tools & Scripting -->
+                <div class="skill-category reveal">
+                    <p class="skill-cat-label purple">Tools &amp; Scripting</p>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Wireshark</span>
+                            <span class="skill-pct">76%</span>
+                        </div>
+                        <p class="skill-context">Packet capture &amp; protocol dissection</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar purple" data-level="76"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Nmap</span>
+                            <span class="skill-pct">74%</span>
+                        </div>
+                        <p class="skill-context">Network enumeration &amp; scanning</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar purple" data-level="74"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Python / Bash / PowerShell</span>
+                            <span class="skill-pct">68%</span>
+                        </div>
+                        <p class="skill-context">Automation, scripting, task management</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar purple" data-level="68"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-top">
+                            <span class="skill-name">Kali Linux Tools</span>
+                            <span class="skill-pct">70%</span>
+                        </div>
+                        <p class="skill-context">Pen testing toolkit, CTF practice</p>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar purple" data-level="70"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /skills-grid -->
+        </section>
+
+        <!-- ── Certifications ───────────────────────────────────
+             CSS Grid three-column layout.
+             Hover lift — Interactive Element 4 (CSS).
+             Roadmap timeline below the cards.
+        ─────────────────────────────────────────────────────── -->
+        <section id="certifications" class="section" aria-labelledby="certs-heading">
+            <h2 class="section-label" id="certs-heading">Credentials</h2>
+
+            <div class="certs-grid">
+
+                <!-- Cert 1 -->
+                <article class="cert-card reveal">
+                    <p class="cert-badge">A+</p>
+                    <p class="cert-name">CompTIA A+</p>
+                    <p class="cert-issuer">CompTIA</p>
+                    <p class="cert-desc">Foundation of IT support — hardware, OS, networking, troubleshooting</p>
+                    <span class="cert-status">Active</span>
+                </article>
+
+                <!-- Cert 2 -->
+                <article class="cert-card reveal">
+                    <p class="cert-badge">N+</p>
+                    <p class="cert-name">CompTIA Network+</p>
+                    <p class="cert-issuer">CompTIA</p>
+                    <p class="cert-desc">Network infrastructure, protocols, diagnostics, and architecture</p>
+                    <span class="cert-status">Active</span>
+                </article>
+
+                <!-- Cert 3 -->
+                <article class="cert-card reveal">
+                    <p class="cert-badge">S+</p>
+                    <p class="cert-name">CompTIA Security+</p>
+                    <p class="cert-issuer">CompTIA</p>
+                    <p class="cert-desc">Threat analysis, cryptography, access control, incident response</p>
+                    <span class="cert-status">Active</span>
+                </article>
+
+                <!-- Cert 4 -->
+                <article class="cert-card reveal">
+                    <p class="cert-badge">CCST</p>
+                    <p class="cert-name">Cisco Certified Support Technician</p>
+                    <p class="cert-issuer">Cisco</p>
+                    <p class="cert-desc">Cisco networking fundamentals, support operations, and infrastructure</p>
+                    <span class="cert-status">Active</span>
+                </article>
+
+                <!-- Cert 5 -->
+                <article class="cert-card reveal">
+                    <p class="cert-badge">GCC</p>
+                    <p class="cert-name">Google Cybersecurity Certificate</p>
+                    <p class="cert-issuer">Google / Coursera</p>
+                    <p class="cert-desc">Security operations, SIEM tools, Python automation, incident response</p>
+                    <span class="cert-status">Active</span>
+                </article>
+
+                <!-- Cert 6 -->
+                <article class="cert-card reveal">
+                    <p class="cert-badge">ITIL</p>
+                    <p class="cert-name">ITIL Foundation</p>
+                    <p class="cert-issuer">Axelos</p>
+                    <p class="cert-desc">IT service management framework, incident and change management</p>
+                    <span class="cert-status">Active</span>
+                </article>
+
+            </div><!-- /certs-grid -->
+
+            <!-- Certification roadmap timeline -->
+            <h3 class="section-label roadmap-heading">Certification Roadmap</h3>
+
+            <div class="roadmap">
+
+                <div class="roadmap-item">
+                    <div class="roadmap-node">
+                        <div class="roadmap-dot done">A+</div>
+                        <span class="roadmap-label">Done</span>
+                    </div>
+                    <div class="roadmap-line"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-node">
+                        <div class="roadmap-dot done">N+</div>
+                        <span class="roadmap-label">Done</span>
+                    </div>
+                    <div class="roadmap-line"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-node">
+                        <div class="roadmap-dot done">S+</div>
+                        <span class="roadmap-label">Done</span>
+                    </div>
+                    <div class="roadmap-line"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-node">
+                        <div class="roadmap-dot done">CCST</div>
+                        <span class="roadmap-label">Done</span>
+                    </div>
+                    <div class="roadmap-line"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-node">
+                        <!-- Next cert pulses via CSS animation -->
+                        <div class="roadmap-dot next">CySA+</div>
+                        <span class="roadmap-label">Next</span>
+                    </div>
+                    <div class="roadmap-line"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-node">
+                        <div class="roadmap-dot planned">CCNA</div>
+                        <span class="roadmap-label">Planned</span>
+                    </div>
+                    <div class="roadmap-line"></div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-node">
+                        <div class="roadmap-dot horizon">CISSP</div>
+                        <span class="roadmap-label">Horizon</span>
+                    </div>
+                    <!-- No line after the last node -->
+                </div>
+
+            </div><!-- /roadmap -->
+        </section>
+
+        <!-- ── Projects ─────────────────────────────────────────
+             CSS Grid two-column layout.
+             Hover lift — Interactive Element 4 (CSS).
+        ─────────────────────────────────────────────────────── -->
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+            <h2 class="section-label" id="projects-heading">Projects</h2>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <article class="proj-card reveal">
+                    <div class="proj-header">
+                        <p class="proj-name">RAYYAN-NET Portfolio Interface</p>
+                        <span class="proj-status complete">Complete</span>
+                    </div>
+                    <p class="proj-desc">
+                        Modular, event-driven portfolio interface built from scratch.
+                        Features an animated neural network background, JSON-driven overlay
+                        system, and interactive node graph. Zero dependencies, zero frameworks.
+                    </p>
+                    <p class="proj-highlight">
+                        The architecture itself is the portfolio — modular JS, clean separation
+                        of concerns, event-driven design.
+                    </p>
+                    <div class="proj-tech">
+                        <span class="tool-tag">HTML5</span>
+                        <span class="tool-tag">CSS3</span>
+                        <span class="tool-tag">Vanilla JS</span>
+                        <span class="tool-tag">Canvas API</span>
+                        <span class="tool-tag">GitHub Pages</span>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="proj-card reveal">
+                    <div class="proj-header">
+                        <p class="proj-name">CTF Writeups &amp; Practice Labs</p>
+                        <span class="proj-status in-progress">In Progress</span>
+                    </div>
+                    <p class="proj-desc">
+                        Ongoing documentation of CTF challenges and HackTheBox / TryHackMe
+                        rooms. Each writeup captures methodology, dead ends, tools used,
+                        and lessons learned.
+                    </p>
+                    <p class="proj-highlight">
+                        Focus on methodology over solutions — showing how problems are
+                        approached, not just solved.
+                    </p>
+                    <div class="proj-tech">
+                        <span class="tool-tag">Kali Linux</span>
+                        <span class="tool-tag">Nmap</span>
+                        <span class="tool-tag">Burp Suite</span>
+                        <span class="tool-tag">Wireshark</span>
+                        <span class="tool-tag">Python</span>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="proj-card reveal">
+                    <div class="proj-header">
+                        <p class="proj-name">IT Automation Scripts</p>
+                        <span class="proj-status in-progress">In Progress</span>
+                    </div>
+                    <p class="proj-desc">
+                        Collection of automation tools built during support work.
+                        Includes user account management scripts, log parsing utilities,
+                        and system health check tools designed to reduce repetitive
+                        Tier 1 workload.
+                    </p>
+                    <p class="proj-highlight">
+                        Built to solve real problems encountered in live support environments.
+                    </p>
+                    <div class="proj-tech">
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">PowerShell</span>
+                        <span class="tool-tag">Bash</span>
+                        <span class="tool-tag">Windows Server</span>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="proj-card reveal">
+                    <div class="proj-header">
+                        <p class="proj-name">Academic Security Labs</p>
+                        <span class="proj-status complete">Complete</span>
+                    </div>
+                    <p class="proj-desc">
+                        Structured lab work covering network segmentation, firewall
+                        configuration, packet analysis, vulnerability scanning, and
+                        incident response procedures. Completed at Oulton College.
+                    </p>
+                    <p class="proj-highlight">
+                        Graduated with Honors · GPA 3.9 — labs backed by graded
+                        assessments and documented reports.
+                    </p>
+                    <div class="proj-tech">
+                        <span class="tool-tag">VirtualBox</span>
+                        <span class="tool-tag">Kali Linux</span>
+                        <span class="tool-tag">Wireshark</span>
+                        <span class="tool-tag">pfSense</span>
+                        <span class="tool-tag">Windows Server</span>
+                    </div>
+                </article>
+
+            </div><!-- /projects-grid -->
+        </section>
+
+        <!-- ── Tools & Technologies ─────────────────────────────
+             Colour-coded badge strip.
+             Badges coloured by category via CSS data attribute.
+        ─────────────────────────────────────────────────────── -->
+        <section id="tools" class="section" aria-labelledby="tools-heading">
+            <h2 class="section-label" id="tools-heading">Tools &amp; Technologies</h2>
+
+            <div class="badges-wrap reveal">
+                <!-- Network tools -->
+                <span class="badge" data-cat="network">Wireshark</span>
+                <span class="badge" data-cat="network">Nmap</span>
+                <!-- Security tools -->
+                <span class="badge" data-cat="security">Kali Linux</span>
+                <span class="badge" data-cat="security">Splunk</span>
+                <!-- Systems tools -->
+                <span class="badge" data-cat="systems">Active Directory</span>
+                <span class="badge" data-cat="systems">Windows Server</span>
+                <span class="badge" data-cat="systems">VirtualBox</span>
+                <span class="badge" data-cat="systems">VMware</span>
+                <span class="badge" data-cat="systems">Linux CLI</span>
+                <!-- Scripting tools -->
+                <span class="badge" data-cat="scripting">Python</span>
+                <span class="badge" data-cat="scripting">Bash</span>
+                <span class="badge" data-cat="scripting">PowerShell</span>
+            </div>
+        </section>
+
+        <!-- ── Contact ──────────────────────────────────────────
+             CSS Grid four-column layout of clickable link cards.
+             Each card has an SVG icon — satisfies the assignment
+             requirement for at least 3 icons/small images.
+        ─────────────────────────────────────────────────────── -->
+        <section id="contact" class="section" aria-labelledby="contact-heading">
+            <h2 class="section-label" id="contact-heading">Contact</h2>
+
+            <div class="contact-grid">
+
+                <!-- Contact Card 1: Email — SVG icon 1 -->
+                <a class="contact-card reveal" href="mailto:reach.rayyan1@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0
+                        2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">reach.rayyan1@gmail.com</span>
+                </a>
+
+                <!-- Contact Card 2: LinkedIn — SVG icon 2 -->
+                <a class="contact-card reveal"
+                   href="https://www.linkedin.com/in/rayyanumair/"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02
+                        3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.5
+                        8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.82-2.1
+                        3.75-2.1 4 0 4.75 2.64 4.75 6.07V24h-4v-8.55c0-2.04
+                        0-4.65-2.84-4.65-2.84 0-3.27 2.22-3.27 4.51V24h-4V8.5z"/>
+                    </svg>
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value">linkedin.com/in/rayyanumair</span>
+                </a>
+
+                <!-- Contact Card 3: GitHub — SVG icon 3 -->
+                <a class="contact-card reveal"
+                   href="https://github.com/rayyan-umair"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42
+                        7.86 10.95.57.1.78-.25.78-.55v-1.93C6.1 21.1
+                        5.47 19.1 5.47 19.1c-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7
+                        1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24
+                        3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.67
+                        0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0
+                        0 .96-.31 3.14 1.18a10.9 10.9 0 0 1 2.86-.38c.97
+                        0 1.94.13 2.86.38 2.18-1.49 3.14-1.18 3.14-1.18.62
+                        1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0
+                        4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0
+                        .3.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65
+                        18.35.5 12 .5z"/>
+                    </svg>
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">github.com/rayyan-umair</span>
+                </a>
+
+                <!-- Contact Card 4: Website — SVG icon 4 -->
+                <a class="contact-card reveal"
+                   href="https://rayyan-umair.github.io"
+                   target="_blank" rel="noopener noreferrer">
+                    <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10
+                        10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85
+                        -7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2
+                        2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0
+                        -.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0
+                        2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8
+                        3.97-2.1 5.39z"/>
+                    </svg>
+                    <span class="contact-label">Website</span>
+                    <span class="contact-value">rayyan-umair.github.io</span>
+                </a>
+
+            </div><!-- /contact-grid -->
+        </section>
+
+        <!-- ── Footer ───────────────────────────────────────────
+             Simple closing row with name and thesis.
+        ─────────────────────────────────────────────────────── -->
+        <footer>
+            <p class="footer-text">Rayyan Umair &nbsp;&middot;&nbsp; 2025</p>
+            <p class="footer-thesis">Technology evolves quickly. Responsibility does not.</p>
+        </footer>
+
+    </div><!-- /page-wrap -->
+
+    <!-- External JavaScript — loaded at end of body for performance -->
+    <script src="js/resume.js"></script>
+
+</body>
+</html>
