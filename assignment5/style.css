@@ -1,250 +1,465 @@
-/* || General setup */
+/* ============================================================
+   Accessibility Assessment — style.css
+   Author : Rayyan Umair
+   Date   : 08 April 2026
+   Course : INFT1206 – Assignment 5 Part 1
+
+   Fixes applied vs original:
+   - div[class="nav"]       → nav
+   - div[class="header"]    → .header / header
+   - font[size] selectors   → h1, h2, h3
+   - Missing # on #ff80ff   → corrected to #ff80ff
+   - Color contrast improved (text/background)
+   - label selectors updated for comment form association
+   - .show-hide converted to button styles
+   - Added: CSS custom properties for 3-way theme system
+   - Added: reading progress bar
+   - Added: skip link
+   - Added: audio transcript styles
+   ============================================================ */
+
+/* ── CSS Custom Properties — Theme System ─────────────────────
+   Three themes: default (light), dark, high-contrast.
+   Applied via data-theme attribute on <body> by main.js.
+──────────────────────────────────────────────────────────────── */
+:root {
+    --bg-page:        #dde;
+    --bg-main:        green;
+    --bg-comments:    #def;
+    --bg-nav:         #ff80ff;
+    --bg-table:       #dde;
+    --bg-table-row:   #def;
+    --bg-submit:      #333;
+    --color-text:     #2a2a2a;
+    --color-heading:  #2a2a2a;
+    --color-link:     black;
+    --color-white:    white;
+    --color-nav-bg:   #ff80ff;
+    --progress-color: #333;
+}
+
+body[data-theme="dark"] {
+    --bg-page:        #1a1a2e;
+    --bg-main:        #16213e;
+    --bg-comments:    #0f3460;
+    --bg-nav:         #0f3460;
+    --bg-table:       #16213e;
+    --bg-table-row:   #1a1a2e;
+    --bg-submit:      #e94560;
+    --color-text:     #e0e0e0;
+    --color-heading:  #ffffff;
+    --color-link:     #e0e0e0;
+    --color-white:    #e0e0e0;
+    --color-nav-bg:   #0f3460;
+    --progress-color: #e94560;
+}
+
+body[data-theme="high-contrast"] {
+    --bg-page:        #000000;
+    --bg-main:        #000000;
+    --bg-comments:    #000000;
+    --bg-nav:         #000000;
+    --bg-table:       #000000;
+    --bg-table-row:   #1a1a1a;
+    --bg-submit:      #ffff00;
+    --color-text:     #ffffff;
+    --color-heading:  #ffff00;
+    --color-link:     #ffff00;
+    --color-white:    #ffffff;
+    --color-nav-bg:   #000000;
+    --progress-color: #ffff00;
+}
+
+/* ── General Setup ────────────────────────────────────────── */
 
 html, body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
-  font-size: 10px;
-  background-color: #dde;
+    font-size: 10px;
+    background-color: var(--bg-page);
 }
 
 body {
-  width: 80%;
-  min-width: 1024px;
-  margin: 0 auto;
+    width: 80%;
+    min-width: 1024px;
+    margin: 0 auto;
 }
 
-/* || typography */
+/* ── Reading Progress Bar ─────────────────────────────────── */
 
-font[size="7"], font[size="6"], font[size="5"] {
-  font-family: 'Sonsie One', cursive;
-  color: #2a2a2a;
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: var(--progress-color);
+    z-index: 9999;
+    transition: width 0.1s linear, background-color 0.3s ease;
+}
+
+/* ── Skip Link ────────────────────────────────────────────── */
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--bg-submit);
+    color: var(--color-white);
+    padding: 0.8rem 1.6rem;
+    font-size: 1.6rem;
+    border-radius: 0 0 4px 4px;
+    z-index: 10000;
+    transition: top 0.2s ease;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ── Screen Reader Only Utility ───────────────────────────── */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ── Theme Switcher ───────────────────────────────────────── */
+
+.theme-switcher {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 6px 10px;
+    background-color: var(--bg-nav);
+    transition: background-color 0.3s ease;
+}
+
+.theme-btn {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.3rem;
+    padding: 4px 12px;
+    border: 2px solid var(--color-text);
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-btn.active,
+.theme-btn:hover {
+    background-color: var(--bg-submit);
+    color: var(--color-white);
+    border-color: var(--bg-submit);
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+
+h1, h2, h3 {
+    font-family: 'Sonsie One', cursive;
+    color: var(--color-heading);
+    transition: color 0.3s ease;
 }
 
 p, input, li, table, label {
-  font-family: 'Open Sans Condensed', sans-serif;
-  color: #2a2a2a;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: var(--color-text);
+    transition: color 0.3s ease;
 }
 
-font[size="7"] {
-  font-size: 4rem;
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 10px black;
+/* h1 — site banner heading (replaces font[size="7"]) */
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+    margin: 0;
+    padding: 1rem 0;
 }
 
-font[size="6"] {
-  font-size: 3rem;
-  text-align: center;
+/* h2 — article/section headings (replaces font[size="6"]) */
+h2 {
+    font-size: 3rem;
+    text-align: center;
 }
 
-font[size="5"] {
-  font-size: 2.2rem;
+/* h3 — subsection headings (replaces font[size="5"]) */
+h3 {
+    font-size: 2.2rem;
 }
 
 p, li, table {
-  font-size: 1.6rem;
-  line-height: 1.5;
+    font-size: 1.6rem;
+    line-height: 1.5;
 }
 
-/* || header layout */
+/* ── Header Layout ────────────────────────────────────────── */
 
-div[class="nav"], article, footer, .secondary {
-  background-color: green;
+/* Updated from div[class="nav"] → nav */
+nav, article, footer, .secondary {
+    background-color: var(--bg-main);
+    transition: background-color 0.3s ease;
 }
 
 article, footer, .secondary {
-  padding: 10px 30px;
+    padding: 10px 30px;
 }
 
 article {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
-div[class="nav"] {
-  height: 50px;
-  background-color: ff80ff;
-  display: flex;
-  padding: 1% 0;
-  margin-bottom: 10px;
+nav {
+    height: 50px;
+    background-color: var(--bg-nav);
+    display: flex;
+    padding: 1% 0;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
 }
 
-div[class="nav"] ul {
-  padding: 0;
-  list-style-type: none;
-  flex: 2;
-  display: flex;
+nav ul {
+    padding: 0;
+    list-style-type: none;
+    flex: 2;
+    display: flex;
 }
 
-div[class="nav"] li {
-  display: inline;
-  text-align: center;
-  flex: 1;
+nav li {
+    display: inline;
+    text-align: center;
+    flex: 1;
 }
 
-div[class="nav"] a {
-  display: inline-block;
-  font-size: 2rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
+nav a {
+    display: inline-block;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-link);
+    transition: color 0.3s ease;
 }
 
-div[class="nav"] .search {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 2em;
+nav .search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 2em;
 }
 
 .search input {
-  font-size: 1.6rem;
-  height: 32px;
+    font-size: 1.6rem;
+    height: 32px;
 }
 
 .search input[type="search"] {
-  flex: 3;
+    flex: 3;
 }
 
 .search input[type="submit"] {
-  flex: 1;
-  margin-left: 1rem;
-  background: #333;
-  border: 0;
-  color: white;
+    flex: 1;
+    margin-left: 1rem;
+    background: var(--bg-submit);
+    border: 0;
+    color: var(--color-white);
+    transition: background-color 0.3s ease;
 }
 
-/* || main layout */
+/* ── Main Layout ──────────────────────────────────────────── */
 
 main {
-  display: flex;
+    display: flex;
 }
 
 article {
-  flex: 5;
+    flex: 5;
 }
 
 .secondary {
-  flex: 2;
+    flex: 2;
 }
 
 footer {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
-/* Table styling */
+/* ── Table Styling ────────────────────────────────────────── */
 
 table {
-  width: 100%;
-  background-color: #dde;
-  border-collapse: collapse;
+    width: 100%;
+    background-color: var(--bg-table);
+    border-collapse: collapse;
+    transition: background-color 0.3s ease;
+}
+
+caption {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.4rem;
+    color: var(--color-text);
+    margin-bottom: 6px;
+    text-align: left;
 }
 
 th, td {
-  padding: 10px;
+    padding: 10px;
 }
 
 td {
-  text-align: center;
+    text-align: center;
+    color: var(--color-text);
+}
+
+th {
+    color: var(--color-text);
 }
 
 th[scope="col"] {
-  border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--color-text);
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #def;
+    background-color: var(--bg-table-row);
 }
 
-/* styling content images and audio */
+/* ── Images and Audio ─────────────────────────────────────── */
 
 img, audio {
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
 
 audio {
-  width: 500px;
+    width: 500px;
 }
 
-/* Comments styling */
+/* ── Audio Transcript ─────────────────────────────────────── */
+
+.audio-transcript {
+    margin: 1rem auto;
+    width: 500px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.4rem;
+    color: var(--color-text);
+}
+
+.audio-transcript summary {
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--color-text);
+    padding: 4px 0;
+}
+
+.transcript-body {
+    border-left: 3px solid var(--color-text);
+    padding-left: 1rem;
+    margin-top: 0.8rem;
+}
+
+.transcript-body p {
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
+}
+
+/* ── Comments Styling ─────────────────────────────────────── */
 
 .comments {
-  background-color: #def;
-  padding: 10px;
+    background-color: var(--bg-comments);
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
+/* show-hide converted from div to button — styling matches original appearance */
 .show-hide {
-  cursor: pointer;
+    cursor: pointer;
+    text-align: center;
+    width: 150px;
+    font-size: 1.6rem;
+    line-height: 32px;
+    background: var(--bg-submit);
+    border: 0;
+    color: var(--color-white);
+    font-family: 'Open Sans Condensed', sans-serif;
+    border-radius: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.comments font[size="6"] {
-  font-size: 2rem;
+.show-hide:focus {
+    outline: 3px solid var(--progress-color);
+    outline-offset: 2px;
 }
 
-.comments font[size="6"]:nth-of-type(2) {
-  margin-bottom: 0;
+.comments h2 {
+    font-size: 2rem;
+}
+
+.comments h2:nth-of-type(2) {
+    margin-bottom: 0;
 }
 
 .comment-form {
-  margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 .comment-form .flex-pair {
-  display: flex;
-  padding: 0 3rem 1rem;
+    display: flex;
+    padding: 0 3rem 1rem;
 }
 
+/* label now properly associated with inputs via for/id */
 .comment-form label {
-  align-self: center;
-  flex: 2;
-  text-align: right;
+    align-self: center;
+    flex: 2;
+    text-align: right;
+    font-size: 1.6rem;
+    line-height: 32px;
+    color: var(--color-text);
 }
 
 .comment-form input {
-  margin-left: 1rem;
-  flex: 6;
-}
-
-.show-hide {
-  text-align: center;
-  width: 150px;
-}
-
-.comment-form input, .comment-form label, .show-hide {
-  font-size: 1.6rem;
-  line-height: 32px;
-}
-
-.comment-form input[type="submit"], .show-hide {
-  background: #333;
-  border: 0;
-  color: white;
+    margin-left: 1rem;
+    flex: 6;
+    font-size: 1.6rem;
+    line-height: 32px;
 }
 
 .comment-form input[type="submit"] {
-  width: 30%;
-  display: block;
-  margin: 0 auto;
+    background: var(--bg-submit);
+    border: 0;
+    color: var(--color-white);
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
 }
 
 .comment-container {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .comment-container li {
-  list-style-type: none;
-  display: flex;
+    list-style-type: none;
+    display: flex;
 }
 
 .comment-container li p:nth-child(1) {
-  flex: 1;
-  font-weight: bold;
+    flex: 1;
+    font-weight: bold;
 }
 
 .comment-container li p:nth-child(2) {
-  flex: 5;
+    flex: 5;
 }
