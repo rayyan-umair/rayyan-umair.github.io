@@ -1,0 +1,39 @@
+{
+  "links": [
+    {
+      "label": "EMAIL",
+      "value": "reach.rayyan1@gmail.com",
+      "url": "mailto:reach.rayyan1@gmail.com",
+      "icon": "✉",
+      "response": "RESPONSE TIME: < 24HRS",
+      "status": "ONLINE"
+    },
+    {
+      "label": "LINKEDIN",
+      "value": "linkedin.com/in/rayyanumair",
+      "url": "https://www.linkedin.com/in/rayyanumair/",
+      "icon": "◈",
+      "response": "PROFILE: PUBLIC · OPEN TO WORK",
+      "status": "ONLINE"
+    },
+    {
+      "label": "GITHUB",
+      "value": "github.com/rayyan-umair",
+      "url": "https://github.com/rayyan-umair",
+      "icon": "⌥",
+      "response": "REPOSITORIES: PUBLIC · ACTIVE",
+      "status": "ONLINE"
+    },
+    {
+      "label": "RESUME",
+      "value": "Rayyan_Resume.pdf",
+      "url": "Rayyan_Resume.pdf",
+      "icon": "↓",
+      "response": "FORMAT: PDF · CURRENT",
+      "status": "DOWNLOAD",
+      "download": true
+    }
+  ],
+  "location": "Oshawa, ON, Canada",
+  "availability": "Open to full-time office-based and hybrid roles"
+}
