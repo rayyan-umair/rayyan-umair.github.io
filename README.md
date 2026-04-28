@@ -32,19 +32,19 @@ That quality pulled me into cybersecurity. And it is what is now pulling me furt
 ### What I'm building toward
 
 ```
-◈  Security Architecture & Risk       —  Systems defensible by principle, not patchwork
-◈  AI-Augmented Decision Making       —  Automation handles execution. Humans own judgment.
-◈  Human Accountability in Systems    —  Security leadership that earns trust, not just access
+◈  Security Architecture & Risk       -  Systems defensible by principle, not patchwork
+◈  AI-Augmented Decision Making       -  Automation handles execution. Humans own judgment.
+◈  Human Accountability in Systems    -  Security leadership that earns trust, not just access
 ```
 
 ---
 
 ### Currently
 
-- 📚 **Studying** — Bachelor of IT (Information Security) @ Ontario Tech University
-- 🔐 **Practicing** — CTF challenges on HackTheBox & TryHackMe
-- 🛠️ **Building** — Automation scripts, security tools, and lab environments
-- 📖 **Reading** — Security architecture, AI in cybersecurity, risk frameworks
+- 📚 **Studying** - Bachelor of IT (Information Security) @ Ontario Tech University
+- 🔐 **Practicing** - CTF challenges on HackTheBox & TryHackMe
+- 🛠️ **Building** - Automation scripts, security tools, and lab environments
+- 📖 **Reading** - Security architecture, AI in cybersecurity, risk frameworks
 
 ---
 
@@ -79,7 +79,7 @@ That quality pulled me into cybersecurity. And it is what is now pulling me furt
 
 ### Projects
 
-> More coming — CTF writeups, security tools, and lab documentation actively being added.
+> More coming - CTF writeups, security tools, and lab documentation actively being added.
 
 | Project | Status | Stack |
 |---|---|---|
