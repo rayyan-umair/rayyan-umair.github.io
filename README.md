@@ -21,7 +21,7 @@
 
 ### Who I am
 
-I have always been the person people call when something breaks and no one knows why. Not because I always have the answer immediately — but because I do not leave until there is one.
+I have always been the person people call when something breaks and no one knows why. Not because I always have the answer immediately - but because I do not leave until there is one.
 
 That quality pulled me into cybersecurity. And it is what is now pulling me further. Past the helpdesk. Past the tools. Into the harder question underneath all of it: **who is responsible when the system fails?**
 
