@@ -15,7 +15,7 @@
 
 ## A bit about me
 
-I'm 21. I didn't get here through a straight line, and I think that's actually the point.
+I'm young. I didn't get here through a straight line, and I think that's actually the point.
 
 Growing up, I bounced between three different worlds out of pure curiosity: medicine, engineering, and eventually technology. Nobody mapped that out for me. I just couldn't help wanting to understand how things worked and, more importantly, why they failed. That instinct never switched off.
 
@@ -117,12 +117,12 @@ available:    Full-time & hybrid roles in IT support, security ops, or security 
 
 | Certification | Issuer | Status |
 |:---|:---|:---:|
-| CompTIA Security+ | CompTIA | ✅ Active |
-| CompTIA Network+ | CompTIA | ✅ Active |
-| CompTIA A+ | CompTIA | ✅ Active |
-| Cisco Certified Support Technician (CCST) | Cisco | ✅ Active |
-| Google Cybersecurity Certificate | Google | ✅ Complete |
-| ITIL Foundation | Axelos | ✅ Complete |
+| CompTIA Security+ | CompTIA |  Active |
+| CompTIA Network+ | CompTIA |  Active |
+| CompTIA A+ | CompTIA |  Active |
+| Cisco Certified Support Technician (CCST) | Cisco |  Active |
+| Google Cybersecurity Certificate | Google |  Complete |
+| ITIL Foundation | Axelos |  Complete |
 
 </div>
 
@@ -134,8 +134,8 @@ available:    Full-time & hybrid roles in IT support, security ops, or security 
 
 | Degree | Institution | Status |
 |:---|:---|:---:|
-| Bachelor of IT (Information Security) | Ontario Tech University | 🔄 In Progress |
-| Diploma in Systems Management & Cybersecurity | Oulton College | ✅ Graduated with Honors · GPA 3.9 |
+| Bachelor of IT (Information Security) | Ontario Tech University |  In Progress |
+| Diploma in Systems Management & Cybersecurity | Oulton College |  Graduated with Honors · GPA 3.9 |
 
 </div>
 
@@ -167,10 +167,10 @@ End-to-end hardware, software, and network support for small businesses and home
 
 | Project | What it actually is | Stack | Status |
 |:---|:---|:---|:---:|
-| [Portfolio Site](https://rayyan-umair.github.io/) | Built from scratch. Rotating globe canvas, scroll animations, full layout -- no frameworks, no templates, no shortcuts. | HTML · CSS · JS · Canvas API | ✅ Live |
-| CTF Writeups & Labs | HackTheBox & TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python | 🔄 Active |
-| IT Automation Scripts | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash | 🔄 Active |
-| Academic Security Labs | Network segmentation, firewall config, packet analysis, incident response. All graded, all documented. | VirtualBox · pfSense · Wireshark | ✅ Complete |
+| [Portfolio Site](https://rayyan-umair.github.io/) | Built from scratch. Rotating globe canvas, scroll animations, full layout -- no frameworks, no templates, no shortcuts. | HTML · CSS · JS · Canvas API |  Live |
+| CTF Writeups & Labs | HackTheBox & TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python |  Active |
+| IT Automation Scripts | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash |  Active |
+| Academic Security Labs | Network segmentation, firewall config, packet analysis, incident response. All graded, all documented. | VirtualBox · pfSense · Wireshark |  Complete |
 
 ---
 
