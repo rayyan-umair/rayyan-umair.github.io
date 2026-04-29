@@ -1,9 +1,9 @@
 { 
   "experience": [
     {
-      "role": "IT Support & Cybersecurity Analyst Intern",
+      "role": "IT Support & Cybersecurity Analyst",
       "company": "SecureLogix",
-      "period": "Jan 2024 — Jun 2025",
+      "period": "Jan 2024 -  Jun 2025",
       "type": "Full-Time",
       "tools": ["SIEM", "Active Directory", "MFA", "Ticketing Systems", "Endpoint Management"],
       "tasks": [
@@ -18,7 +18,7 @@
     {
       "role": "Cybersecurity Intern",
       "company": "Tool-Go Inc.",
-      "period": "May 2024 — Jun 2025",
+      "period": "May 2024 -  Jun 2025",
       "type": "Internship",
       "tools": ["Kali Linux", "Nmap", "Wireshark", "Vulnerability Scanners", "Report Writing"],
       "tasks": [
@@ -32,7 +32,7 @@
     {
       "role": "IT Support Technician",
       "company": "Freelance",
-      "period": "Feb 2023 — Present",
+      "period": "Feb 2023 -  Present",
       "type": "Contract",
       "tools": ["Windows OS", "Hardware Diagnostics", "Remote Support", "Network Troubleshooting"],
       "tasks": [
