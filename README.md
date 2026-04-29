@@ -49,8 +49,7 @@ AI pulled me in first. I was fascinated by systems that could find patterns in d
 
 ## Right now
 
-```yaml
-age:          21
+```yaml          
 location:     Canada
 studying:     Bachelor of IT (Information Security) @ Ontario Tech University
 practicing:   CTF challenges — HackTheBox & TryHackMe
