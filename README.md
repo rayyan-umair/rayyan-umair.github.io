@@ -6,7 +6,7 @@
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-rayyan--umair.github.io-4a9eff?style=for-the-badge&logoColor=white)](https://rayyan-umair.github.io/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rayyanumair/)
-[![Email](https://img.shields.io/badge/Email-rayyanxumair%40gmail.com-00d4aa?style=for-the-badge)](mailto:rayyanxumair@gmail.com)
+[![Email](https://img.shields.io/badge/Email-reach.rayyan1%40gmail.com-00d4aa?style=for-the-badge)](mailto:rayyanxumair@gmail.com)
 [![Open to Work](https://img.shields.io/badge/Status-Open%20to%20Roles-22c55e?style=for-the-badge)](/)
 
 </div>
@@ -31,29 +31,27 @@ AI pulled me in first. I was fascinated by systems that could find patterns in d
 
 ## What I'm working toward
 
-```
 ◈  Security Architecture & Risk
-     I want to design systems that hold up by principle, not ones that survive
-     because someone remembered to patch them in time.
+Design systems that hold up by principle, not ones that survive
+because someone remembered to patch them in time.
 
 ◈  AI-Augmented Decision Making
-     AI handles execution well. What it's not built for is judgment calls in
-     ambiguous situations with real consequences. I want to sit at that boundary.
+AI handles execution well. Judgment calls in ambiguous situations
+with real consequences need a human in the right seat.
 
 ◈  Human Accountability in Systems
-     When something goes wrong at scale, someone has to walk into that room,
-     own it, and make it credible it won't happen again. That's the role I'm building toward.
-```
+When something goes wrong at scale, someone has to walk into that room,
+own it, and make it credible it won't happen again. That's the role I'm building toward.
 
 ---
 
 ## Right now
 
-```yaml          
+```yaml
 location:     Canada
 studying:     Bachelor of IT (Information Security) @ Ontario Tech University
-practicing:   CTF challenges — HackTheBox & TryHackMe
-building:     Security tools, automation scripts, lab environments
+practicing:   CTF challenges -  HackTheBox & TryHackMe
+building:     NetRaptor -  modular network intelligence & threat hunting system
 reading:      Security architecture, AI in cybersecurity, risk frameworks
 available:    Full-time & hybrid roles in IT support, security ops, or security engineering
 ```
@@ -93,17 +91,37 @@ available:    Full-time & hybrid roles in IT support, security ops, or security 
 - LAN / WAN / TCP-IP Fundamentals
 - Linux CLI & System Administration
 - Virtualization (VMware, VirtualBox)
-- Network Segmentation & Firewall Config
+- Network Segmentation & Firewall Config (pfSense)
 
 </td>
 <td valign="top">
 
 **Scripting & Tools**
 - Python, PowerShell, Bash
-- Wireshark, Nmap, Metasploit
-- pfSense & Network Configuration
+- Wireshark, Nmap, Metasploit, Burp Suite
+- Scapy, Sigma Rules, MITRE ATT&CK
 - Git & Version Control
 - Technical Documentation & Report Writing
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+**Offensive Security**
+- Metasploit Framework
+- Burp Suite (web app testing)
+- OSINT & Reconnaissance
+- Network Traffic Analysis & Anomaly Detection
+
+</td>
+<td valign="top">
+
+**Cloud & AI/ML**
+- AWS & Azure Fundamentals (IAM, storage, infra)
+- AI/ML Concepts & Model Evaluation
+- Security Automation
+- Threat Intelligence & MITRE ATT&CK Mapping
 
 </td>
 </tr>
@@ -126,6 +144,10 @@ available:    Full-time & hybrid roles in IT support, security ops, or security 
 
 </div>
 
+### Roadmap
+
+✅ A+  →  ✅ N+  →  ✅ S+  →  ✅ CCST  →  ⏳ CySA+  →  📋 CCNA  →  🔭 CISSP
+
 ---
 
 ## Education
@@ -143,19 +165,19 @@ available:    Full-time & hybrid roles in IT support, security ops, or security 
 
 ## Experience
 
-**IT Support & Cybersecurity Analyst Intern @ SecureLogix** &nbsp;`Jan 2024 - Jun 2025`
+**IT Support & Cybersecurity Analyst @ SecureLogix** &nbsp;`Jan 2024 -  Jun 2025`
 
-Day-to-day Tier 1/2 support for enterprise users: hardware, software, authentication, and access issues. Monitored SIEM alerts and followed anything unusual until I understood it. Contributed to vulnerability scans, risk assessments, and compliance work. Managed user access lifecycle under least-privilege principles. Kept detailed incident records so every ticket told the full story.
+Tier 1/2 support for enterprise users across hardware, software, authentication, and access issues. Monitored SIEM alerts and followed anything unusual until I understood it. Contributed to vulnerability scans, risk assessments, and compliance work. Managed user access lifecycle under least-privilege principles. Kept detailed incident records so every ticket told the full story.
 
 ---
 
-**Cybersecurity Intern @ Tool-Go Inc.** &nbsp;`May 2024 - Aug 2025`
+**Cybersecurity Intern @ Tool-Go Inc.** &nbsp;`May 2024 -  Jun 2025`
 
 Assisted with supervised penetration testing and vulnerability assessments across web apps and network environments. Supported attack surface analysis and DoS stress testing. Helped identify indicators of compromise. Wrote sections of technical reports covering findings, risk, and remediation.
 
 ---
 
-**IT Support Technician @ Freelance** &nbsp;`Feb 2023 - Present`
+**IT Support Technician @ Freelance** &nbsp;`Feb 2023 -  Present`
 
 End-to-end hardware, software, and network support for small businesses and home users. Built a consistent base of repeat clients through reliable follow-through.
 
@@ -163,14 +185,13 @@ End-to-end hardware, software, and network support for small businesses and home
 
 ## Projects
 
-> CTF writeups, security tools, and lab documentation are being added actively. Check back.
-
 | Project | What it actually is | Stack | Status |
 |:---|:---|:---|:---:|
-| [Portfolio Site](https://rayyan-umair.github.io/) | Built from scratch. Rotating globe canvas, scroll animations, full layout -- no frameworks, no templates, no shortcuts. | HTML · CSS · JS · Canvas API |  Live |
+| NetRaptor | Modular network intelligence & threat hunting system. 12 integrated tools across 3 clusters -  recon, analysis, and response. Architecture-first build, no SaaS dependencies. | Python · Scapy · Nmap API · Sigma · SQLite · REST · MITRE ATT&CK |  Active |
 | CTF Writeups & Labs | HackTheBox & TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python |  Active |
 | IT Automation Scripts | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash |  Active |
-| Academic Security Labs | Network segmentation, firewall config, packet analysis, incident response. All graded, all documented. | VirtualBox · pfSense · Wireshark |  Complete |
+| Academic Security Labs | Network segmentation, firewall config, IoT pentesting device, train system (Resurgo Place), network overhaul. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi |  Complete |
+| Portfolio Website | Built from scratch. Boot sequence, animated globe, interactive node graphs, pie-chart ecosystem. Zero dependencies, zero frameworks. | HTML · CSS · JS · Canvas API · GitHub Pages |  Live |
 
 ---
 
@@ -184,7 +205,7 @@ If you need someone who thinks in systems and stays in the room when things get 
 
 <br/>
 
-<sub>Canada &nbsp;·&nbsp; English · Urdu · Punjabi &nbsp;·&nbsp; Open to hybrid & full-time</sub>
+<sub>Canada &nbsp;·&nbsp; English · Urdu/Hindi · Punjabi &nbsp;·&nbsp; Open to hybrid & full-time</sub>
 
 <br/>
 
