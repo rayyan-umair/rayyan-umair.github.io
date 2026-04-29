@@ -184,7 +184,7 @@ If you need someone who thinks in systems and stays in the room when things get 
 
 <br/>
 
-<sub>Canada &nbsp;·&nbsp; English · Urdu/Hindi · Punjabi &nbsp;·&nbsp; Open to hybrid & full-time</sub>
+<sub>Canada &nbsp;·&nbsp; English · Urdu · Punjabi &nbsp;·&nbsp; Open to hybrid & full-time</sub>
 
 <br/>
 
