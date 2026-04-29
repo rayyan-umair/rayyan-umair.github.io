@@ -189,6 +189,7 @@ End-to-end hardware, software, and network support for small businesses and home
 |:---|:---|:---|:---:|
 | NetRaptor | Modular network intelligence & threat hunting system. 12 integrated tools across 3 clusters -  recon, analysis, and response. Architecture-first build, no SaaS dependencies. | Python · Scapy · Nmap API · Sigma · SQLite · REST · MITRE ATT&CK |  Active |
 | CTF Writeups & Labs | HackTheBox & TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python |  Active |
+| IT Automation Scripts | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash |  Active |
 | Academic Security Labs | Network segmentation, firewall config, IoT pentesting device, train system (Resurgo Place), network overhaul. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi |  Complete |
 | Portfolio Website | Built from scratch. Boot sequence, animated globe, interactive node graphs, pie-chart ecosystem. Zero dependencies, zero frameworks. | HTML · CSS · JS · Canvas API · GitHub Pages |  Live |
 
