@@ -2,8 +2,8 @@
   "links": [
     {
       "label": "EMAIL",
-      "value": "reach.rayyan1@gmail.com",
-      "url": "mailto:reach.rayyan1@gmail.com",
+      "value": "rayyanxumairgmail.com",
+      "url": "mailto:rayyanxumair@gmail.com",
       "icon": "✉",
       "response": "RESPONSE TIME: < 24HRS",
       "status": "ONLINE"
@@ -34,6 +34,6 @@
       "download": true
     }
   ],
-  "location": "Oshawa, ON, Canada",
+  "location": "ON, Canada",
   "availability": "Open to full-time office-based and hybrid roles"
 }
