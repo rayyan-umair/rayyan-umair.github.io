@@ -1,36 +1,42 @@
 {
   "projects": [
     {
-      "name": "RAYYAN-NET Portfolio Interface",
-      "status": "COMPLETE",
-      "tech": ["HTML5", "CSS3", "Vanilla JS", "Canvas API", "JSON", "GitHub Pages"],
-      "description": "Modular, event-driven portfolio interface built from scratch. Features an Entity-inspired boot sequence, animated neural network background, JSON-driven overlay system, interactive node graph, and a hidden DevTools console with real commands. Zero dependencies, zero frameworks.",
-      "highlight": "The architecture itself is the portfolio — modular JS, clean separation of concerns, event-driven design.",
-      "link": "https://github.com/rayyan-umair"
+      "name": "NetRaptor",
+      "status": "ACTIVE",
+      "flagship": true,
+      "tech": ["Python", "Scapy", "Nmap API", "Sigma Rules", "SQLite", "REST API", "Linux", "MITRE ATT&CK"],
+      "description": "Modular, offensive-security-grade network intelligence and threat hunting platform built from the ground up. 12 integrated tools across 3 clusters -  recon, analysis, and response. The architecture is designed so every tool feeds every other tool: scanner output feeds the threat mapper, log analysis informs the SIEM simulator, incident response draws from everything.",
+      "highlight": "Architecture-first. No SaaS dependencies. One predator-instinct system.",
+      "clusters": {
+        "recon": ["NetSweep", "PortHawk", "DNSTalon", "WhoKnocks"],
+        "analysis": ["PacketStrike", "LogClaw", "SIEMulate", "SigmaParser"],
+        "response": ["ThreatMapper", "TalonResponse", "StrikeMap", "LogClaw Pro"]
+      },
+      "link": null
     },
     {
       "name": "CTF Writeups & Practice Labs",
       "status": "IN PROGRESS",
       "tech": ["Kali Linux", "Nmap", "Burp Suite", "Wireshark", "Python", "Markdown"],
-      "description": "Ongoing documentation of CTF challenges and HackTheBox / TryHackMe rooms. Each writeup captures methodology, dead ends, tools used, and lessons learned — demonstrating structured thinking and the ability to communicate technical findings clearly.",
-      "highlight": "Focus on methodology over solutions — showing how problems are approached, not just solved.",
+      "description": "Ongoing documentation of CTF challenges and HackTheBox / TryHackMe rooms. Each writeup captures methodology, dead ends, tools used, and lessons learned. Dead ends are where the actual learning happens.",
+      "highlight": "Methodology over answers. How problems are approached matters more than whether I got it first.",
       "link": "https://github.com/rayyan-umair"
     },
-    {
-      "name": "IT Automation Scripts",
-      "status": "IN PROGRESS",
-      "tech": ["Python", "PowerShell", "Bash", "Windows Server"],
-      "description": "Collection of automation tools built during support work and lab environments. Includes user account management scripts, log parsing utilities, and system health check tools designed to reduce repetitive tier 1 workload.",
-      "highlight": "Built to solve real problems encountered in live support environments.",
-      "link": "https://github.com/rayyan-umair"
-    },
-    {
+        {
       "name": "Academic Security Labs",
       "status": "COMPLETE",
-      "tech": ["VirtualBox", "Kali Linux", "Wireshark", "pfSense", "Windows Server"],
-      "description": "Structured lab work completed during the Diploma in Systems Management & Cybersecurity at Oulton College. Covers network segmentation, firewall configuration, packet analysis, vulnerability scanning, and incident response procedures.",
-      "highlight": "Graduated with Honors · GPA 3.9 — labs backed by graded assessments and documented reports.",
+      "tech": ["VirtualBox", "Kali Linux", "Wireshark", "pfSense", "Windows Server", "Raspberry Pi", "Python", "Nmap", "Hydra"],
+      "description": "Three systems built across the Diploma in Systems Management & Cybersecurity. IoT PenTesting Device (MQTT scanning, Hydra brute-force, Nmap discovery, sensor targeting). Train Control System at Resurgo Place, Moncton -  4 Raspberry Pi nodes, joystick control, heavy-duty motors, live public display. Full Network Overhaul -  3 routers, 2 switches, EtherChannel, VLAN segmentation, routing and redundancy.",
+      "highlight": "Graduated with Honors · GPA 3.9 -  every lab backed by graded assessments and documented reports.",
       "link": null
+    },
+    {
+      "name": "Portfolio Website",
+      "status": "COMPLETE",
+      "tech": ["HTML5", "CSS3", "Vanilla JS", "Canvas API", "GitHub Pages"],
+      "description": "Built from scratch. Boot sequence with dehashing animation, animated globe background, interactive academic node graph, NetRaptor ecosystem pie-chart system, full card layout. Zero dependencies, zero frameworks.",
+      "highlight": "Zero dependencies. The architecture is the portfolio.",
+      "link": "https://rayyan-umair.github.io/"
     }
   ]
 }
