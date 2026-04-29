@@ -24,7 +24,6 @@
     ::-webkit-scrollbar-track{background:var(--bg)}
     ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
 
-    /* ── BOOT SCREEN ── */
     #boot{position:fixed;inset:0;z-index:9999;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--fm)}
     #boot.fade-out{animation:bootFade 0.7s 0.2s forwards}
     @keyframes bootFade{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(1.03);pointer-events:none}}
@@ -42,7 +41,6 @@
 
     #bg-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 
-    /* NAV */
     #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2.5rem;height:64px;display:flex;align-items:center;transition:background 0.4s,border-bottom 0.4s}
     #nav.scrolled{background:rgba(8,11,16,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
     .nav-inner{max-width:1240px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
@@ -61,7 +59,6 @@
     .nav-toggle.open span:nth-child(2){opacity:0;width:0}
     .nav-toggle.open span:nth-child(3){transform:rotate(-38deg) translateY(1px)}
 
-    /* MOBILE OVERLAY */
     #mob-overlay{position:fixed;inset:0;z-index:90;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity 0.45s}
     #mob-overlay.open{pointer-events:all;opacity:1;background:rgba(8,11,16,0.97)}
     #mob-overlay canvas{position:absolute;inset:0;width:100%;height:100%}
@@ -76,7 +73,6 @@
     #mob-overlay.open .ov-links a:nth-child(6){transition-delay:0.37s}
     .ov-links a:hover{color:var(--blue)}
 
-    /* HERO */
     #hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;padding-top:80px}
     .hero-inner{max-width:1240px;margin:0 auto;width:100%}
     .hero-eyebrow{display:flex;align-items:center;gap:0.75rem;font-family:var(--fm);font-size:0.76rem;color:var(--teal);letter-spacing:0.09em;text-transform:uppercase;margin-bottom:2.2rem;opacity:0;animation:fadeUp 0.7s 0.2s forwards}
@@ -102,17 +98,14 @@
     .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:var(--fm);font-size:0.7rem;color:var(--dim);letter-spacing:0.12em;animation:fl 3s ease-in-out infinite}
     @keyframes fl{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-7px)}}
 
-    /* SECTIONS */
     section{position:relative;z-index:1;padding:8rem 2.5rem}
     .si{max-width:1240px;margin:0 auto}
     .sec-label{font-family:var(--fm);font-size:0.72rem;color:var(--blue);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:1.6rem}
     .sec-h{font-family:var(--fh);font-weight:700;font-size:clamp(2rem,4vw,3.4rem);line-height:1.08;letter-spacing:-0.022em;color:var(--text);margin-bottom:4rem}
 
-    /* REVEAL */
     .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.72s,transform 0.72s}
     .reveal.visible{opacity:1;transform:translateY(0)}
 
-    /* ABOUT */
     #about{border-top:1px solid var(--border)}
     .about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:start}
     .about-left .sec-h{position:sticky;top:100px;margin-bottom:0;line-height:1.15}
@@ -130,7 +123,6 @@
     .asp-t{font-family:var(--fh);font-weight:600;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem}
     .asp-d{font-size:0.86rem;color:var(--muted);line-height:1.55}
 
-    /* EXPERIENCE */
     #experience{border-top:1px solid var(--border)}
     .exp-item{display:grid;grid-template-columns:210px 1fr;gap:3rem;padding:2.8rem 0;border-bottom:1px solid var(--border);position:relative;transition:background 0.3s}
     .exp-item::before{content:'';position:absolute;left:208px;top:0;bottom:0;width:1px;background:var(--border);transition:background 0.3s}
@@ -148,17 +140,35 @@
     .tbadge{font-family:var(--fm);font-size:0.68rem;padding:0.25rem 0.65rem;border:1px solid var(--border2);border-radius:2px;color:var(--pw);letter-spacing:0.04em;transition:border-color 0.25s,color 0.25s}
     .exp-item:hover .tbadge{border-color:rgba(123,140,222,0.45)}
 
-    /* ── PROJECTS SECTION (card-based) ── */
+    /* ═══════════════════════════════════════
+       PROJECTS — UNIFIED SINGLE GRID SYSTEM
+    ═══════════════════════════════════════ */
     #projects{border-top:1px solid var(--border)}
 
-    /* NETRAPTOR FLAGSHIP */
-    .netraptor-card{background:var(--surface);border:1px solid rgba(74,158,255,0.3);border-radius:6px;padding:2.8rem;position:relative;overflow:hidden;margin-bottom:1.6rem}
+    .proj-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1.6rem;
+    }
+    /* Full-width cards span both columns */
+    .proj-full{
+      grid-column:1 / -1;
+    }
+    /* Every direct child is a flex column so cards stretch uniformly */
+    .proj-grid > *{
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* NetRaptor */
+    .netraptor-card{background:var(--surface);border:1px solid rgba(74,158,255,0.3);border-radius:6px;padding:2.8rem;position:relative;overflow:hidden}
     .netraptor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--blue),var(--teal))}
     .netraptor-card::after{content:'';position:absolute;top:3px;right:0;width:220px;height:220px;background:radial-gradient(circle at top right,rgba(74,158,255,0.07),transparent 70%);pointer-events:none}
     .nr-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--fm);font-size:0.65rem;color:var(--red);border:1px solid rgba(255,59,59,0.4);background:rgba(255,59,59,0.07);padding:0.25rem 0.75rem;border-radius:2px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem}
     .nr-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse-red 2s infinite}
     @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(255,59,59,0.7)}50%{box-shadow:0 0 0 8px rgba(255,59,59,0)}}
-    .nr-title{font-family:var(--fh);font-weight:800;font-size:clamp(2.2rem,4.5vw,3.2rem);letter-spacing:-0.03em;color:var(--text);margin-bottom:0.6rem;line-height:1}
+    /* Scaled-down clamp so it doesn't overflow on mobile */
+    .nr-title{font-family:var(--fh);font-weight:800;font-size:clamp(1.8rem,3.5vw,3.2rem);letter-spacing:-0.03em;color:var(--text);margin-bottom:0.6rem;line-height:1}
     .nr-title span{color:var(--blue)}
     .nr-sub{font-family:var(--fm);font-size:0.78rem;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.8rem}
     .nr-body{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
@@ -178,7 +188,7 @@
     .nr-status-label{font-family:var(--fm);font-size:0.65rem;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.3rem}
     .nr-status-val{font-size:0.85rem;color:var(--muted)}
 
-    /* SKILLS SECTION */
+    /* Skills */
     #skills{border-top:1px solid var(--border)}
     .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-bottom:2.5rem}
     .sg{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;transition:border-color 0.3s,transform 0.3s}
@@ -211,7 +221,7 @@
     .tpill.offensive{border-color:rgba(255,59,59,0.28);color:var(--red)}
     .tpill.cloud{border-color:rgba(0,255,136,0.22);color:var(--green)}
 
-    /* EDUCATION */
+    /* Education */
     #education{border-top:1px solid var(--border)}
     .ec-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
     .col-h{font-family:var(--fh);font-weight:600;font-size:0.95rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.09em;margin-bottom:2.2rem;padding-bottom:0.9rem;border-bottom:1px solid var(--border)}
@@ -226,15 +236,14 @@
     .cert-item:hover .cert-dot{background:var(--teal)}
     .cert-name{font-size:0.9rem;color:var(--text)}
 
-    /* ── ACADEMIC NODE CARD ── */
-    .academic-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:visible;cursor:default;transition:border-color 0.35s}
+    /* Academic node card */
+    .academic-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:visible;cursor:default;transition:border-color 0.35s;height:100%}
     .academic-card:hover{border-color:var(--border2)}
     .ac-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem}
     .ac-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--text)}
     .ac-sub{font-family:var(--fm);font-size:0.75rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
     .ac-hint{font-family:var(--fm);font-size:0.65rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase}
-    /* node graph */
-    .ac-graph{position:relative;width:100%;height:280px;margin-top:1rem;opacity:0;transform:translateY(12px);transition:opacity 0.45s,transform 0.45s;pointer-events:none}
+    .ac-graph{position:relative;width:100%;height:260px;margin-top:1rem;opacity:0;transform:translateY(12px);transition:opacity 0.45s,transform 0.45s;pointer-events:none}
     .academic-card:hover .ac-graph{opacity:1;transform:translateY(0);pointer-events:all}
     .ac-graph svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
     .ac-node{position:absolute;width:80px;height:80px;border-radius:50%;background:var(--surface2);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;transform:scale(0) translateX(-50%) translateY(-50%);transform-origin:center}
@@ -246,7 +255,6 @@
     .ac-node-inner{display:flex;flex-direction:column;align-items:center;gap:0.3rem;text-align:center;padding:0.4rem}
     .ac-node-icon{font-size:1.4rem;line-height:1}
     .ac-node-label{font-family:var(--fm);font-size:0.55rem;color:var(--muted);line-height:1.3;text-transform:uppercase;letter-spacing:0.05em}
-    /* floating summary */
     .ac-tooltip{position:absolute;background:rgba(8,11,16,0.97);border:1px solid var(--border2);border-radius:5px;padding:1rem 1.2rem;width:220px;z-index:20;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(12px)}
     .ac-tooltip.show{opacity:1}
     .ac-tooltip-title{font-family:var(--fh);font-weight:600;font-size:0.88rem;color:var(--blue);margin-bottom:0.5rem}
@@ -254,8 +262,8 @@
     .ac-tooltip-body li{list-style:none;padding-left:0.9rem;position:relative;margin-bottom:0.3rem}
     .ac-tooltip-body li::before{content:'›';position:absolute;left:0;color:var(--teal)}
 
-    /* ── CTF CARD ── */
-    .ctf-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:hidden}
+    /* CTF card */
+    .ctf-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:hidden;height:100%}
     .ctf-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pw),transparent)}
     .ctf-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
     .ctf-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--text)}
@@ -271,17 +279,16 @@
     .ctf-plat{font-family:var(--fm);font-size:0.73rem;padding:0.42rem 1rem;border-radius:3px;border:1px solid rgba(123,140,222,0.22);color:var(--pw)}
     .ctf-placeholder{margin-top:1.2rem;padding:1rem;background:rgba(123,140,222,0.04);border:1px dashed rgba(123,140,222,0.2);border-radius:4px;font-family:var(--fm);font-size:0.72rem;color:var(--dim);line-height:1.6}
 
-    /* ── NETRAPTOR ECOSYSTEM ── */
+    /* Ecosystem card */
     .ecosystem-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:visible;cursor:default;transition:border-color 0.35s}
     .ecosystem-card:hover{border-color:var(--border2)}
     .eco-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem}
     .eco-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--text)}
     .eco-sub{font-family:var(--fm);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
     .eco-hint{font-family:var(--fm);font-size:0.65rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase}
-    .eco-graph{position:relative;width:100%;height:340px;margin-top:1rem;opacity:0;transform:translateY(12px);transition:opacity 0.45s,transform 0.45s;pointer-events:none}
+    .eco-graph{position:relative;width:100%;height:320px;margin-top:1rem;opacity:0;transform:translateY(12px);transition:opacity 0.45s,transform 0.45s;pointer-events:none}
     .ecosystem-card:hover .eco-graph{opacity:1;transform:translateY(0);pointer-events:all}
     .eco-graph svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-    /* pie circles */
     .eco-circle{position:absolute;transform:translateX(-50%) translateY(-50%);cursor:pointer}
     .eco-circle svg.pie{width:110px;height:110px;transform:scale(0);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
     .ecosystem-card:hover .eco-circle svg.pie{transform:scale(1)}
@@ -294,7 +301,7 @@
     .eco-tooltip-title{font-family:var(--fh);font-weight:600;font-size:0.82rem;color:var(--blue);margin-bottom:0.4rem}
     .eco-tooltip-desc{font-family:var(--fm);font-size:0.7rem;color:var(--muted);line-height:1.55}
 
-    /* ── PORTFOLIO SELF-CARD ── */
+    /* Portfolio self-card */
     .portfolio-self-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:hidden;transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s}
     .portfolio-self-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 0.42s cubic-bezier(0.4,0,0.2,1)}
     .portfolio-self-card:hover{border-color:rgba(0,212,170,0.3);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.45)}
@@ -307,12 +314,8 @@
     .ps-tech{display:flex;flex-wrap:wrap;gap:0.4rem}
     .ps-tech span{font-family:var(--fm);font-size:0.67rem;padding:0.2rem 0.55rem;background:rgba(0,212,170,0.05);color:var(--teal);border-radius:2px;border:1px solid rgba(0,212,170,0.18)}
 
-    /* grid helpers for project cards */
-    .proj-2col{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-bottom:1.6rem}
-    .proj-1col{margin-bottom:1.6rem}
-
-    /* standard project card */
-    .pc{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:hidden;transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s;cursor:default}
+    /* Standard project card */
+    .pc{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:hidden;transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s;cursor:default;height:100%}
     .pc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 0.42s cubic-bezier(0.4,0,0.2,1)}
     .pc:hover{border-color:rgba(74,158,255,0.3);transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,0.45)}
     .pc:hover::before{transform:scaleX(1)}
@@ -326,7 +329,7 @@
     .pc-tech{display:flex;flex-wrap:wrap;gap:0.4rem}
     .tech-t{font-family:var(--fm);font-size:0.67rem;padding:0.2rem 0.55rem;background:rgba(74,158,255,0.07);color:var(--pw);border-radius:2px;border:1px solid rgba(123,140,222,0.2)}
 
-    /* CONTACT */
+    /* Contact */
     #contact{border-top:1px solid var(--border);text-align:center}
     .contact-wrap{max-width:680px;margin:0 auto}
     .contact-h{font-family:var(--fh);font-weight:800;font-size:clamp(3.2rem,8.5vw,6.5rem);letter-spacing:-0.035em;color:var(--text);margin-bottom:1.6rem;line-height:0.95}
@@ -339,7 +342,7 @@
     .lang-lbl{font-family:var(--fm);font-size:0.73rem;color:var(--muted)}
     .lang-t{font-family:var(--fm);font-size:0.7rem;padding:0.25rem 0.75rem;border:1px solid var(--border2);color:var(--pw);border-radius:2px}
 
-    /* FOOTER */
+    /* Footer */
     #footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2rem 2.5rem}
     .fi{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
     .fi span{font-family:var(--fm);font-size:0.73rem;color:var(--muted)}
@@ -347,6 +350,9 @@
 
     @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
+    /* ═══════════════════════
+       RESPONSIVE
+    ═══════════════════════ */
     @media(max-width:920px){
       .nav-links,.nav-cta{display:none}
       .nav-toggle{display:flex}
@@ -356,15 +362,41 @@
       .exp-item::before{display:none}
       .skills-grid{grid-template-columns:1fr}
       .ec-grid{grid-template-columns:1fr;gap:3rem}
-      .proj-2col{grid-template-columns:1fr}
-      .nr-body{grid-template-columns:1fr}
       .hero-stats{gap:1.8rem}
+
+      /* Projects: single column, tighter padding */
+      section{padding:5rem 1.4rem}
+      .proj-grid{grid-template-columns:1fr;gap:1.2rem}
+      .proj-full{grid-column:1}
+
+      /* NetRaptor: stack body columns */
+      .netraptor-card{padding:1.6rem}
+      .nr-body{grid-template-columns:1fr;gap:2rem}
+
+      /* Interactive graphs: reduce height so they fit */
+      .eco-graph{height:260px}
+      .ac-graph{height:220px}
+
+      /* Remove min-heights so cards shrink naturally */
+      .ctf-card,.academic-card,.ecosystem-card,
+      .portfolio-self-card,.pc{min-height:unset}
+    }
+
+    @media(max-width:480px){
+      section{padding:4rem 1.2rem}
+      .proj-grid{gap:1rem}
+      .netraptor-card{padding:1.2rem}
+      .eco-graph{height:220px}
+      .ac-graph{height:200px}
+      .eco-circle-label{font-size:0.5rem}
+      /* Hero stats: wrap gracefully, hide dividers */
+      .hero-stats{flex-wrap:wrap;gap:1.2rem}
+      .sr{display:none}
     }
   </style>
 </head>
 <body>
 
-<!-- ── BOOT SCREEN ── -->
 <div id="boot">
   <div class="boot-line">RAYYAN-NET // SECURITY INTERFACE v2.4</div>
   <div class="boot-line">INITIALIZING AUTHENTICATION MODULE...</div>
@@ -468,7 +500,7 @@
             <div class="asp-ic">&#9672;</div>
             <div>
               <div class="asp-t">AI-Augmented Decision Making</div>
-              <div class="asp-d">AI handles execution well. Judgment calls in ambiguous situations with real consequences -  that boundary needs a human in the right seat.</div>
+              <div class="asp-d">AI handles execution well. Judgment calls in ambiguous situations with real consequences — that boundary needs a human in the right seat.</div>
             </div>
           </div>
           <div class="asp">
@@ -520,88 +552,82 @@
   </div>
 </section>
 
-<!-- ── PROJECTS (new order) ── -->
 <section id="projects">
   <div class="si">
     <div class="sec-label reveal">05 / Projects</div>
     <h2 class="sec-h reveal">Things I've built.</h2>
 
-    <!-- 1. NetRaptor Flagship -->
-    <div class="netraptor-card reveal">
-      <div class="nr-badge">Flagship Project</div>
-      <div class="nr-title">Net<span>Raptor</span></div>
-      <div class="nr-sub">Integrated Network Intelligence &amp; Threat Hunting System</div>
-      <div class="nr-body">
-        <div>
-          <p class="nr-desc">
-            NetRaptor is an <strong>active development project</strong> -  a modular, offensive-security-grade network intelligence platform built from the ground up. The concept: a unified system that doesn't just observe a network, it understands it. Combines real-time scanning, packet-level analysis, threat correlation, and automated incident response into a single cohesive engine.
-          </p>
-          <p class="nr-desc">
-            The architecture is designed around the idea that <strong>every tool should feed every other tool</strong>. Scanner output feeds the threat mapper. Log analysis informs the SIEM simulator. Incident response draws from everything. No siloed dashboards -  one predator-instinct system.
-          </p>
-          <ul class="nr-features">
-            <li>Network-wide host discovery and port enumeration (NetSweep + PortHawk)</li>
-            <li>Deep packet capture and protocol dissection (PacketStrike)</li>
-            <li>DNS monitoring and anomaly flagging (DNSTalon)</li>
-            <li>Access probe detection and authentication analysis (WhoKnocks)</li>
-            <li>Structured log parsing and correlation (LogClaw)</li>
-            <li>SIEM simulation layer with Sigma rule support (SIEMulate + SigmaParser)</li>
-            <li>Threat mapping and lateral movement visualization (ThreatMapper)</li>
-            <li>Automated incident response playbooks (TalonResponse)</li>
-            <li>Attack timeline reconstruction (StrikeMap)</li>
-          </ul>
-        </div>
-        <div class="nr-meta">
-          <div class="nr-stat-row">
-            <div class="nr-stat"><div class="nr-stat-n">12</div><div class="nr-stat-l">Integrated Tools</div></div>
-            <div class="nr-stat"><div class="nr-stat-n">3</div><div class="nr-stat-l">Tool Clusters</div></div>
-            <div class="nr-stat"><div class="nr-stat-n">∞</div><div class="nr-stat-l">Modular Expansion</div></div>
-            <div class="nr-stat"><div class="nr-stat-n">0</div><div class="nr-stat-l">Dependencies on SaaS</div></div>
+    <div class="proj-grid">
+
+      <!-- 1. NetRaptor — full width -->
+      <div class="proj-full netraptor-card reveal">
+        <div class="nr-badge">Flagship Project</div>
+        <div class="nr-title">Net<span>Raptor</span></div>
+        <div class="nr-sub">Integrated Network Intelligence &amp; Threat Hunting System</div>
+        <div class="nr-body">
+          <div>
+            <p class="nr-desc">NetRaptor is an <strong>active development project</strong> — a modular, offensive-security-grade network intelligence platform built from the ground up. The concept: a unified system that doesn't just observe a network, it understands it. Combines real-time scanning, packet-level analysis, threat correlation, and automated incident response into a single cohesive engine.</p>
+            <p class="nr-desc">The architecture is designed around the idea that <strong>every tool should feed every other tool</strong>. Scanner output feeds the threat mapper. Log analysis informs the SIEM simulator. Incident response draws from everything. No siloed dashboards — one predator-instinct system.</p>
+            <ul class="nr-features">
+              <li>Network-wide host discovery and port enumeration (NetSweep + PortHawk)</li>
+              <li>Deep packet capture and protocol dissection (PacketStrike)</li>
+              <li>DNS monitoring and anomaly flagging (DNSTalon)</li>
+              <li>Access probe detection and authentication analysis (WhoKnocks)</li>
+              <li>Structured log parsing and correlation (LogClaw)</li>
+              <li>SIEM simulation layer with Sigma rule support (SIEMulate + SigmaParser)</li>
+              <li>Threat mapping and lateral movement visualization (ThreatMapper)</li>
+              <li>Automated incident response playbooks (TalonResponse)</li>
+              <li>Attack timeline reconstruction (StrikeMap)</li>
+            </ul>
           </div>
-          <div class="nr-status-block">
-            <div class="nr-status-label">&#9679; Active Development</div>
-            <div class="nr-status-val">Architecture defined. Core modules in development. No external links yet -  building in private.</div>
-          </div>
-          <div class="nr-tags">
-            <span class="nr-tag">Python</span>
-            <span class="nr-tag">Scapy</span>
-            <span class="nr-tag">Nmap API</span>
-            <span class="nr-tag">Sigma Rules</span>
-            <span class="nr-tag">SQLite</span>
-            <span class="nr-tag">REST API</span>
-            <span class="nr-tag">Linux</span>
-            <span class="nr-tag">MITRE ATT&amp;CK</span>
+          <div class="nr-meta">
+            <div class="nr-stat-row">
+              <div class="nr-stat"><div class="nr-stat-n">12</div><div class="nr-stat-l">Integrated Tools</div></div>
+              <div class="nr-stat"><div class="nr-stat-n">3</div><div class="nr-stat-l">Tool Clusters</div></div>
+              <div class="nr-stat"><div class="nr-stat-n">∞</div><div class="nr-stat-l">Modular Expansion</div></div>
+              <div class="nr-stat"><div class="nr-stat-n">0</div><div class="nr-stat-l">Dependencies on SaaS</div></div>
+            </div>
+            <div class="nr-status-block">
+              <div class="nr-status-label">&#9679; Active Development</div>
+              <div class="nr-status-val">Architecture defined. Core modules in development. No external links yet — building in private.</div>
+            </div>
+            <div class="nr-tags">
+              <span class="nr-tag">Python</span>
+              <span class="nr-tag">Scapy</span>
+              <span class="nr-tag">Nmap API</span>
+              <span class="nr-tag">Sigma Rules</span>
+              <span class="nr-tag">SQLite</span>
+              <span class="nr-tag">REST API</span>
+              <span class="nr-tag">Linux</span>
+              <span class="nr-tag">MITRE ATT&amp;CK</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- 2. Tools in Development (ecosystem card) -->
-      <div class="ecosystem-card reveal" id="eco-card">
+      <!-- 2. Ecosystem — full width -->
+      <div class="proj-full ecosystem-card reveal" id="eco-card">
         <div class="eco-header">
           <div class="eco-title">Tools in Development</div>
           <div class="eco-hint">hover to expand &#9670;</div>
         </div>
-        <p class="eco-sub">The NetRaptor ecosystem -  12 tools across 3 clusters. Each circle is a cluster of 4. Hover to see the breakdown.</p>
+        <p class="eco-sub">The NetRaptor ecosystem — 12 tools across 3 clusters. Each circle is a cluster of 4. Hover to see the breakdown.</p>
         <div class="eco-graph" id="eco-graph">
           <svg id="eco-svg"></svg>
-          <!-- circles inserted by JS -->
         </div>
         <div class="eco-tooltip" id="eco-tooltip">
           <div class="eco-tooltip-title" id="eco-tt-title"></div>
           <div class="eco-tooltip-desc" id="eco-tt-desc"></div>
         </div>
       </div>
-    </div>
 
-    <!-- 3. CTF & Hackathons -->
-    <div class="proj-2col">
+      <!-- 3. CTF & Hackathons -->
       <div class="ctf-card reveal">
         <div class="ctf-header">
           <div class="ctf-title">CTF &amp; Hackathons</div>
           <span class="ctf-badge">In Progress</span>
         </div>
-        <p class="ctf-sub">Active practice on HackTheBox and TryHackMe. Every room documented -  methodology, dead ends, and lessons, not just solutions.</p>
+        <p class="ctf-sub">Active practice on HackTheBox and TryHackMe. Every room documented — methodology, dead ends, and lessons, not just solutions.</p>
         <div class="ctf-progress-wrap">
           <div class="ctf-prog-label"><span>Overall Progress</span><span>Active</span></div>
           <div class="ctf-prog-track"><div class="ctf-prog-fill"></div></div>
@@ -611,43 +637,39 @@
           <span class="ctf-plat">TryHackMe</span>
           <span class="ctf-plat">Writeups Active</span>
         </div>
-        <div class="ctf-placeholder">Writeups being added actively. Hackathon entries being sourced. Check back -  this section grows with every room completed.</div>
+        <div class="ctf-placeholder">Writeups being added actively. Hackathon entries being sourced. Check back — this section grows with every room completed.</div>
       </div>
 
-    <!-- 4. Academic Projects (node card) -->
-    <div class="proj-1col">
+      <!-- 4. Academic Projects -->
       <div class="academic-card reveal" id="ac-card">
         <div class="ac-header">
           <div class="ac-title">Academic Projects</div>
           <div class="ac-hint">hover to expand &#9670;</div>
         </div>
-        <p class="ac-sub">Graded, documented, and deployed. Three systems built across the diploma program -  each tackling a different layer of the stack. Hover the card to see the network.</p>
+        <p class="ac-sub">Graded, documented, and deployed. Three systems built across the diploma program — each tackling a different layer of the stack. Hover the card to see the network.</p>
         <div class="ac-graph" id="ac-graph">
           <svg id="ac-svg"></svg>
-          <!-- nodes inserted by JS -->
         </div>
-        <!-- tooltip -->
         <div class="ac-tooltip" id="ac-tooltip">
           <div class="ac-tooltip-title" id="ac-tt-title"></div>
           <ul class="ac-tooltip-body" id="ac-tt-body"></ul>
         </div>
       </div>
-    </div>
 
-      <!-- 5. Portfolio Website (last) -->
-      <div class="portfolio-self-card reveal">
+      <!-- 5. Portfolio Website — full width -->
+      <div class="proj-full portfolio-self-card reveal">
         <div class="ps-top">
           <div class="ps-name">Portfolio Website</div>
           <span class="ps-status">Live</span>
         </div>
-        <div class="ps-desc">This site. Built from scratch -  no frameworks, no templates. The globe, the animations, the boot sequence, the node systems -  all handwritten because full control over how it feels matters.</div>
+        <div class="ps-desc">This site. Built from scratch — no frameworks, no templates. The globe, the animations, the boot sequence, the node systems — all handwritten because full control over how it feels matters.</div>
         <div class="ps-hl">Zero dependencies. The architecture is the portfolio.</div>
         <div class="ps-tech">
           <span>HTML5</span><span>CSS3</span><span>Vanilla JS</span><span>Canvas API</span><span>GitHub Pages</span>
         </div>
       </div>
-    </div>
 
+    </div><!-- /proj-grid -->
   </div>
 </section>
 
@@ -686,73 +708,42 @@
 </footer>
 
 <script>
-/* ══════════════════════════════════════
-   BOOT SEQUENCE
-══════════════════════════════════════ */
+/* BOOT */
 (function(){
   const hashEl=document.getElementById('boot-hash');
   const bar=document.getElementById('boot-bar');
   const status=document.getElementById('boot-status');
   const boot=document.getElementById('boot');
-
   const CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&!?<>[]{}';
   const TARGET='ACCESS GRANTED';
-  let prog=0;
-  let scrambleInt=null;
-  let resolveInt=null;
-  let barInt=null;
-
-  // scramble phase
-  function scramble(){
-    let s='';
-    for(let i=0;i<14;i++) s+=CHARS[Math.floor(Math.random()*CHARS.length)];
-    hashEl.textContent=s;
-  }
+  let prog=0,scrambleInt,resolveInt,barInt;
+  function scramble(){let s='';for(let i=0;i<14;i++)s+=CHARS[Math.floor(Math.random()*CHARS.length)];hashEl.textContent=s;}
   scrambleInt=setInterval(scramble,55);
-
-  // progress bar
   barInt=setInterval(()=>{
     prog=Math.min(prog+Math.random()*4,99);
     bar.style.width=prog+'%';
     const labels=['SCANNING...','ANALYZING...','VERIFYING HASH...','MATCHING CREDENTIALS...','CROSS-REFERENCING...'];
     status.textContent=labels[Math.floor(prog/25)]||'VERIFYING...';
   },40);
-
-  // resolve after 1.4s
   setTimeout(()=>{
-    clearInterval(scrambleInt);
-    clearInterval(barInt);
-    bar.style.width='100%';
-    bar.classList.add('granted');
-    hashEl.classList.add('granted');
+    clearInterval(scrambleInt);clearInterval(barInt);
+    bar.style.width='100%';bar.classList.add('granted');hashEl.classList.add('granted');
     status.textContent='IDENTITY VERIFIED';
-
-    // character-by-character resolve
-    let revealed='';
-    let idx=0;
+    let revealed='',idx=0;
     resolveInt=setInterval(()=>{
       if(idx>=TARGET.length){
         clearInterval(resolveInt);
-        // fade out after short pause
-        setTimeout(()=>{
-          boot.classList.add('fade-out');
-          setTimeout(()=>{ boot.style.display='none'; },900);
-        },600);
+        setTimeout(()=>{boot.classList.add('fade-out');setTimeout(()=>{boot.style.display='none';},900);},600);
         return;
       }
       revealed+=TARGET[idx];
-      let tail='';
-      for(let i=0;i<TARGET.length-revealed.length;i++) tail+=CHARS[Math.floor(Math.random()*CHARS.length)];
-      hashEl.textContent=revealed+tail;
-      idx++;
+      let tail='';for(let i=0;i<TARGET.length-revealed.length;i++)tail+=CHARS[Math.floor(Math.random()*CHARS.length)];
+      hashEl.textContent=revealed+tail;idx++;
     },60);
   },1400);
 })();
 
-
-/* ══════════════════════════════════════
-   DATA
-══════════════════════════════════════ */
+/* DATA */
 const EXP=[
   {role:"IT Support & Cybersecurity Analyst",company:"SecureLogix",period:"Jan 2024 - Jun 2025",type:"Full-Time",
    tools:["SIEM","Active Directory","MFA","Ticketing Systems","Endpoint Management"],
@@ -837,9 +828,7 @@ const EDU=[
 
 const CERTS=["CompTIA A+","CompTIA Network+","CompTIA Security+","Cisco Certified Support Technician (CCST)","Google Cybersecurity Certificate","ITIL Foundation"];
 
-/* ══════════════════════════════════════
-   RENDER
-══════════════════════════════════════ */
+/* RENDER */
 function renderExp(){
   document.getElementById('exp-container').innerHTML=EXP.map(e=>`
     <div class="exp-item reveal">
@@ -881,27 +870,16 @@ function renderEdu(){
     <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">${c}</span></div>`).join('');
 }
 
-renderExp(); renderSkills(); renderEdu();
+renderExp();renderSkills();renderEdu();
 
-/* ══════════════════════════════════════
-   ACADEMIC NODE GRAPH
-══════════════════════════════════════ */
+/* ACADEMIC NODE GRAPH */
 const AC_NODES=[
-  {
-    icon:'📡',label:'IoT PenTest\nDevice',
-    title:'IoT PenTesting Device',
-    points:['MQTT protocol scanning and enumeration','Hydra brute-force against IoT auth','Nmap-based device discovery','Sensor targeting: temperature, heat sensors','Goal: network access via vulnerable IoT node']
-  },
-  {
-    icon:'🚂',label:'Train System\nResurgo Place',
-    title:'Train System -  Resurgo Place, Moncton NB',
-    points:['4 Raspberry Pi nodes networked together','Joystick-based control interface','Heavy-duty motors and switching logic','Public display installation -  live at Resurgo Place','Full embedded systems + networking integration']
-  },
-  {
-    icon:'🔗',label:'Network\nOverhaul',
-    title:'Network Infrastructure Overhaul',
-    points:['3 routers, 2 switches -  full enterprise layout','EtherChannel (LACP) for link aggregation','VLAN segmentation by department/function','Static + dynamic routing with redundancy','Failover testing and baseline documentation']
-  }
+  {icon:'📡',label:'IoT PenTest\nDevice',title:'IoT PenTesting Device',
+   points:['MQTT protocol scanning and enumeration','Hydra brute-force against IoT auth','Nmap-based device discovery','Sensor targeting: temperature, heat sensors','Goal: network access via vulnerable IoT node']},
+  {icon:'🚂',label:'Train System\nResurgo Place',title:'Train System — Resurgo Place, Moncton NB',
+   points:['4 Raspberry Pi nodes networked together','Joystick-based control interface','Heavy-duty motors and switching logic','Public display installation — live at Resurgo Place','Full embedded systems + networking integration']},
+  {icon:'🔗',label:'Network\nOverhaul',title:'Network Infrastructure Overhaul',
+   points:['3 routers, 2 switches — full enterprise layout','EtherChannel (LACP) for link aggregation','VLAN segmentation by department/function','Static + dynamic routing with redundancy','Failover testing and baseline documentation']}
 ];
 
 function buildAcGraph(){
@@ -911,132 +889,80 @@ function buildAcGraph(){
   const tooltip=document.getElementById('ac-tooltip');
   const ttTitle=document.getElementById('ac-tt-title');
   const ttBody=document.getElementById('ac-tt-body');
+  const positions=[{x:50,y:50},{x:20,y:20},{x:80,y:20},{x:50,y:82}];
 
-  // positions: center hub + 3 nodes
-  const positions=[
-    {x:50,y:50},   // center (hub)
-    {x:20,y:20},   // top-left
-    {x:80,y:20},   // top-right
-    {x:50,y:82}    // bottom-center
-  ];
-
-  // draw SVG lines
   function drawLines(){
-    const W=graph.offsetWidth||600;
-    const H=graph.offsetHeight||280;
+    const W=graph.offsetWidth||600;const H=graph.offsetHeight||260;
     const pts=positions.map(p=>({px:p.x/100*W,py:p.y/100*H}));
     svg.innerHTML='';
-    // lines from center to each node
     for(let i=1;i<4;i++){
       const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-      line.setAttribute('x1',pts[0].px); line.setAttribute('y1',pts[0].py);
-      line.setAttribute('x2',pts[i].px); line.setAttribute('y2',pts[i].py);
-      line.setAttribute('stroke','rgba(74,158,255,0.25)');
-      line.setAttribute('stroke-width','1');
-      line.setAttribute('stroke-dasharray','4 4');
+      line.setAttribute('x1',pts[0].px);line.setAttribute('y1',pts[0].py);
+      line.setAttribute('x2',pts[i].px);line.setAttribute('y2',pts[i].py);
+      line.setAttribute('stroke','rgba(74,158,255,0.25)');line.setAttribute('stroke-width','1');line.setAttribute('stroke-dasharray','4 4');
       svg.appendChild(line);
-      // animated packet dot
       const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      circle.setAttribute('r','3');
-      circle.setAttribute('fill','rgba(0,212,170,0.9)');
+      circle.setAttribute('r','3');circle.setAttribute('fill','rgba(0,212,170,0.9)');
       const anim=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-      anim.setAttribute('dur',(1.8+i*0.4)+'s');
-      anim.setAttribute('repeatCount','indefinite');
-      anim.setAttribute('begin',(i*0.3)+'s');
-      const path=`M${pts[0].px},${pts[0].py} L${pts[i].px},${pts[i].py}`;
-      const mpath=document.createElementNS('http://www.w3.org/2000/svg','mpath');
-      // use direct path
-      anim.setAttribute('path',path);
-      circle.appendChild(anim);
-      svg.appendChild(circle);
+      anim.setAttribute('dur',(1.8+i*0.4)+'s');anim.setAttribute('repeatCount','indefinite');
+      anim.setAttribute('begin',(i*0.3)+'s');anim.setAttribute('path',`M${pts[0].px},${pts[0].py} L${pts[i].px},${pts[i].py}`);
+      circle.appendChild(anim);svg.appendChild(circle);
     }
-    // cross lines between nodes
-    for(let i=1;i<4;i++) for(let j=i+1;j<4;j++){
+    for(let i=1;i<4;i++)for(let j=i+1;j<4;j++){
       const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-      line.setAttribute('x1',pts[i].px); line.setAttribute('y1',pts[i].py);
-      line.setAttribute('x2',pts[j].px); line.setAttribute('y2',pts[j].py);
-      line.setAttribute('stroke','rgba(74,158,255,0.1)');
-      line.setAttribute('stroke-width','0.5');
+      line.setAttribute('x1',pts[i].px);line.setAttribute('y1',pts[i].py);
+      line.setAttribute('x2',pts[j].px);line.setAttribute('y2',pts[j].py);
+      line.setAttribute('stroke','rgba(74,158,255,0.1)');line.setAttribute('stroke-width','0.5');
       svg.appendChild(line);
     }
   }
 
-  // create nodes
-  // center hub node
-  const hub=document.createElement('div');
-  hub.className='ac-node';
-  hub.style.left=positions[0].x+'%';
-  hub.style.top=positions[0].y+'%';
-  hub.innerHTML=`<div class="ac-node-inner"><div style="font-size:1rem;color:var(--blue)">◈</div><div class="ac-node-label" style="color:var(--blue)">Academic\nBuilds</div></div>`;
+  const hub=document.createElement('div');hub.className='ac-node';
+  hub.style.left=positions[0].x+'%';hub.style.top=positions[0].y+'%';
+  hub.innerHTML=`<div class="ac-node-inner"><div style="font-size:1rem;color:var(--blue)">◈</div><div class="ac-node-label" style="color:var(--blue)">Academic<br>Builds</div></div>`;
   graph.appendChild(hub);
 
   AC_NODES.forEach((n,i)=>{
-    const el=document.createElement('div');
-    el.className='ac-node';
-    el.style.left=positions[i+1].x+'%';
-    el.style.top=positions[i+1].y+'%';
-    const lblLines=n.label.split('\n');
-    el.innerHTML=`<div class="ac-node-inner"><div class="ac-node-icon">${n.icon}</div><div class="ac-node-label">${lblLines.join('<br>')}</div></div>`;
-    el.addEventListener('mouseenter',(e)=>{
+    const el=document.createElement('div');el.className='ac-node';
+    el.style.left=positions[i+1].x+'%';el.style.top=positions[i+1].y+'%';
+    el.innerHTML=`<div class="ac-node-inner"><div class="ac-node-icon">${n.icon}</div><div class="ac-node-label">${n.label.split('\n').join('<br>')}</div></div>`;
+    el.addEventListener('mouseenter',()=>{
       ttTitle.textContent=n.title;
       ttBody.innerHTML=n.points.map(p=>`<li>${p}</li>`).join('');
       tooltip.classList.add('show');
-      // position tooltip
-      const rect=card.getBoundingClientRect();
-      const eRect=el.getBoundingClientRect();
-      let left=(eRect.left-rect.left+40);
-      let top=(eRect.top-rect.top-10);
-      if(left+220>card.offsetWidth) left=left-240;
-      if(top<0) top=0;
-      tooltip.style.left=left+'px';
-      tooltip.style.top=top+'px';
+      const eRect=el.getBoundingClientRect();const cRect=card.getBoundingClientRect();
+      let left=(eRect.left-cRect.left+44);let top=(eRect.top-cRect.top-10);
+      if(left+220>card.offsetWidth)left=left-240;if(top<0)top=0;
+      tooltip.style.left=left+'px';tooltip.style.top=top+'px';
     });
     el.addEventListener('mouseleave',()=>tooltip.classList.remove('show'));
     graph.appendChild(el);
   });
-
   drawLines();
   window.addEventListener('resize',drawLines,{passive:true});
 }
 buildAcGraph();
 
-/* ══════════════════════════════════════
-   NETRAPTOR ECOSYSTEM (PIE CIRCLES)
-══════════════════════════════════════ */
+/* ECOSYSTEM PIE GRAPH */
 const ECO_CLUSTERS=[
-  {
-    label:'Recon\nCluster',
-    color:'rgba(74,158,255,0.85)',
-    darkColor:'rgba(74,158,255,0.15)',
-    tools:[
-      {name:'NetSweep',desc:'Network-wide host discovery and enumeration. Maps live hosts, OS fingerprints, and reachability.'},
-      {name:'PortHawk',desc:'Deep port scanning and service detection. Identifies open ports, banners, and running services.'},
-      {name:'DNSTalon',desc:'DNS monitoring and anomaly detection. Flags suspicious lookups, DGA patterns, and unusual zone transfers.'},
-      {name:'WhoKnocks',desc:'Access probe detection. Monitors authentication attempts and flags abnormal access patterns.'}
-    ]
-  },
-  {
-    label:'Analysis\nCluster',
-    color:'rgba(0,212,170,0.85)',
-    darkColor:'rgba(0,212,170,0.15)',
-    tools:[
-      {name:'PacketStrike',desc:'Deep packet capture and protocol dissection. Reconstructs sessions and identifies anomalous traffic patterns.'},
-      {name:'LogClaw',desc:'Structured log parsing and correlation engine. Normalizes logs from multiple sources for unified analysis.'},
-      {name:'SIEMulate',desc:'SIEM simulation layer. Aggregates events, applies correlation rules, and generates prioritized alerts.'},
-      {name:'SigmaParser',desc:'Sigma rule integration. Parses and evaluates detection rules against collected event data in real time.'}
-    ]
-  },
-  {
-    label:'Response\nCluster',
-    color:'rgba(255,59,59,0.85)',
-    darkColor:'rgba(255,59,59,0.15)',
-    tools:[
-      {name:'ThreatMapper',desc:'Threat correlation and lateral movement visualization. Maps attack paths and identifies blast radius.'},
-      {name:'TalonResponse',desc:'Automated incident response. Executes playbooks, isolates hosts, and logs all response actions.'},
-      {name:'StrikeMap',desc:'Attack timeline reconstruction. Builds chronological event chains from disparate log sources.'},
-      {name:'LogClaw Pro',desc:'Extended log analysis with ML-assisted anomaly scoring. Prioritizes events by threat likelihood.'}
-    ]
-  }
+  {label:'Recon\nCluster',color:'rgba(74,158,255,0.85)',tools:[
+    {name:'NetSweep',desc:'Network-wide host discovery and enumeration. Maps live hosts, OS fingerprints, and reachability.'},
+    {name:'PortHawk',desc:'Deep port scanning and service detection. Identifies open ports, banners, and running services.'},
+    {name:'DNSTalon',desc:'DNS monitoring and anomaly detection. Flags suspicious lookups, DGA patterns, and unusual zone transfers.'},
+    {name:'WhoKnocks',desc:'Access probe detection. Monitors authentication attempts and flags abnormal access patterns.'}
+  ]},
+  {label:'Analysis\nCluster',color:'rgba(0,212,170,0.85)',tools:[
+    {name:'PacketStrike',desc:'Deep packet capture and protocol dissection. Reconstructs sessions and identifies anomalous traffic patterns.'},
+    {name:'LogClaw',desc:'Structured log parsing and correlation engine. Normalizes logs from multiple sources for unified analysis.'},
+    {name:'SIEMulate',desc:'SIEM simulation layer. Aggregates events, applies correlation rules, and generates prioritized alerts.'},
+    {name:'SigmaParser',desc:'Sigma rule integration. Parses and evaluates detection rules against collected event data in real time.'}
+  ]},
+  {label:'Response\nCluster',color:'rgba(255,59,59,0.85)',tools:[
+    {name:'ThreatMapper',desc:'Threat correlation and lateral movement visualization. Maps attack paths and identifies blast radius.'},
+    {name:'TalonResponse',desc:'Automated incident response. Executes playbooks, isolates hosts, and logs all response actions.'},
+    {name:'StrikeMap',desc:'Attack timeline reconstruction. Builds chronological event chains from disparate log sources.'},
+    {name:'LogClaw Pro',desc:'Extended log analysis with ML-assisted anomaly scoring. Prioritizes events by threat likelihood.'}
+  ]}
 ];
 
 function buildEcoGraph(){
@@ -1046,139 +972,75 @@ function buildEcoGraph(){
   const tooltip=document.getElementById('eco-tooltip');
   const ttTitle=document.getElementById('eco-tt-title');
   const ttDesc=document.getElementById('eco-tt-desc');
-
-  // circle positions (% of container)
-  const cpos=[
-    {x:20,y:44},
-    {x:50,y:18},
-    {x:80,y:44}
-  ];
+  const cpos=[{x:20,y:44},{x:50,y:18},{x:80,y:44}];
 
   function drawEcoLines(){
-    const W=graph.offsetWidth||600;
-    const H=graph.offsetHeight||340;
+    const W=graph.offsetWidth||600;const H=graph.offsetHeight||320;
     svg.innerHTML='';
     const pts=cpos.map(p=>({px:p.x/100*W,py:p.y/100*H}));
-
-    // lines between clusters
-    for(let i=0;i<3;i++) for(let j=i+1;j<3;j++){
+    for(let i=0;i<3;i++)for(let j=i+1;j<3;j++){
       const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-      line.setAttribute('x1',pts[i].px); line.setAttribute('y1',pts[i].py);
-      line.setAttribute('x2',pts[j].px); line.setAttribute('y2',pts[j].py);
-      line.setAttribute('stroke','rgba(74,158,255,0.22)');
-      line.setAttribute('stroke-width','1');
-      line.setAttribute('stroke-dasharray','5 5');
+      line.setAttribute('x1',pts[i].px);line.setAttribute('y1',pts[i].py);
+      line.setAttribute('x2',pts[j].px);line.setAttribute('y2',pts[j].py);
+      line.setAttribute('stroke','rgba(74,158,255,0.22)');line.setAttribute('stroke-width','1');line.setAttribute('stroke-dasharray','5 5');
       svg.appendChild(line);
-      // animated packet
       const circ=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      circ.setAttribute('r','2.5');
-      circ.setAttribute('fill',ECO_CLUSTERS[i].color);
+      circ.setAttribute('r','2.5');circ.setAttribute('fill',ECO_CLUSTERS[i].color);
       const anim=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-      anim.setAttribute('dur',(2.2+i*0.5)+'s');
-      anim.setAttribute('repeatCount','indefinite');
+      anim.setAttribute('dur',(2.2+i*0.5)+'s');anim.setAttribute('repeatCount','indefinite');
       anim.setAttribute('path',`M${pts[i].px},${pts[i].py} L${pts[j].px},${pts[j].py}`);
-      circ.appendChild(anim);
-      svg.appendChild(circ);
+      circ.appendChild(anim);svg.appendChild(circ);
     }
   }
 
   ECO_CLUSTERS.forEach((cluster,ci)=>{
-    const wrap=document.createElement('div');
-    wrap.className='eco-circle';
-    wrap.style.left=cpos[ci].x+'%';
-    wrap.style.top=cpos[ci].y+'%';
-
-    // Build pie SVG
+    const wrap=document.createElement('div');wrap.className='eco-circle';
+    wrap.style.left=cpos[ci].x+'%';wrap.style.top=cpos[ci].y+'%';
     const pieSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    pieSvg.setAttribute('viewBox','-1 -1 2 2');
-    pieSvg.setAttribute('width','110');
-    pieSvg.setAttribute('height','110');
-    pieSvg.classList.add('pie');
-    pieSvg.style.display='block';
-
-    // 4 equal pie slices
+    pieSvg.setAttribute('viewBox','-1 -1 2 2');pieSvg.setAttribute('width','110');pieSvg.setAttribute('height','110');
+    pieSvg.classList.add('pie');pieSvg.style.display='block';
     const colors=['rgba(74,158,255,0.7)','rgba(0,212,170,0.6)','rgba(123,140,222,0.65)','rgba(255,59,59,0.55)'];
-    const baseColor=cluster.color;
-
     cluster.tools.forEach((tool,ti)=>{
-      const startAngle=ti*(Math.PI/2)-(Math.PI/2);
-      const endAngle=startAngle+(Math.PI/2);
-      const x1=Math.cos(startAngle)*0.85;
-      const y1=Math.sin(startAngle)*0.85;
-      const x2=Math.cos(endAngle)*0.85;
-      const y2=Math.sin(endAngle)*0.85;
+      const startAngle=ti*(Math.PI/2)-(Math.PI/2);const endAngle=startAngle+(Math.PI/2);
+      const x1=Math.cos(startAngle)*0.85;const y1=Math.sin(startAngle)*0.85;
+      const x2=Math.cos(endAngle)*0.85;const y2=Math.sin(endAngle)*0.85;
       const path=document.createElementNS('http://www.w3.org/2000/svg','path');
-      const d=`M 0 0 L ${x1} ${y1} A 0.85 0.85 0 0 1 ${x2} ${y2} Z`;
-      path.setAttribute('d',d);
-      path.setAttribute('fill',colors[ti]);
-      path.setAttribute('stroke','rgba(8,11,16,0.9)');
-      path.setAttribute('stroke-width','0.04');
-      path.style.cursor='pointer';
-      path.style.transition='opacity 0.2s';
-      path.addEventListener('mouseenter',(e)=>{
-        ttTitle.textContent=tool.name;
-        ttDesc.textContent=tool.desc;
-        tooltip.classList.add('show');
-        const rect=card.getBoundingClientRect();
-        const gRect=graph.getBoundingClientRect();
-        // position near cluster
-        let left=(cpos[ci].x/100*graph.offsetWidth)+60;
-        let top=(cpos[ci].y/100*graph.offsetHeight)-10;
-        if(left+200>graph.offsetWidth) left=left-220;
-        tooltip.style.left=left+'px';
-        tooltip.style.top=top+'px';
+      path.setAttribute('d',`M 0 0 L ${x1} ${y1} A 0.85 0.85 0 0 1 ${x2} ${y2} Z`);
+      path.setAttribute('fill',colors[ti]);path.setAttribute('stroke','rgba(8,11,16,0.9)');path.setAttribute('stroke-width','0.04');
+      path.style.cursor='pointer';path.style.transition='opacity 0.2s';
+      path.addEventListener('mouseenter',()=>{
+        ttTitle.textContent=tool.name;ttDesc.textContent=tool.desc;tooltip.classList.add('show');
+        let left=(cpos[ci].x/100*graph.offsetWidth)+60;let top=(cpos[ci].y/100*graph.offsetHeight)-10;
+        if(left+200>graph.offsetWidth)left=left-220;
+        tooltip.style.left=left+'px';tooltip.style.top=top+'px';
       });
       path.addEventListener('mouseleave',()=>tooltip.classList.remove('show'));
-
-      // tool name text
       const midAngle=startAngle+(Math.PI/4);
-      const tx=Math.cos(midAngle)*0.52;
-      const ty=Math.sin(midAngle)*0.52;
       const text=document.createElementNS('http://www.w3.org/2000/svg','text');
-      text.setAttribute('x',tx);
-      text.setAttribute('y',ty);
-      text.setAttribute('text-anchor','middle');
-      text.setAttribute('dominant-baseline','middle');
-      text.setAttribute('font-size','0.095');
-      text.setAttribute('fill','rgba(232,230,224,0.9)');
-      text.setAttribute('font-family','DM Mono, monospace');
-      text.setAttribute('pointer-events','none');
+      text.setAttribute('x',Math.cos(midAngle)*0.52);text.setAttribute('y',Math.sin(midAngle)*0.52);
+      text.setAttribute('text-anchor','middle');text.setAttribute('dominant-baseline','middle');
+      text.setAttribute('font-size','0.095');text.setAttribute('fill','rgba(232,230,224,0.9)');
+      text.setAttribute('font-family','DM Mono, monospace');text.setAttribute('pointer-events','none');
       text.textContent=tool.name;
-
-      pieSvg.appendChild(path);
-      pieSvg.appendChild(text);
+      pieSvg.appendChild(path);pieSvg.appendChild(text);
     });
-
-    // center circle
     const center=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    center.setAttribute('cx','0'); center.setAttribute('cy','0');
-    center.setAttribute('r','0.25');
-    center.setAttribute('fill','var(--surface2)');
-    center.setAttribute('stroke',cluster.color);
-    center.setAttribute('stroke-width','0.04');
+    center.setAttribute('cx','0');center.setAttribute('cy','0');center.setAttribute('r','0.25');
+    center.setAttribute('fill','var(--surface2)');center.setAttribute('stroke',cluster.color);center.setAttribute('stroke-width','0.04');
     pieSvg.appendChild(center);
-
     wrap.appendChild(pieSvg);
-    const lbl=document.createElement('div');
-    lbl.className='eco-circle-label';
-    lbl.innerHTML=cluster.label.replace('\n','<br>');
-    wrap.appendChild(lbl);
-
+    const lbl=document.createElement('div');lbl.className='eco-circle-label';
+    lbl.innerHTML=cluster.label.replace('\n','<br>');wrap.appendChild(lbl);
     graph.appendChild(wrap);
   });
-
   drawEcoLines();
   window.addEventListener('resize',drawEcoLines,{passive:true});
 }
 buildEcoGraph();
 
-/* ══════════════════════════════════════
-   OBSERVERS
-══════════════════════════════════════ */
+/* OBSERVERS */
 const ro=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);ro.unobserve(e.target)}
-  });
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);ro.unobserve(e.target);}});
 },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
@@ -1192,33 +1054,26 @@ const so=new IntersectionObserver(entries=>{
 },{threshold:0.15});
 document.querySelectorAll('.sg').forEach(g=>so.observe(g));
 
-/* ══════════════════════════════════════
-   NAV
-══════════════════════════════════════ */
+/* NAV */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
-/* ── MOBILE NAV ── */
 const tog=document.getElementById('nav-toggle');
 const ov=document.getElementById('mob-overlay');
 let ovOpen=false;
-function openOv(){ovOpen=true;ov.classList.add('open');tog.classList.add('open');document.body.style.overflow='hidden';startOvCanvas()}
-function closeOv(){ovOpen=false;ov.classList.remove('open');tog.classList.remove('open');document.body.style.overflow='';stopOvCanvas()}
+function openOv(){ovOpen=true;ov.classList.add('open');tog.classList.add('open');document.body.style.overflow='hidden';startOvCanvas();}
+function closeOv(){ovOpen=false;ov.classList.remove('open');tog.classList.remove('open');document.body.style.overflow='';stopOvCanvas();}
 tog.addEventListener('click',()=>ovOpen?closeOv():openOv());
 ov.querySelectorAll('.ol').forEach(a=>a.addEventListener('click',closeOv));
 
-/* ══════════════════════════════════════
-   GLOBE BACKGROUND
-══════════════════════════════════════ */
+/* GLOBE */
 const canvas=document.getElementById('bg-canvas');
 const ctx=canvas.getContext('2d');
 let W,H,mouse={x:0,y:0};
 let rotX=0.28,rotY=0,rotVX=0,rotVY=0.0025;
 const R_BASE=()=>Math.min(W,H)*0.38;
-const GLOBE_NODES=[];
-const ARC_CONNS=[];
-const N_NODES=60;
-const N_ARCS=22;
+const GLOBE_NODES=[],ARC_CONNS=[];
+const N_NODES=60,N_ARCS=22;
 
 function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;}
 
@@ -1226,34 +1081,26 @@ function buildGlobe(){
   GLOBE_NODES.length=0;ARC_CONNS.length=0;
   const phi=Math.PI*(3-Math.sqrt(5));
   for(let i=0;i<N_NODES;i++){
-    const y=1-(i/(N_NODES-1))*2;
-    const r=Math.sqrt(1-y*y);
-    const theta=phi*i;
+    const y=1-(i/(N_NODES-1))*2;const r=Math.sqrt(1-y*y);const theta=phi*i;
     GLOBE_NODES.push({lat:Math.asin(y),lon:theta%(Math.PI*2),size:Math.random()<0.14?3.2:Math.random()*1.6+0.6,hub:Math.random()<0.14,phase:Math.random()*Math.PI*2,col:Math.random()<0.3?'teal':'blue'});
   }
   for(let i=0;i<N_ARCS;i++){
-    const a=Math.floor(Math.random()*N_NODES);
-    let b=Math.floor(Math.random()*N_NODES);
+    const a=Math.floor(Math.random()*N_NODES);let b=Math.floor(Math.random()*N_NODES);
     while(b===a)b=Math.floor(Math.random()*N_NODES);
     ARC_CONNS.push({a,b,phase:Math.random()*Math.PI*2,speed:0.25+Math.random()*0.4});
   }
 }
 
 function project(lat,lon,R){
-  const x0=Math.cos(lat)*Math.sin(lon);
-  const y0=Math.sin(lat);
-  const z0=Math.cos(lat)*Math.cos(lon);
-  const x1=x0*Math.cos(rotY)+z0*Math.sin(rotY);
-  const z1=-x0*Math.sin(rotY)+z0*Math.cos(rotY);
-  const y2=y0*Math.cos(rotX)-z1*Math.sin(rotX);
-  const z2=y0*Math.sin(rotX)+z1*Math.cos(rotX);
+  const x0=Math.cos(lat)*Math.sin(lon),y0=Math.sin(lat),z0=Math.cos(lat)*Math.cos(lon);
+  const x1=x0*Math.cos(rotY)+z0*Math.sin(rotY),z1=-x0*Math.sin(rotY)+z0*Math.cos(rotY);
+  const y2=y0*Math.cos(rotX)-z1*Math.sin(rotX),z2=y0*Math.sin(rotX)+z1*Math.cos(rotX);
   return{sx:W/2+x1*R,sy:H/2-y2*R,z:z2};
 }
 
 function drawGlobe(t){
   ctx.clearRect(0,0,W,H);
-  const R=R_BASE();
-  const cx=W/2,cy=H/2;
+  const R=R_BASE(),cx=W/2,cy=H/2;
   const atm2=ctx.createRadialGradient(cx,cy,R*0.85,cx,cy,R*1.35);
   atm2.addColorStop(0,'rgba(74,158,255,0.0)');atm2.addColorStop(0.5,'rgba(74,158,255,0.04)');atm2.addColorStop(1,'rgba(74,158,255,0.0)');
   ctx.beginPath();ctx.arc(cx,cy,R*1.35,0,Math.PI*2);ctx.fillStyle=atm2;ctx.fill();
@@ -1265,7 +1112,7 @@ function drawGlobe(t){
     const latr=lat*Math.PI/180;ctx.beginPath();let first=true;
     for(let lon=0;lon<=362;lon+=2){
       const p=project(latr,lon*Math.PI/180,R);
-      if(p.z>-0.08){if(first){ctx.moveTo(p.sx,p.sy);first=false}else ctx.lineTo(p.sx,p.sy);}
+      if(p.z>-0.08){if(first){ctx.moveTo(p.sx,p.sy);first=false;}else ctx.lineTo(p.sx,p.sy);}
       else{if(!first){ctx.strokeStyle='rgba(74,158,255,0.18)';ctx.lineWidth=0.4;ctx.stroke();ctx.beginPath();first=true;}}
     }
     ctx.strokeStyle='rgba(74,158,255,0.18)';ctx.lineWidth=0.4;ctx.stroke();
@@ -1274,7 +1121,7 @@ function drawGlobe(t){
     const lonr=lon*Math.PI/180;ctx.beginPath();let first=true;
     for(let lat=-88;lat<=88;lat+=2){
       const p=project(lat*Math.PI/180,lonr,R);
-      if(p.z>-0.05){if(first){ctx.moveTo(p.sx,p.sy);first=false}else ctx.lineTo(p.sx,p.sy);}
+      if(p.z>-0.05){if(first){ctx.moveTo(p.sx,p.sy);first=false;}else ctx.lineTo(p.sx,p.sy);}
       else{if(!first){ctx.strokeStyle='rgba(74,158,255,0.12)';ctx.lineWidth=0.35;ctx.stroke();ctx.beginPath();first=true;}}
     }
     ctx.strokeStyle='rgba(74,158,255,0.12)';ctx.lineWidth=0.35;ctx.stroke();
@@ -1282,7 +1129,7 @@ function drawGlobe(t){
   ctx.beginPath();let feq=true;
   for(let lon=0;lon<=362;lon+=2){
     const p=project(0,lon*Math.PI/180,R);
-    if(p.z>0){if(feq){ctx.moveTo(p.sx,p.sy);feq=false}else ctx.lineTo(p.sx,p.sy);}
+    if(p.z>0){if(feq){ctx.moveTo(p.sx,p.sy);feq=false;}else ctx.lineTo(p.sx,p.sy);}
     else{if(!feq){ctx.strokeStyle='rgba(74,158,255,0.35)';ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();feq=true;}}
   }
   ctx.strokeStyle='rgba(74,158,255,0.35)';ctx.lineWidth=0.7;ctx.stroke();
@@ -1291,11 +1138,8 @@ function drawGlobe(t){
     const pa=proj[arc.a],pb=proj[arc.b];
     if(pa.z<-0.1&&pb.z<-0.1)return;
     const mx=(pa.sx+pb.sx)/2,my=(pa.sy+pb.sy)/2;
-    const dist=Math.hypot(pb.sx-pa.sx,pb.sy-pa.sy);
-    if(dist<10)return;
-    const bulge=dist*0.1;
-    const nx=-(pb.sy-pa.sy)/dist*bulge;
-    const ny=(pb.sx-pa.sx)/dist*bulge;
+    const dist=Math.hypot(pb.sx-pa.sx,pb.sy-pa.sy);if(dist<10)return;
+    const bulge=dist*0.1;const nx=-(pb.sy-pa.sy)/dist*bulge;const ny=(pb.sx-pa.sx)/dist*bulge;
     ctx.beginPath();ctx.moveTo(pa.sx,pa.sy);ctx.quadraticCurveTo(mx+nx,my+ny,pb.sx,pb.sy);
     ctx.strokeStyle='rgba(0,212,170,0.3)';ctx.lineWidth=0.7;ctx.stroke();
     const sp=((t*arc.speed+arc.phase)%1);
@@ -1314,37 +1158,32 @@ function drawGlobe(t){
   });
   proj.sort((a,b)=>a.z-b.z).forEach(p=>{
     if(p.z<-0.18)return;
-    const alpha=Math.max(0,(p.z+0.18)/1.18)*0.85;
-    const n=p.node;
-    const pulse=0.5+Math.sin(t*1.6+n.phase)*0.38;
-    const r=n.size*(0.65+alpha*0.35);
+    const alpha=Math.max(0,(p.z+0.18)/1.18)*0.85;const n=p.node;
+    const pulse=0.5+Math.sin(t*1.6+n.phase)*0.38;const r=n.size*(0.65+alpha*0.35);
     if(n.hub){
       ctx.beginPath();ctx.arc(p.sx,p.sy,r+6,0,Math.PI*2);ctx.fillStyle=`rgba(74,158,255,${alpha*0.06})`;ctx.fill();
       ctx.beginPath();ctx.arc(p.sx,p.sy,r+3,0,Math.PI*2);ctx.fillStyle=`rgba(74,158,255,${alpha*0.12})`;ctx.fill();
       ctx.beginPath();ctx.arc(p.sx,p.sy,r+3,0,Math.PI*2);ctx.strokeStyle=`rgba(74,158,255,${alpha*0.3})`;ctx.lineWidth=0.5;ctx.stroke();
     }
     ctx.beginPath();ctx.arc(p.sx,p.sy,r,0,Math.PI*2);
-    ctx.fillStyle=n.col==='teal'?`rgba(0,212,170,${alpha*pulse})`:`rgba(74,158,255,${alpha*pulse*0.9})`;
-    ctx.fill();
+    ctx.fillStyle=n.col==='teal'?`rgba(0,212,170,${alpha*pulse})`:`rgba(74,158,255,${alpha*pulse*0.9})`;ctx.fill();
   });
 }
 
 function loop(ts){
   const t=ts*0.001;
-  const tx=(mouse.y/H-0.5)*0.55;
-  const ty=(mouse.x/W-0.5)*1.1+0.0018;
+  const tx=(mouse.y/H-0.5)*0.55,ty=(mouse.x/W-0.5)*1.1+0.0018;
   rotVX+=(tx-rotX)*0.0025;rotX+=rotVX;rotVX*=0.90;
   rotVY+=(ty-rotY)*0.0008;rotY+=rotVY;rotVY*=0.97;
-  drawGlobe(t);
-  requestAnimationFrame(loop);
+  drawGlobe(t);requestAnimationFrame(loop);
 }
 
-window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
-window.addEventListener('touchmove',e=>{mouse.x=e.touches[0].clientX;mouse.y=e.touches[0].clientY},{passive:true});
-window.addEventListener('resize',()=>{resize();buildGlobe()},{passive:true});
+window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+window.addEventListener('touchmove',e=>{mouse.x=e.touches[0].clientX;mouse.y=e.touches[0].clientY;},{passive:true});
+window.addEventListener('resize',()=>{resize();buildGlobe();},{passive:true});
 resize();buildGlobe();requestAnimationFrame(loop);
 
-/* ── OVERLAY CANVAS ── */
+/* OVERLAY CANVAS */
 const ovc=document.getElementById('ov-canvas');
 const ovx=ovc.getContext('2d');
 let oN=[],oRaf=null,oRun=false;
@@ -1354,16 +1193,16 @@ function startOvCanvas(){
   oN=Array.from({length:60},()=>({x:Math.random()*ovc.width,y:Math.random()*ovc.height,tx:cx+(Math.random()-0.5)*160,ty:cy+(Math.random()-0.5)*160,r:Math.random()*2+0.8,p:Math.random()*Math.PI*2}));
   drawOv();
 }
-function stopOvCanvas(){oRun=false;cancelAnimationFrame(oRaf)}
+function stopOvCanvas(){oRun=false;cancelAnimationFrame(oRaf);}
 function drawOv(){
   if(!oRun)return;
   ovx.clearRect(0,0,ovc.width,ovc.height);
-  oN.forEach(n=>{n.x+=(n.tx-n.x)*0.045;n.y+=(n.ty-n.y)*0.045;n.p+=0.022});
+  oN.forEach(n=>{n.x+=(n.tx-n.x)*0.045;n.y+=(n.ty-n.y)*0.045;n.p+=0.022;});
   for(let i=0;i<oN.length;i++)for(let j=i+1;j<oN.length;j++){
     const a=oN[i],b=oN[j];const d=Math.hypot(b.x-a.x,b.y-a.y);
-    if(d<110){ovx.beginPath();ovx.moveTo(a.x,a.y);ovx.lineTo(b.x,b.y);ovx.strokeStyle=`rgba(74,158,255,${(1-d/110)*0.4})`;ovx.lineWidth=0.5;ovx.stroke()}
+    if(d<110){ovx.beginPath();ovx.moveTo(a.x,a.y);ovx.lineTo(b.x,b.y);ovx.strokeStyle=`rgba(74,158,255,${(1-d/110)*0.4})`;ovx.lineWidth=0.5;ovx.stroke();}
   }
-  oN.forEach(n=>{const g=0.6+Math.sin(n.p)*0.3;ovx.beginPath();ovx.arc(n.x,n.y,n.r,0,Math.PI*2);ovx.fillStyle=`rgba(0,212,170,${g})`;ovx.fill()});
+  oN.forEach(n=>{const g=0.6+Math.sin(n.p)*0.3;ovx.beginPath();ovx.arc(n.x,n.y,n.r,0,Math.PI*2);ovx.fillStyle=`rgba(0,212,170,${g})`;ovx.fill();});
   oRaf=requestAnimationFrame(drawOv);
 }
 </script>
