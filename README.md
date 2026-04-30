@@ -201,7 +201,8 @@ End-to-end hardware, software, and network support for small businesses and home
 
 If you need someone who thinks in systems and stays in the room when things get hard, reach out.
 
-[rayyanxumair@gmail.com](mailto:rayyanxumair@gmail.com) &nbsp;·&nbsp; [linkedin.com/in/rayyanumair](https://www.linkedin.com/in/rayyanumair/) &nbsp;·&nbsp; [rayyan-umair.github.io](https://rayyan-umair.github.io/)
+[rayyanxumair@gmail.com](mailto:rayyanxumair@gmail.com) &nbsp;·&nbsp; [linkedin.com/in/rayyanumair](https://www.linkedin.com/in/rayyanumair/) &nbsp;·&nbsp; 
+[rayyan-umair.github.io](https://rayyan-umair.github.io/)
 
 <br/>
 
