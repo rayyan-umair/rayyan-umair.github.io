@@ -296,23 +296,23 @@
     .ecosystem-card:hover .eco-circle:nth-child(2) svg.pie{transition-delay:0.18s}
     .ecosystem-card:hover .eco-circle:nth-child(3) svg.pie{transition-delay:0.28s}
     .eco-circle-label{font-family:var(--fm);font-size:0.58rem;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:0.07em;position:absolute;white-space:nowrap;left:50%;transform:translateX(-50%);top:118px}
-    .eco-tooltip{position:fixed;background:rgba(8,11,16,0.97);border:1px solid var(--border2);border-radius:5px;padding:0.9rem 1.1rem;width:200px;z-index:200;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(12px)}
-    .eco-tooltip.show{opacity:1}
+    .eco-tooltip{position:fixed;background:rgba(8,11,16,0.97);border:1px solid var(--border2);border-radius:5px;padding:0.9rem 1.1rem;width:200px;z-index:9999;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(12px)}    .eco-tooltip.show{opacity:1}
     .eco-tooltip-title{font-family:var(--fh);font-weight:600;font-size:0.82rem;color:var(--blue);margin-bottom:0.4rem}
     .eco-tooltip-desc{font-family:var(--fm);font-size:0.7rem;color:var(--muted);line-height:1.55}
 
     @media(max-width:920px){
-      .eco-graph{height:260px}
-      .eco-circle svg.pie{width:80px;height:80px}
+      .eco-graph{height:240px}
+      .eco-circle svg.pie{width:80px!important;height:80px!important;overflow:visible}
       .eco-circle-label{font-size:0.5rem;top:88px}
       .eco-tooltip{width:min(85vw,280px);font-size:0.8rem}
     }
     @media(max-width:480px){
-      .eco-graph{height:200px}
-      .eco-circle svg.pie{width:64px;height:64px}
-      .eco-circle-label{font-size:0.45rem;top:72px}
+      .eco-graph{height:190px}
+      .eco-circle svg.pie{width:60px!important;height:60px!important;overflow:visible}
+      .eco-circle-label{font-size:0.45rem;top:68px}
     }
-    /* Portfolio self-card */
+
+        /* Portfolio self-card */
     .portfolio-self-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:hidden;transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s}
     .portfolio-self-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 0.42s cubic-bezier(0.4,0,0.2,1)}
     .portfolio-self-card:hover{border-color:rgba(0,212,170,0.3);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.45)}
@@ -1027,8 +1027,10 @@ function buildEcoGraph(){
 
     const pieSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');
     pieSvg.setAttribute('viewBox','-1 -1 2 2');
-    pieSvg.setAttribute('width','110');
-    pieSvg.setAttribute('height','110');
+    pieSvg.setAttribute('width','100%');
+    pieSvg.setAttribute('height','100%');
+    pieSvg.style.width='110px';
+    pieSvg.style.height='110px';
     pieSvg.classList.add('pie');
 
     cluster.tools.forEach((tool,ti)=>{
