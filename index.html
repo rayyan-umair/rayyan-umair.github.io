@@ -900,7 +900,7 @@ function buildAcGraph(){
   const tooltip=document.getElementById('ac-tooltip');
   const ttTitle=document.getElementById('ac-tt-title');
   const ttBody=document.getElementById('ac-tt-body');
-  const positions=[{x:50,y:50},{x:15,y:15},{x:85,y:15},{x:50,y:88}];
+  const positions=[{x:50,y:42},{x:15,y:15},{x:85,y:15},{x:50,y:92}];
 
   function drawLines(){
     const W=graph.offsetWidth||600;const H=graph.offsetHeight||260;
@@ -1076,14 +1076,15 @@ function buildEcoGraph(){
 
       const midAngle=startAngle+(Math.PI/4);
       const text=document.createElementNS('http://www.w3.org/2000/svg','text');
-      text.setAttribute('x',Math.cos(midAngle)*0.52);
-      text.setAttribute('y',Math.sin(midAngle)*0.52);
+      text.setAttribute('x',Math.cos(midAngle)*0.48);
+      text.setAttribute('y',Math.sin(midAngle)*0.48);
       text.setAttribute('text-anchor','middle');
       text.setAttribute('dominant-baseline','middle');
-      text.setAttribute('font-size','0.095');
-      text.setAttribute('fill','rgba(232,230,224,0.9)');
+      text.setAttribute('font-size','0.11');
+      text.setAttribute('fill','rgba(232,230,224,0.95)');
       text.setAttribute('font-family','DM Mono, monospace');
       text.setAttribute('pointer-events','none');
+      text.setAttribute('font-weight','500');
       text.textContent=tool.name;
 
       pieSvg.appendChild(path);
