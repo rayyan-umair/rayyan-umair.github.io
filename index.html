@@ -9,6 +9,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
+
+        /* Cross-browser compatibility */
+    .eco-tooltip{
+      -webkit-backdrop-filter:blur(12px);
+      backdrop-filter:blur(12px);
+    }
+    .ac-tooltip{
+      -webkit-backdrop-filter:blur(12px);
+      backdrop-filter:blur(12px);
+    }
+    /* Safari: fix animateMotion fallback — hide SVG dots on Safari if they freeze */
+    @supports not (animation-timeline:scroll()){
+      /* intentionally empty — feature detection only */
+    }
+    /* Brave/Firefox: ensure canvas crisp rendering */
+    canvas{image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
+
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --bg:#080b10;--surface:#0f1320;--surface2:#161b2e;
@@ -290,8 +307,11 @@
     .ecosystem-card:hover .eco-graph{opacity:1;transform:translateY(0);pointer-events:all}
     .eco-graph svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
     .eco-circle{position:absolute;transform:translateX(-50%) translateY(-50%);cursor:pointer}
-    .eco-circle svg.pie{display:block;transform:scale(0);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
-    .ecosystem-card:hover .eco-circle svg.pie{transform:scale(1)}
+    .eco-circle canvas.pie{display:block;transform:scale(0);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+    .ecosystem-card:hover .eco-circle canvas.pie{transform:scale(1)}
+    .ecosystem-card:hover .eco-circle:nth-child(1) canvas.pie{transition-delay:0.08s}
+    .ecosystem-card:hover .eco-circle:nth-child(2) canvas.pie{transition-delay:0.18s}
+    .ecosystem-card:hover .eco-circle:nth-child(3) canvas.pie{transition-delay:0.28s}
     .ecosystem-card:hover .eco-circle:nth-child(1) svg.pie{transition-delay:0.08s}
     .ecosystem-card:hover .eco-circle:nth-child(2) svg.pie{transition-delay:0.18s}
     .ecosystem-card:hover .eco-circle:nth-child(3) svg.pie{transition-delay:0.28s}
@@ -983,8 +1003,6 @@ function buildEcoGraph(){
   const tooltip=document.getElementById('eco-tooltip');
   const ttTitle=document.getElementById('eco-tt-title');
   const ttDesc=document.getElementById('eco-tt-desc');
-
-  /* Triangle positions — same on all screen sizes, just scaled by graph box */
   const cpos=[{x:20,y:55},{x:50,y:18},{x:80,y:55}];
 
   function drawEcoLines(){
@@ -1011,114 +1029,154 @@ function buildEcoGraph(){
     const TW=200,TH=100,PAD=14;
     let x=e.clientX+PAD;
     let y=e.clientY+PAD;
-    if(x+TW>window.innerWidth-PAD) x=e.clientX-TW-PAD;
-    if(y+TH>window.innerHeight-PAD) y=e.clientY-TH-PAD;
+    if(x+TW>window.innerWidth-PAD)x=e.clientX-TW-PAD;
+    if(y+TH>window.innerHeight-PAD)y=e.clientY-TH-PAD;
     tooltip.style.left=x+'px';
     tooltip.style.top=y+'px';
   }
 
-  const colors=['rgba(74,158,255,0.7)','rgba(0,212,170,0.6)','rgba(123,140,222,0.65)','rgba(255,59,59,0.55)'];
+  const sliceColors=['rgba(74,158,255,0.75)','rgba(0,212,170,0.65)','rgba(123,140,222,0.7)','rgba(255,59,59,0.6)'];
 
   ECO_CLUSTERS.forEach((cluster,ci)=>{
     const wrap=document.createElement('div');
     wrap.className='eco-circle';
-    wrap.style.left=cpos[ci].x+'%';
-    wrap.style.top=cpos[ci].y+'%';
+    wrap.style.cssText=`left:${cpos[ci].x}%;top:${cpos[ci].y}%;overflow:visible;`;
 
-    const pieSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    pieSvg.setAttribute('viewBox','-1 -1 2 2');
-    pieSvg.setAttribute('width','100%');
-    pieSvg.setAttribute('height','100%');
-    pieSvg.style.width='110px';
-    pieSvg.style.height='110px';
-    pieSvg.classList.add('pie');
+    /* Build one canvas per pie — avoids all SVG text/clip issues on Safari/Brave */
+    const SIZE=110;
+    const canvas=document.createElement('canvas');
+    canvas.width=SIZE*2;  /* 2x for retina */
+    canvas.height=SIZE*2;
+    canvas.style.cssText=`width:${SIZE}px;height:${SIZE}px;display:block;cursor:pointer;`;
+    canvas.classList.add('pie');
 
-    cluster.tools.forEach((tool,ti)=>{
-      const startAngle=ti*(Math.PI/2)-(Math.PI/2);
-      const endAngle=startAngle+(Math.PI/2);
-      const x1=Math.cos(startAngle)*0.85;const y1=Math.sin(startAngle)*0.85;
-      const x2=Math.cos(endAngle)*0.85;const y2=Math.sin(endAngle)*0.85;
+    const cx2=SIZE,cy2=SIZE,r=SIZE*0.85,innerR=SIZE*0.25;
+    const c=canvas.getContext('2d');
 
-      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
-      path.setAttribute('d',`M 0 0 L ${x1} ${y1} A 0.85 0.85 0 0 1 ${x2} ${y2} Z`);
-      path.setAttribute('fill',colors[ti]);
-      path.setAttribute('stroke','rgba(8,11,16,0.9)');
-      path.setAttribute('stroke-width','0.04');
-      path.style.cursor='pointer';
-      path.style.transition='opacity 0.15s';
+    function drawPie(highlightSlice=-1){
+      c.clearRect(0,0,SIZE*2,SIZE*2);
+      cluster.tools.forEach((tool,ti)=>{
+        const start=ti*(Math.PI/2)-(Math.PI/2);
+        const end=start+(Math.PI/2);
+        c.beginPath();
+        c.moveTo(cx2,cy2);
+        c.arc(cx2,cy2,r,start,end);
+        c.closePath();
+        c.fillStyle=ti===highlightSlice
+          ? sliceColors[ti].replace(/[\d.]+\)$/,'1)')
+          : sliceColors[ti];
+        c.fill();
+        c.strokeStyle='rgba(8,11,16,0.9)';
+        c.lineWidth=2;
+        c.stroke();
 
-      path.addEventListener('mouseenter',(e)=>{
-        path.style.opacity='0.7';
-        ttTitle.textContent=tool.name;
-        ttDesc.textContent=tool.desc;
+        /* Tool name text — drawn directly on canvas, works everywhere */
+        const mid=start+(Math.PI/4);
+        const tx=cx2+Math.cos(mid)*r*0.58;
+        const ty=cy2+Math.sin(mid)*r*0.58;
+        c.save();
+        c.font='bold 11px "DM Mono", monospace';
+        c.fillStyle='rgba(255,255,255,0.95)';
+        c.textAlign='center';
+        c.textBaseline='middle';
+        /* Word wrap: split on capital letters for long names */
+        const words=tool.name.replace(/([A-Z])/g,' $1').trim().split(' ');
+        if(words.length<=2||tool.name.length<=8){
+          c.fillText(tool.name,tx,ty);
+        } else {
+          /* Two lines */
+          const half=Math.ceil(words.length/2);
+          const line1=words.slice(0,half).join('');
+          const line2=words.slice(half).join('');
+          c.fillText(line1,tx,ty-7);
+          c.fillText(line2,tx,ty+7);
+        }
+        c.restore();
+      });
+
+      /* Center circle */
+      c.beginPath();
+      c.arc(cx2,cy2,innerR,0,Math.PI*2);
+      c.fillStyle='#161b2e';
+      c.fill();
+      c.strokeStyle=cluster.color;
+      c.lineWidth=2;
+      c.stroke();
+    }
+
+    drawPie();
+
+    /* Interaction: figure out which slice was hit */
+    function getSlice(e){
+      const rect=canvas.getBoundingClientRect();
+      const clientX=e.touches?e.touches[0].clientX:e.clientX;
+      const clientY=e.touches?e.touches[0].clientY:e.clientY;
+      const mx=(clientX-rect.left)*(SIZE*2/rect.width)-SIZE;
+      const my=(clientY-rect.top)*(SIZE*2/rect.height)-SIZE;
+      const dist=Math.hypot(mx,my);
+      if(dist<innerR||dist>r)return -1;
+      let angle=Math.atan2(my,mx)+(Math.PI/2);
+      if(angle<0)angle+=Math.PI*2;
+      return Math.floor(angle/(Math.PI/2))%4;
+    }
+
+    canvas.addEventListener('mousemove',(e)=>{
+      const si=getSlice(e);
+      drawPie(si);
+      if(si>=0){
+        ttTitle.textContent=cluster.tools[si].name;
+        ttDesc.textContent=cluster.tools[si].desc;
         tooltip.classList.add('show');
         positionTooltip(e);
-      });
-      path.addEventListener('mousemove',(e)=>positionTooltip(e));
-      path.addEventListener('mouseleave',()=>{
-        path.style.opacity='1';
+        canvas.style.cursor='pointer';
+      } else {
         tooltip.classList.remove('show');
-      });
-
-      /* Touch: tap to show, tap elsewhere to hide */
-      path.addEventListener('touchend',(e)=>{
-        e.preventDefault();
-        const already=ttTitle.textContent===tool.name&&tooltip.classList.contains('show');
-        tooltip.classList.remove('show');
-        if(!already){
-          ttTitle.textContent=tool.name;
-          ttDesc.textContent=tool.desc;
-          /* Position tooltip near top of card so it doesn't go off screen */
-          const cardRect=card.getBoundingClientRect();
-          tooltip.style.left=Math.max(8,cardRect.left+8)+'px';
-          tooltip.style.top=Math.max(8,cardRect.top+8)+'px';
-          tooltip.classList.add('show');
-        }
-      },{passive:false});
-
-      const midAngle=startAngle+(Math.PI/4);
-      const text=document.createElementNS('http://www.w3.org/2000/svg','text');
-      text.setAttribute('x',Math.cos(midAngle)*0.48);
-      text.setAttribute('y',Math.sin(midAngle)*0.48);
-      text.setAttribute('text-anchor','middle');
-      text.setAttribute('dominant-baseline','middle');
-      text.setAttribute('font-size','0.11');
-      text.setAttribute('fill','rgba(232,230,224,0.95)');
-      text.setAttribute('font-family','DM Mono, monospace');
-      text.setAttribute('pointer-events','none');
-      text.setAttribute('font-weight','500');
-      text.textContent=tool.name;
-
-      pieSvg.appendChild(path);
-      pieSvg.appendChild(text);
+        canvas.style.cursor='default';
+      }
+    });
+    canvas.addEventListener('mouseleave',()=>{
+      drawPie();
+      tooltip.classList.remove('show');
     });
 
-    const center=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    center.setAttribute('cx','0');center.setAttribute('cy','0');center.setAttribute('r','0.25');
-    center.setAttribute('fill','var(--surface2)');
-    center.setAttribute('stroke',cluster.color);
-    center.setAttribute('stroke-width','0.04');
-    pieSvg.appendChild(center);
-    wrap.appendChild(pieSvg);
+    /* Touch */
+    let lastTouchSlice=-1;
+    canvas.addEventListener('touchend',(e)=>{
+      e.preventDefault();
+      const si=getSlice(e.changedTouches[0]?{clientX:e.changedTouches[0].clientX,clientY:e.changedTouches[0].clientY}:e);
+      if(si<0){tooltip.classList.remove('show');lastTouchSlice=-1;return;}
+      if(si===lastTouchSlice&&tooltip.classList.contains('show')){
+        tooltip.classList.remove('show');lastTouchSlice=-1;return;
+      }
+      lastTouchSlice=si;
+      ttTitle.textContent=cluster.tools[si].name;
+      ttDesc.textContent=cluster.tools[si].desc;
+      const cardRect=card.getBoundingClientRect();
+      const tipX=Math.min(window.innerWidth-210,Math.max(8,cardRect.left+8));
+      const tipY=Math.max(8,cardRect.top+8);
+      tooltip.style.left=tipX+'px';
+      tooltip.style.top=tipY+'px';
+      tooltip.classList.add('show');
+    },{passive:false});
+
+    wrap.appendChild(canvas);
 
     const lbl=document.createElement('div');
     lbl.className='eco-circle-label';
     lbl.innerHTML=cluster.label.replace('\n','<br>');
     wrap.appendChild(lbl);
-
     graph.appendChild(wrap);
   });
 
-  /* Dismiss tooltip on outside tap */
+  /* Trigger drawPie after scale-in animation completes */
   document.addEventListener('touchend',(e)=>{
-    if(!e.target.closest('#eco-card')) tooltip.classList.remove('show');
+    if(!e.target.closest('#eco-card'))tooltip.classList.remove('show');
   },{passive:true});
 
   drawEcoLines();
-  window.addEventListener('resize',()=>{drawEcoLines();},{passive:true});
+  window.addEventListener('resize',drawEcoLines,{passive:true});
 }
 buildEcoGraph();
-
 /* OBSERVERS */
 const ro=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);ro.unobserve(e.target);}});
