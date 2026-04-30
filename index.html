@@ -289,13 +289,13 @@
     .eco-graph{position:relative;width:100%;height:320px;margin-top:1rem;opacity:0;transform:translateY(12px);transition:opacity 0.45s,transform 0.45s;pointer-events:none}
     .ecosystem-card:hover .eco-graph{opacity:1;transform:translateY(0);pointer-events:all}
     .eco-graph svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-    .eco-circle{position:absolute;transform:translateX(-50%) translateY(-50%);cursor:pointer}
-    .eco-circle svg.pie{width:110px;height:110px;transform:scale(0);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+    .eco-circle{position:absolute;transform:translateX(-50%) translateY(-50%);cursor:pointer;display:flex;flex-direction:column;align-items:center;transform-origin:top left}
+    .eco-circle svg.pie{width:90px;height:90px;transform:scale(0);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);display:block;flex-shrink:0}
     .ecosystem-card:hover .eco-circle svg.pie{transform:scale(1)}
     .ecosystem-card:hover .eco-circle:nth-child(1) svg.pie{transition-delay:0.08s}
     .ecosystem-card:hover .eco-circle:nth-child(2) svg.pie{transition-delay:0.18s}
     .ecosystem-card:hover .eco-circle:nth-child(3) svg.pie{transition-delay:0.28s}
-    .eco-circle-label{font-family:var(--fm);font-size:0.58rem;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:0.07em;margin-top:0.3rem;position:absolute;top:110px;left:50%;transform:translateX(-50%);white-space:nowrap}
+    .eco-circle-label{font-family:var(--fm);font-size:0.55rem;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:0.07em;margin-top:6px;white-space:nowrap;position:relative;z-index:2}
     .eco-tooltip{position:absolute;background:rgba(8,11,16,0.97);border:1px solid var(--border2);border-radius:5px;padding:0.9rem 1.1rem;width:200px;z-index:20;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(12px)}
     .eco-tooltip.show{opacity:1}
     .eco-tooltip-title{font-family:var(--fh);font-weight:600;font-size:0.82rem;color:var(--blue);margin-bottom:0.4rem}
@@ -392,6 +392,7 @@
       /* Hero stats: wrap gracefully, hide dividers */
       .hero-stats{flex-wrap:wrap;gap:1.2rem}
       .sr{display:none}
+      .eco-graph{height:200px}
     }
   </style>
 </head>
@@ -972,7 +973,7 @@ function buildEcoGraph(){
   const tooltip=document.getElementById('eco-tooltip');
   const ttTitle=document.getElementById('eco-tt-title');
   const ttDesc=document.getElementById('eco-tt-desc');
-  const cpos=[{x:20,y:44},{x:50,y:18},{x:80,y:44}];
+  const cpos=[{x:20,y:48},{x:50,y:22},{x:80,y:48}];
 
   function drawEcoLines(){
     const W=graph.offsetWidth||600;const H=graph.offsetHeight||320;
@@ -997,7 +998,7 @@ function buildEcoGraph(){
     const wrap=document.createElement('div');wrap.className='eco-circle';
     wrap.style.left=cpos[ci].x+'%';wrap.style.top=cpos[ci].y+'%';
     const pieSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    pieSvg.setAttribute('viewBox','-1 -1 2 2');pieSvg.setAttribute('width','110');pieSvg.setAttribute('height','110');
+    pieSvg.setAttribute('viewBox','-1 -1 2 2');const pieSize=graph.offsetWidth<400?80:110;pieSvg.setAttribute('width',pieSize);pieSvg.setAttribute('height',pieSize);
     pieSvg.classList.add('pie');pieSvg.style.display='block';
     const colors=['rgba(74,158,255,0.7)','rgba(0,212,170,0.6)','rgba(123,140,222,0.65)','rgba(255,59,59,0.55)'];
     cluster.tools.forEach((tool,ti)=>{
@@ -1010,8 +1011,13 @@ function buildEcoGraph(){
       path.style.cursor='pointer';path.style.transition='opacity 0.2s';
       path.addEventListener('mouseenter',()=>{
         ttTitle.textContent=tool.name;ttDesc.textContent=tool.desc;tooltip.classList.add('show');
-        let left=(cpos[ci].x/100*graph.offsetWidth)+60;let top=(cpos[ci].y/100*graph.offsetHeight)-10;
-        if(left+200>graph.offsetWidth)left=left-220;
+        const tipW=180;const tipH=90;
+        let left=(cpos[ci].x/100*graph.offsetWidth)+50;
+        let top=(cpos[ci].y/100*graph.offsetHeight)-10;
+        if(left+tipW>card.offsetWidth-8)left=(cpos[ci].x/100*graph.offsetWidth)-tipW-10;
+        if(left<4)left=4;
+        if(top+tipH>graph.offsetHeight)top=graph.offsetHeight-tipH-4;
+        if(top<0)top=0;
         tooltip.style.left=left+'px';tooltip.style.top=top+'px';
       });
       path.addEventListener('mouseleave',()=>tooltip.classList.remove('show'));
@@ -1030,7 +1036,10 @@ function buildEcoGraph(){
     pieSvg.appendChild(center);
     wrap.appendChild(pieSvg);
     const lbl=document.createElement('div');lbl.className='eco-circle-label';
-    lbl.innerHTML=cluster.label.replace('\n','<br>');wrap.appendChild(lbl);
+    lbl.innerHTML=cluster.label.replace('\n','<br>');
+    lbl.style.position='relative';
+    lbl.style.zIndex='2';
+    wrap.appendChild(lbl);
     graph.appendChild(wrap);
   });
   drawEcoLines();
