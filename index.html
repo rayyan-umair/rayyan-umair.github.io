@@ -299,37 +299,48 @@
     /* Ecosystem card */
     .ecosystem-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:visible;cursor:default;transition:border-color 0.35s}
     .ecosystem-card:hover{border-color:var(--border2)}
-    .eco-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem}
-    .eco-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--text)}
-    .eco-sub{font-family:var(--fm);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
-    .eco-hint{font-family:var(--fm);font-size:0.65rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase}
-    .eco-graph{position:relative;width:100%;height:340px;margin-top:1rem;opacity:0;transform:translateY(12px);transition:opacity 0.45s,transform 0.45s;pointer-events:none}
-    .ecosystem-card:hover .eco-graph{opacity:1;transform:translateY(0);pointer-events:all}
-    .eco-graph svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-    .eco-circle{position:absolute;transform:translateX(-50%) translateY(-50%);cursor:pointer}
-    .eco-circle canvas.pie{display:block;transform:scale(0);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
-    .ecosystem-card:hover .eco-circle canvas.pie{transform:scale(1)}
-    .ecosystem-card:hover .eco-circle:nth-child(1) canvas.pie{transition-delay:0.08s}
-    .ecosystem-card:hover .eco-circle:nth-child(2) canvas.pie{transition-delay:0.18s}
-    .ecosystem-card:hover .eco-circle:nth-child(3) canvas.pie{transition-delay:0.28s}
-    .ecosystem-card:hover .eco-circle:nth-child(1) svg.pie{transition-delay:0.08s}
-    .ecosystem-card:hover .eco-circle:nth-child(2) svg.pie{transition-delay:0.18s}
-    .ecosystem-card:hover .eco-circle:nth-child(3) svg.pie{transition-delay:0.28s}
-    .eco-circle-label{font-family:var(--fm);font-size:0.58rem;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:0.07em;position:absolute;white-space:nowrap;left:50%;transform:translateX(-50%);top:118px}
-    .eco-tooltip{position:fixed;background:rgba(8,11,16,0.97);border:1px solid var(--border2);border-radius:5px;padding:0.9rem 1.1rem;width:200px;z-index:9999;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(12px)}    .eco-tooltip.show{opacity:1}
-    .eco-tooltip-title{font-family:var(--fh);font-weight:600;font-size:0.82rem;color:var(--blue);margin-bottom:0.4rem}
-    .eco-tooltip-desc{font-family:var(--fm);font-size:0.7rem;color:var(--muted);line-height:1.55}
+    .eco-header{margin-bottom:1.6rem}
+    .eco-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--text);margin-bottom:0.4rem}
+    .eco-sub{font-family:var(--fm);font-size:0.75rem;color:var(--muted);line-height:1.6}
 
-    @media(max-width:920px){
-      .eco-graph{height:240px}
-      .eco-circle svg.pie{width:80px!important;height:80px!important;overflow:visible}
-      .eco-circle-label{font-size:0.5rem;top:88px}
-      .eco-tooltip{width:min(85vw,280px);font-size:0.8rem}
-    }
-    @media(max-width:480px){
-      .eco-graph{height:190px}
-      .eco-circle svg.pie{width:60px!important;height:60px!important;overflow:visible}
-      .eco-circle-label{font-size:0.45rem;top:68px}
+    /* Accordion */
+    .eco-accordion{display:flex;flex-direction:column;gap:0.6rem}
+
+    .eco-cluster{border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color 0.3s}
+    .eco-cluster.open{border-color:var(--border2)}
+
+    .eco-cluster-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;cursor:pointer;transition:background 0.25s;user-select:none;-webkit-user-select:none}
+    .eco-cluster-header:hover{background:var(--surface2)}
+
+    .eco-cluster-arrow{font-family:var(--fm);font-size:0.7rem;color:var(--dim);transition:transform 0.3s;flex-shrink:0}
+    .eco-cluster.open .eco-cluster-arrow{transform:rotate(90deg)}
+
+    .eco-cluster-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+    .eco-cluster-name{font-family:var(--fh);font-weight:600;font-size:0.95rem;color:var(--text);flex:1}
+
+    .eco-cluster-count{font-family:var(--fm);font-size:0.65rem;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;flex-shrink:0}
+
+    .eco-cluster-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.35s cubic-bezier(0.4,0,0.2,1)}
+    .eco-cluster.open .eco-cluster-body{grid-template-rows:1fr}
+    .eco-cluster-inner{overflow:hidden}
+
+    .eco-tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;padding:0 1.2rem 1.2rem}
+
+    .eco-tool{padding:0.9rem 1rem;background:var(--surface2);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color 0.25s,background 0.25s,transform 0.2s;position:relative}
+    .eco-tool:hover,.eco-tool.active{border-color:var(--border2);background:rgba(74,158,255,0.06);transform:translateY(-2px)}
+    .eco-tool.active{border-color:rgba(74,158,255,0.4)}
+
+    .eco-tool-name{font-family:var(--fm);font-size:0.78rem;color:var(--text);margin-bottom:0.25rem;font-weight:500}
+    .eco-tool-tag{font-family:var(--fm);font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.07em}
+
+    .eco-desc-panel{margin:0 1.2rem 1.2rem;padding:1rem 1.2rem;background:rgba(74,158,255,0.04);border:1px solid rgba(74,158,255,0.18);border-radius:4px;display:none}
+    .eco-desc-panel.show{display:block}
+    .eco-desc-name{font-family:var(--fh);font-weight:600;font-size:0.88rem;color:var(--blue);margin-bottom:0.4rem}
+    .eco-desc-text{font-family:var(--fm);font-size:0.78rem;color:var(--muted);line-height:1.65}
+
+    @media(max-width:600px){
+      .eco-tools-grid{grid-template-columns:repeat(2,1fr)}
     }
 
         /* Portfolio self-card */
@@ -636,21 +647,14 @@
         </div>
       </div>
 
-      <!-- 2. Ecosystem — full width -->
-      <div class="proj-full ecosystem-card reveal" id="eco-card">
-        <div class="eco-header">
-          <div class="eco-title">Tools in Development</div>
-          <div class="eco-hint">hover to expand &#9670;</div>
-        </div>
-        <p class="eco-sub">The NetRaptor ecosystem — 12 tools across 3 clusters. Each circle is a cluster of 4. Hover to see the breakdown.</p>
-        <div class="eco-graph" id="eco-graph">
-          <svg id="eco-svg"></svg>
-        </div>
-        <div class="eco-tooltip" id="eco-tooltip">
-          <div class="eco-tooltip-title" id="eco-tt-title"></div>
-          <div class="eco-tooltip-desc" id="eco-tt-desc"></div>
-        </div>
+     <!-- 2. Ecosystem — full width -->
+    <div class="proj-full ecosystem-card reveal" id="eco-card">
+      <div class="eco-header">
+        <div class="eco-title">Tools in Development</div>
+        <div class="eco-sub">The NetRaptor ecosystem — 12 tools across 3 clusters.</div>
       </div>
+      <div class="eco-accordion" id="eco-accordion"></div>
+    </div>
 
       <!-- 3. CTF & Hackathons -->
       <div class="ctf-card reveal">
@@ -997,186 +1001,92 @@ const ECO_CLUSTERS=[
 ];
 
 function buildEcoGraph(){
-  const card=document.getElementById('eco-card');
-  const graph=document.getElementById('eco-graph');
-  const svg=document.getElementById('eco-svg');
-  const tooltip=document.getElementById('eco-tooltip');
-  const ttTitle=document.getElementById('eco-tt-title');
-  const ttDesc=document.getElementById('eco-tt-desc');
-  const cpos=[{x:20,y:55},{x:50,y:18},{x:80,y:55}];
+  const container=document.getElementById('eco-accordion');
+  if(!container)return;
 
-  function drawEcoLines(){
-    svg.innerHTML='';
-    const W=graph.offsetWidth||600;
-    const H=graph.offsetHeight||340;
-    const pts=cpos.map(p=>({px:p.x/100*W,py:p.y/100*H}));
-    for(let i=0;i<3;i++)for(let j=i+1;j<3;j++){
-      const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-      line.setAttribute('x1',pts[i].px);line.setAttribute('y1',pts[i].py);
-      line.setAttribute('x2',pts[j].px);line.setAttribute('y2',pts[j].py);
-      line.setAttribute('stroke','rgba(74,158,255,0.22)');line.setAttribute('stroke-width','1');line.setAttribute('stroke-dasharray','5 5');
-      svg.appendChild(line);
-      const circ=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      circ.setAttribute('r','2.5');circ.setAttribute('fill',ECO_CLUSTERS[i].color);
-      const anim=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-      anim.setAttribute('dur',(2.2+i*0.5)+'s');anim.setAttribute('repeatCount','indefinite');
-      anim.setAttribute('path',`M${pts[i].px},${pts[i].py} L${pts[j].px},${pts[j].py}`);
-      circ.appendChild(anim);svg.appendChild(circ);
-    }
-  }
+  const clusterColors={
+    'Recon\nCluster':'#4a9eff',
+    'Analysis\nCluster':'#00d4aa',
+    'Response\nCluster':'#ff3b3b'
+  };
 
-  function positionTooltip(e){
-    const TW=200,TH=100,PAD=14;
-    let x=e.clientX+PAD;
-    let y=e.clientY+PAD;
-    if(x+TW>window.innerWidth-PAD)x=e.clientX-TW-PAD;
-    if(y+TH>window.innerHeight-PAD)y=e.clientY-TH-PAD;
-    tooltip.style.left=x+'px';
-    tooltip.style.top=y+'px';
-  }
-
-  const sliceColors=['rgba(74,158,255,0.75)','rgba(0,212,170,0.65)','rgba(123,140,222,0.7)','rgba(255,59,59,0.6)'];
+  const toolTags={
+    'NetSweep':'Discovery','PortHawk':'Scanning','DNSTalon':'DNS','WhoKnocks':'Auth',
+    'PacketStrike':'Packets','LogClaw':'Logs','SIEMulate':'SIEM','SigmaParser':'Rules',
+    'ThreatMapper':'Mapping','TalonResponse':'Response','StrikeMap':'Timeline','LogClaw Pro':'ML'
+  };
 
   ECO_CLUSTERS.forEach((cluster,ci)=>{
-    const wrap=document.createElement('div');
-    wrap.className='eco-circle';
-    wrap.style.cssText=`left:${cpos[ci].x}%;top:${cpos[ci].y}%;overflow:visible;`;
+    const color=clusterColors[cluster.label]||'#4a9eff';
+    const clusterEl=document.createElement('div');
+    clusterEl.className='eco-cluster';
+    /* Open first one by default */
+    if(ci===0)clusterEl.classList.add('open');
 
-    /* Build one canvas per pie — avoids all SVG text/clip issues on Safari/Brave */
-    const SIZE=110;
-    const canvas=document.createElement('canvas');
-    canvas.width=SIZE*2;  /* 2x for retina */
-    canvas.height=SIZE*2;
-    canvas.style.cssText=`width:${SIZE}px;height:${SIZE}px;display:block;cursor:pointer;`;
-    canvas.classList.add('pie');
+    const labelClean=cluster.label.replace('\n',' ');
 
-    const cx2=SIZE,cy2=SIZE,r=SIZE*0.85,innerR=SIZE*0.25;
-    const c=canvas.getContext('2d');
+    clusterEl.innerHTML=`
+      <div class="eco-cluster-header">
+        <span class="eco-cluster-arrow">&#9654;</span>
+        <span class="eco-cluster-dot" style="background:${color};box-shadow:0 0 6px ${color}66"></span>
+        <span class="eco-cluster-name">${labelClean}</span>
+        <span class="eco-cluster-count">${cluster.tools.length} tools</span>
+      </div>
+      <div class="eco-cluster-body">
+        <div class="eco-cluster-inner">
+          <div class="eco-tools-grid" id="eco-grid-${ci}"></div>
+          <div class="eco-desc-panel" id="eco-desc-${ci}">
+            <div class="eco-desc-name" id="eco-desc-name-${ci}"></div>
+            <div class="eco-desc-text" id="eco-desc-text-${ci}"></div>
+          </div>
+        </div>
+      </div>`;
 
-    function drawPie(highlightSlice=-1){
-      c.clearRect(0,0,SIZE*2,SIZE*2);
-      cluster.tools.forEach((tool,ti)=>{
-        const start=ti*(Math.PI/2)-(Math.PI/2);
-        const end=start+(Math.PI/2);
-        c.beginPath();
-        c.moveTo(cx2,cy2);
-        c.arc(cx2,cy2,r,start,end);
-        c.closePath();
-        c.fillStyle=ti===highlightSlice
-          ? sliceColors[ti].replace(/[\d.]+\)$/,'1)')
-          : sliceColors[ti];
-        c.fill();
-        c.strokeStyle='rgba(8,11,16,0.9)';
-        c.lineWidth=2;
-        c.stroke();
+    container.appendChild(clusterEl);
 
-        /* Tool name text — drawn directly on canvas, works everywhere */
-        const mid=start+(Math.PI/4);
-        const tx=cx2+Math.cos(mid)*r*0.58;
-        const ty=cy2+Math.sin(mid)*r*0.58;
-        c.save();
-        c.font='bold 11px "DM Mono", monospace';
-        c.fillStyle='rgba(255,255,255,0.95)';
-        c.textAlign='center';
-        c.textBaseline='middle';
-        /* Word wrap: split on capital letters for long names */
-        const words=tool.name.replace(/([A-Z])/g,' $1').trim().split(' ');
-        if(words.length<=2||tool.name.length<=8){
-          c.fillText(tool.name,tx,ty);
-        } else {
-          /* Two lines */
-          const half=Math.ceil(words.length/2);
-          const line1=words.slice(0,half).join('');
-          const line2=words.slice(half).join('');
-          c.fillText(line1,tx,ty-7);
-          c.fillText(line2,tx,ty+7);
+    /* Toggle open/close */
+    const header=clusterEl.querySelector('.eco-cluster-header');
+    header.addEventListener('click',()=>{
+      const isOpen=clusterEl.classList.contains('open');
+      /* Close all */
+      container.querySelectorAll('.eco-cluster').forEach(c=>c.classList.remove('open'));
+      container.querySelectorAll('.eco-tool').forEach(t=>t.classList.remove('active'));
+      container.querySelectorAll('.eco-desc-panel').forEach(p=>p.classList.remove('show'));
+      if(!isOpen)clusterEl.classList.add('open');
+    });
+
+    /* Build tool chips */
+    const grid=document.getElementById(`eco-grid-${ci}`);
+    const descPanel=document.getElementById(`eco-desc-${ci}`);
+    const descName=document.getElementById(`eco-desc-name-${ci}`);
+    const descText=document.getElementById(`eco-desc-text-${ci}`);
+
+    cluster.tools.forEach((tool,ti)=>{
+      const chip=document.createElement('div');
+      chip.className='eco-tool';
+      chip.innerHTML=`
+        <div class="eco-tool-name">${tool.name}</div>
+        <div class="eco-tool-tag" style="color:${color}">${toolTags[tool.name]||'Module'}</div>`;
+
+      chip.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const alreadyActive=chip.classList.contains('active');
+        grid.querySelectorAll('.eco-tool').forEach(t=>t.classList.remove('active'));
+        descPanel.classList.remove('show');
+        if(!alreadyActive){
+          chip.classList.add('active');
+          descName.textContent=tool.name;
+          descText.textContent=tool.desc;
+          descPanel.classList.add('show');
         }
-        c.restore();
       });
 
-      /* Center circle */
-      c.beginPath();
-      c.arc(cx2,cy2,innerR,0,Math.PI*2);
-      c.fillStyle='#161b2e';
-      c.fill();
-      c.strokeStyle=cluster.color;
-      c.lineWidth=2;
-      c.stroke();
-    }
-
-    drawPie();
-
-    /* Interaction: figure out which slice was hit */
-    function getSlice(e){
-      const rect=canvas.getBoundingClientRect();
-      const clientX=e.touches?e.touches[0].clientX:e.clientX;
-      const clientY=e.touches?e.touches[0].clientY:e.clientY;
-      const mx=(clientX-rect.left)*(SIZE*2/rect.width)-SIZE;
-      const my=(clientY-rect.top)*(SIZE*2/rect.height)-SIZE;
-      const dist=Math.hypot(mx,my);
-      if(dist<innerR||dist>r)return -1;
-      let angle=Math.atan2(my,mx)+(Math.PI/2);
-      if(angle<0)angle+=Math.PI*2;
-      return Math.floor(angle/(Math.PI/2))%4;
-    }
-
-    canvas.addEventListener('mousemove',(e)=>{
-      const si=getSlice(e);
-      drawPie(si);
-      if(si>=0){
-        ttTitle.textContent=cluster.tools[si].name;
-        ttDesc.textContent=cluster.tools[si].desc;
-        tooltip.classList.add('show');
-        positionTooltip(e);
-        canvas.style.cursor='pointer';
-      } else {
-        tooltip.classList.remove('show');
-        canvas.style.cursor='default';
-      }
+      grid.appendChild(chip);
     });
-    canvas.addEventListener('mouseleave',()=>{
-      drawPie();
-      tooltip.classList.remove('show');
-    });
-
-    /* Touch */
-    let lastTouchSlice=-1;
-    canvas.addEventListener('touchend',(e)=>{
-      e.preventDefault();
-      const si=getSlice(e.changedTouches[0]?{clientX:e.changedTouches[0].clientX,clientY:e.changedTouches[0].clientY}:e);
-      if(si<0){tooltip.classList.remove('show');lastTouchSlice=-1;return;}
-      if(si===lastTouchSlice&&tooltip.classList.contains('show')){
-        tooltip.classList.remove('show');lastTouchSlice=-1;return;
-      }
-      lastTouchSlice=si;
-      ttTitle.textContent=cluster.tools[si].name;
-      ttDesc.textContent=cluster.tools[si].desc;
-      const cardRect=card.getBoundingClientRect();
-      const tipX=Math.min(window.innerWidth-210,Math.max(8,cardRect.left+8));
-      const tipY=Math.max(8,cardRect.top+8);
-      tooltip.style.left=tipX+'px';
-      tooltip.style.top=tipY+'px';
-      tooltip.classList.add('show');
-    },{passive:false});
-
-    wrap.appendChild(canvas);
-
-    const lbl=document.createElement('div');
-    lbl.className='eco-circle-label';
-    lbl.innerHTML=cluster.label.replace('\n','<br>');
-    wrap.appendChild(lbl);
-    graph.appendChild(wrap);
   });
-
-  /* Trigger drawPie after scale-in animation completes */
-  document.addEventListener('touchend',(e)=>{
-    if(!e.target.closest('#eco-card'))tooltip.classList.remove('show');
-  },{passive:true});
-
-  drawEcoLines();
-  window.addEventListener('resize',drawEcoLines,{passive:true});
 }
 buildEcoGraph();
+
 /* OBSERVERS */
 const ro=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);ro.unobserve(e.target);}});
