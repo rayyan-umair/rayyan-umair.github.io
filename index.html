@@ -286,8 +286,6 @@
     .eco-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--text)}
     .eco-sub{font-family:var(--fm);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
     .eco-hint{font-family:var(--fm);font-size:0.65rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase}
-
-    /* Desktop: triangle layout */
     .eco-graph{position:relative;width:100%;height:340px;margin-top:1rem;opacity:0;transform:translateY(12px);transition:opacity 0.45s,transform 0.45s;pointer-events:none}
     .ecosystem-card:hover .eco-graph{opacity:1;transform:translateY(0);pointer-events:all}
     .eco-graph svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -303,14 +301,16 @@
     .eco-tooltip-title{font-family:var(--fh);font-weight:600;font-size:0.82rem;color:var(--blue);margin-bottom:0.4rem}
     .eco-tooltip-desc{font-family:var(--fm);font-size:0.7rem;color:var(--muted);line-height:1.55}
 
-    /* Mobile: stacked column layout */
     @media(max-width:920px){
-      .eco-graph{height:auto;min-height:580px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3.5rem;padding-top:1rem}
-      .eco-graph svg{display:none}
-      .eco-circle{position:relative;left:auto;top:auto;transform:none;display:flex;flex-direction:column;align-items:center}
-      .eco-circle svg.pie{width:150px;height:150px}
-      .eco-circle-label{position:relative;top:auto;left:auto;transform:none;margin-top:0.6rem;font-size:0.65rem}
-      .eco-tooltip{position:fixed;left:50%!important;top:auto!important;bottom:2rem!important;transform:translateX(-50%);width:min(88vw,300px);font-size:0.85rem}
+      .eco-graph{height:260px}
+      .eco-circle svg.pie{width:80px;height:80px}
+      .eco-circle-label{font-size:0.5rem;top:88px}
+      .eco-tooltip{width:min(85vw,280px);font-size:0.8rem}
+    }
+    @media(max-width:480px){
+      .eco-graph{height:200px}
+      .eco-circle svg.pie{width:64px;height:64px}
+      .eco-circle-label{font-size:0.45rem;top:72px}
     }
     /* Portfolio self-card */
     .portfolio-self-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:hidden;transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s}
@@ -900,7 +900,7 @@ function buildAcGraph(){
   const tooltip=document.getElementById('ac-tooltip');
   const ttTitle=document.getElementById('ac-tt-title');
   const ttBody=document.getElementById('ac-tt-body');
-  const positions=[{x:50,y:50},{x:20,y:20},{x:80,y:20},{x:50,y:82}];
+  const positions=[{x:50,y:50},{x:15,y:15},{x:85,y:15},{x:50,y:88}];
 
   function drawLines(){
     const W=graph.offsetWidth||600;const H=graph.offsetHeight||260;
@@ -984,17 +984,11 @@ function buildEcoGraph(){
   const ttTitle=document.getElementById('eco-tt-title');
   const ttDesc=document.getElementById('eco-tt-desc');
 
-  /* Desktop triangle positions (percentage of graph box) */
-  const cpos=[{x:20,y:55},{x:50,y:20},{x:80,y:55}];
-
-  const PIE_DESKTOP=110;
-  const PIE_MOBILE=150;
-  function isMobile(){return window.innerWidth<=920;}
-  function pieSize(){return isMobile()?PIE_MOBILE:PIE_DESKTOP;}
+  /* Triangle positions — same on all screen sizes, just scaled by graph box */
+  const cpos=[{x:20,y:55},{x:50,y:18},{x:80,y:55}];
 
   function drawEcoLines(){
     svg.innerHTML='';
-    if(isMobile())return; /* hide SVG lines on mobile */
     const W=graph.offsetWidth||600;
     const H=graph.offsetHeight||340;
     const pts=cpos.map(p=>({px:p.x/100*W,py:p.y/100*H}));
@@ -1014,14 +1008,7 @@ function buildEcoGraph(){
   }
 
   function positionTooltip(e){
-    if(isMobile()){
-      /* fixed bottom-center on mobile — CSS handles it */
-      tooltip.style.left='';
-      tooltip.style.top='';
-      return;
-    }
-    /* Desktop: follow cursor, clamp inside viewport */
-    const TW=200,TH=90,PAD=12;
+    const TW=200,TH=100,PAD=14;
     let x=e.clientX+PAD;
     let y=e.clientY+PAD;
     if(x+TW>window.innerWidth-PAD) x=e.clientX-TW-PAD;
@@ -1030,25 +1017,19 @@ function buildEcoGraph(){
     tooltip.style.top=y+'px';
   }
 
+  const colors=['rgba(74,158,255,0.7)','rgba(0,212,170,0.6)','rgba(123,140,222,0.65)','rgba(255,59,59,0.55)'];
+
   ECO_CLUSTERS.forEach((cluster,ci)=>{
     const wrap=document.createElement('div');
     wrap.className='eco-circle';
+    wrap.style.left=cpos[ci].x+'%';
+    wrap.style.top=cpos[ci].y+'%';
 
-    /* On desktop, position absolutely */
-    if(!isMobile()){
-      wrap.style.left=cpos[ci].x+'%';
-      wrap.style.top=cpos[ci].y+'%';
-    }
-
-    const size=pieSize();
     const pieSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');
     pieSvg.setAttribute('viewBox','-1 -1 2 2');
-    pieSvg.setAttribute('width',size);
-    pieSvg.setAttribute('height',size);
+    pieSvg.setAttribute('width','110');
+    pieSvg.setAttribute('height','110');
     pieSvg.classList.add('pie');
-    pieSvg.style.display='block';
-
-    const colors=['rgba(74,158,255,0.7)','rgba(0,212,170,0.6)','rgba(123,140,222,0.65)','rgba(255,59,59,0.55)'];
 
     cluster.tools.forEach((tool,ti)=>{
       const startAngle=ti*(Math.PI/2)-(Math.PI/2);
@@ -1062,11 +1043,10 @@ function buildEcoGraph(){
       path.setAttribute('stroke','rgba(8,11,16,0.9)');
       path.setAttribute('stroke-width','0.04');
       path.style.cursor='pointer';
-      path.style.transition='opacity 0.2s,transform 0.2s';
-      path.setAttribute('transform-origin','0 0');
+      path.style.transition='opacity 0.15s';
 
       path.addEventListener('mouseenter',(e)=>{
-        path.style.opacity='0.75';
+        path.style.opacity='0.7';
         ttTitle.textContent=tool.name;
         ttDesc.textContent=tool.desc;
         tooltip.classList.add('show');
@@ -1078,12 +1058,20 @@ function buildEcoGraph(){
         tooltip.classList.remove('show');
       });
 
-      /* Touch support for mobile */
-      path.addEventListener('touchstart',(e)=>{
+      /* Touch: tap to show, tap elsewhere to hide */
+      path.addEventListener('touchend',(e)=>{
         e.preventDefault();
-        ttTitle.textContent=tool.name;
-        ttDesc.textContent=tool.desc;
-        tooltip.classList.add('show');
+        const already=ttTitle.textContent===tool.name&&tooltip.classList.contains('show');
+        tooltip.classList.remove('show');
+        if(!already){
+          ttTitle.textContent=tool.name;
+          ttDesc.textContent=tool.desc;
+          /* Position tooltip near top of card so it doesn't go off screen */
+          const cardRect=card.getBoundingClientRect();
+          tooltip.style.left=Math.max(8,cardRect.left+8)+'px';
+          tooltip.style.top=Math.max(8,cardRect.top+8)+'px';
+          tooltip.classList.add('show');
+        }
       },{passive:false});
 
       const midAngle=startAngle+(Math.PI/4);
@@ -1108,7 +1096,6 @@ function buildEcoGraph(){
     center.setAttribute('stroke',cluster.color);
     center.setAttribute('stroke-width','0.04');
     pieSvg.appendChild(center);
-
     wrap.appendChild(pieSvg);
 
     const lbl=document.createElement('div');
@@ -1119,34 +1106,13 @@ function buildEcoGraph(){
     graph.appendChild(wrap);
   });
 
-  /* Close tooltip on tap outside (mobile) */
-  document.addEventListener('touchstart',(e)=>{
+  /* Dismiss tooltip on outside tap */
+  document.addEventListener('touchend',(e)=>{
     if(!e.target.closest('#eco-card')) tooltip.classList.remove('show');
   },{passive:true});
 
   drawEcoLines();
-
-  /* Rebuild positions on resize */
-  let resizeTimer;
-  window.addEventListener('resize',()=>{
-    clearTimeout(resizeTimer);
-    resizeTimer=setTimeout(()=>{
-      /* Reposition desktop circles */
-      const circles=graph.querySelectorAll('.eco-circle');
-      circles.forEach((el,ci)=>{
-        if(!isMobile()){
-          el.style.left=cpos[ci].x+'%';
-          el.style.top=cpos[ci].y+'%';
-          el.style.position='absolute';
-        } else {
-          el.style.left='';
-          el.style.top='';
-          el.style.position='relative';
-        }
-      });
-      drawEcoLines();
-    },120);
-  },{passive:true});
+  window.addEventListener('resize',()=>{drawEcoLines();},{passive:true});
 }
 buildEcoGraph();
 
