@@ -6,7 +6,7 @@
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-rayyan--umair.github.io-4a9eff?style=for-the-badge&logoColor=white)](https://rayyan-umair.github.io/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rayyanumair/)
-[![Email](https://img.shields.io/badge/Email-reach.rayyan1%40gmail.com-00d4aa?style=for-the-badge)](mailto:rayyanxumair@gmail.com)
+[![Email](https://img.shields.io/badge/Email-rayyanxumair%40gmail.com-00d4aa?style=for-the-badge)](mailto:rayyanxumair@gmail.com)
 [![Open to Work](https://img.shields.io/badge/Status-Open%20to%20Roles-22c55e?style=for-the-badge)](/)
 
 </div>
