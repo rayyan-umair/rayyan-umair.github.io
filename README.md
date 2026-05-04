@@ -165,7 +165,7 @@ available:    Full-time & hybrid roles in IT support, security ops, or security 
 
 ## Experience
 
-**IT Support & Cybersecurity Analyst @ SecureLogix** &nbsp;`Jan 2024 -  Jun 2025`
+**IT Support & Jr. Cybersecurity Analyst @ SecureLogix** &nbsp;`Jan 2024 -  Jun 2025`
 
 Tier 1/2 support for enterprise users across hardware, software, authentication, and access issues. Monitored SIEM alerts and followed anything unusual until I understood it. Contributed to vulnerability scans, risk assessments, and compliance work. Managed user access lifecycle under least-privilege principles. Kept detailed incident records so every ticket told the full story.
 

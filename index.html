@@ -1,3 +1,22 @@
+<!--
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Portfolio Website
+index.html - Main Entry Point
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Author  : Rayyan Umair
+Date    : 04 May, 2026
+Purpose : Single-file portfolio. Boot sequence, animated globe, interactive
+          academic node graph, NetRaptor ecosystem accordion. Zero dependencies.
+Contact : rayyanxumair@gmail.com
+GitHub  : github.com/rayyan-umair
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Technology evolves quickly. Responsibility does not."
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Written and maintained by Rayyan Umair. All logic, structure, and design
+decisions in this file reflect the author's original work.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +38,9 @@
       -webkit-backdrop-filter:blur(12px);
       backdrop-filter:blur(12px);
     }
-    /* Safari: fix animateMotion fallback — hide SVG dots on Safari if they freeze */
+    /* Safari: fix animateMotion fallback - hide SVG dots on Safari if they freeze */
     @supports not (animation-timeline:scroll()){
-      /* intentionally empty — feature detection only */
+      /* intentionally empty - feature detection only */
     }
     /* Brave/Firefox: ensure canvas crisp rendering */
     canvas{image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
@@ -158,7 +177,7 @@
     .exp-item:hover .tbadge{border-color:rgba(123,140,222,0.45)}
 
     /* ═══════════════════════════════════════
-       PROJECTS — UNIFIED SINGLE GRID SYSTEM
+       PROJECTS - UNIFIED SINGLE GRID SYSTEM
     ═══════════════════════════════════════ */
     #projects{border-top:1px solid var(--border)}
 
@@ -255,8 +274,7 @@
 
     /* Academic node card */
     .academic-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:2rem;position:relative;overflow:visible;cursor:default;transition:border-color 0.35s;height:100%}
-    .academic-card:hover{border-color:var(--border2)}
-    .ac-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem}
+    .academic-card:hover{border-color:var(--border2);z-index:100;position:relative}    .ac-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem}
     .ac-title{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--text)}
     .ac-sub{font-family:var(--fm);font-size:0.75rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
     .ac-hint{font-family:var(--fm);font-size:0.65rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase}
@@ -272,8 +290,7 @@
     .ac-node-inner{display:flex;flex-direction:column;align-items:center;gap:0.3rem;text-align:center;padding:0.4rem}
     .ac-node-icon{font-size:1.4rem;line-height:1}
     .ac-node-label{font-family:var(--fm);font-size:0.55rem;color:var(--muted);line-height:1.3;text-transform:uppercase;letter-spacing:0.05em}
-    .ac-tooltip{position:absolute;background:rgba(8,11,16,0.97);border:1px solid var(--border2);border-radius:5px;padding:1rem 1.2rem;width:220px;z-index:20;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(12px)}
-    .ac-tooltip.show{opacity:1}
+    .ac-tooltip{position:absolute;background:rgba(8,11,16,0.97);border:1px solid var(--border2);border-radius:5px;padding:1rem 1.2rem;width:220px;z-index:200;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(12px)}    .ac-tooltip.show{opacity:1}
     .ac-tooltip-title{font-family:var(--fh);font-weight:600;font-size:0.88rem;color:var(--blue);margin-bottom:0.5rem}
     .ac-tooltip-body{font-family:var(--fm);font-size:0.72rem;color:var(--muted);line-height:1.6}
     .ac-tooltip-body li{list-style:none;padding-left:0.9rem;position:relative;margin-bottom:0.3rem}
@@ -542,7 +559,7 @@
             <div class="asp-ic">&#9672;</div>
             <div>
               <div class="asp-t">AI-Augmented Decision Making</div>
-              <div class="asp-d">AI handles execution well. Judgment calls in ambiguous situations with real consequences — that boundary needs a human in the right seat.</div>
+              <div class="asp-d">AI handles execution well. Judgment calls in ambiguous situations with real consequences - that boundary needs a human in the right seat.</div>
             </div>
           </div>
           <div class="asp">
@@ -601,25 +618,24 @@
 
     <div class="proj-grid">
 
-      <!-- 1. NetRaptor — full width -->
+      <!-- 1. NetRaptor - full width -->
       <div class="proj-full netraptor-card reveal">
         <div class="nr-badge">Flagship Project</div>
         <div class="nr-title">Net<span>Raptor</span></div>
         <div class="nr-sub">Integrated Network Intelligence &amp; Threat Hunting System</div>
         <div class="nr-body">
           <div>
-            <p class="nr-desc">NetRaptor is an <strong>active development project</strong> — a modular, offensive-security-grade network intelligence platform built from the ground up. The concept: a unified system that doesn't just observe a network, it understands it. Combines real-time scanning, packet-level analysis, threat correlation, and automated incident response into a single cohesive engine.</p>
-            <p class="nr-desc">The architecture is designed around the idea that <strong>every tool should feed every other tool</strong>. Scanner output feeds the threat mapper. Log analysis informs the SIEM simulator. Incident response draws from everything. No siloed dashboards — one predator-instinct system.</p>
+            <p class="nr-desc">NetRaptor is an <strong>active development project</strong> - a modular, offensive-security-grade network intelligence platform built from the ground up. The concept: a unified system that doesn't just observe a network, it understands it. Combines real-time scanning, packet-level analysis, threat correlation, and automated incident response into a single cohesive engine.</p>
+            <p class="nr-desc">The architecture is designed around the idea that <strong>every tool should feed every other tool</strong>. Scanner output feeds the threat mapper. Log analysis informs the SIEM simulator. Incident response draws from everything. No siloed dashboards - one predator-instinct system.</p>
             <ul class="nr-features">
-              <li>Network-wide host discovery and port enumeration (NetSweep + PortHawk)</li>
+              <li>Network-wide host discovery and port enumeration (NetSweep - covers both recon layers)</li>
               <li>Deep packet capture and protocol dissection (PacketStrike)</li>
               <li>DNS monitoring and anomaly flagging (DNSTalon)</li>
-              <li>Access probe detection and authentication analysis (WhoKnocks)</li>
-              <li>Structured log parsing and correlation (LogClaw)</li>
-              <li>SIEM simulation layer with Sigma rule support (SIEMulate + SigmaParser)</li>
-              <li>Threat mapping and lateral movement visualization (ThreatMapper)</li>
-              <li>Automated incident response playbooks (TalonResponse)</li>
-              <li>Attack timeline reconstruction (StrikeMap)</li>
+              <li>Multi-source log parsing with Windows Event Log mode (LogClaw - unified with WhoKnocks)</li>
+              <li>SIEM simulation with integrated Sigma rule engine (SIEMulate + SigmaParser - one system)</li>
+              <li>Threat mapping and IOC correlation (ThreatMapper)</li>
+              <li>CVE lookup and vulnerability correlation (CVECheck)</li>
+              <li>Incident response and attack timeline reconstruction (TalonResponse + StrikeMap - unified IR tool)</li>
             </ul>
           </div>
           <div class="nr-meta">
@@ -631,7 +647,7 @@
             </div>
             <div class="nr-status-block">
               <div class="nr-status-label">&#9679; Active Development</div>
-              <div class="nr-status-val">Architecture defined. Core modules in development. No external links yet — building in private.</div>
+              <div class="nr-status-val">Architecture defined. Core modules in development. No external links yet - building in private.</div>
             </div>
             <div class="nr-tags">
               <span class="nr-tag">Python</span>
@@ -647,11 +663,11 @@
         </div>
       </div>
 
-     <!-- 2. Ecosystem — full width -->
+     <!-- 2. Ecosystem - full width -->
     <div class="proj-full ecosystem-card reveal" id="eco-card">
       <div class="eco-header">
         <div class="eco-title">Tools in Development</div>
-        <div class="eco-sub">The NetRaptor ecosystem — 12 tools across 3 clusters.</div>
+        <div class="eco-sub">The NetRaptor ecosystem - 12 tools across 3 clusters.</div>
       </div>
       <div class="eco-accordion" id="eco-accordion"></div>
     </div>
@@ -662,7 +678,7 @@
           <div class="ctf-title">CTF &amp; Hackathons</div>
           <span class="ctf-badge">In Progress</span>
         </div>
-        <p class="ctf-sub">Active practice on HackTheBox and TryHackMe. Every room documented — methodology, dead ends, and lessons, not just solutions.</p>
+        <p class="ctf-sub">Active practice on HackTheBox and TryHackMe. Every room documented - methodology, dead ends, and lessons, not just solutions.</p>
         <div class="ctf-progress-wrap">
           <div class="ctf-prog-label"><span>Overall Progress</span><span>Active</span></div>
           <div class="ctf-prog-track"><div class="ctf-prog-fill"></div></div>
@@ -672,7 +688,7 @@
           <span class="ctf-plat">TryHackMe</span>
           <span class="ctf-plat">Writeups Active</span>
         </div>
-        <div class="ctf-placeholder">Writeups being added actively. Hackathon entries being sourced. Check back — this section grows with every room completed.</div>
+        <div class="ctf-placeholder">Writeups being added actively. Hackathon entries being sourced. Check back - this section grows with every room completed.</div>
       </div>
 
       <!-- 4. Academic Projects -->
@@ -681,8 +697,7 @@
           <div class="ac-title">Academic Projects</div>
           <div class="ac-hint">hover to expand &#9670;</div>
         </div>
-        <p class="ac-sub">Graded, documented, and deployed. Three systems built across the diploma program — each tackling a different layer of the stack. Hover the card to see the network.</p>
-        <div class="ac-graph" id="ac-graph">
+          <p class="ac-sub">Graded, documented, and deployed. Built across two programs - networking, embedded systems, security, and ITSM. Hover the card to see the network.</p>        <div class="ac-graph" id="ac-graph">
           <svg id="ac-svg"></svg>
         </div>
         <div class="ac-tooltip" id="ac-tooltip">
@@ -691,13 +706,13 @@
         </div>
       </div>
 
-      <!-- 5. Portfolio Website — full width -->
+      <!-- 5. Portfolio Website - full width -->
       <div class="proj-full portfolio-self-card reveal">
         <div class="ps-top">
           <div class="ps-name">Portfolio Website</div>
           <span class="ps-status">Live</span>
         </div>
-        <div class="ps-desc">This site. Built from scratch — no frameworks, no templates. The globe, the animations, the boot sequence, the node systems — all handwritten because full control over how it feels matters.</div>
+        <div class="ps-desc">This site. Built from scratch - no frameworks, no templates. The globe, the animations, the boot sequence, the node systems - all handwritten because full control over how it feels matters.</div>
         <div class="ps-hl">Zero dependencies. The architecture is the portfolio.</div>
         <div class="ps-tech">
           <span>HTML5</span><span>CSS3</span><span>Vanilla JS</span><span>Canvas API</span><span>GitHub Pages</span>
@@ -780,7 +795,7 @@
 
 /* DATA */
 const EXP=[
-  {role:"IT Support & Cybersecurity Analyst",company:"SecureLogix",period:"Jan 2024 - Jun 2025",type:"Full-Time",
+  {role:"IT Support & Jr. Cybersecurity Analyst",company:"SecureLogix",period:"Jan 2024 - Jun 2025",type:"Full-Time",
    tools:["SIEM","Active Directory","MFA","Ticketing Systems","Endpoint Management"],
    tasks:[
     "Handled Tier 1 and Tier 2 support for enterprise users across hardware, software, authentication, and access issues. Most cases resolved on first contact.",
@@ -911,10 +926,12 @@ renderExp();renderSkills();renderEdu();
 const AC_NODES=[
   {icon:'📡',label:'IoT PenTest\nDevice',title:'IoT PenTesting Device',
    points:['MQTT protocol scanning and enumeration','Hydra brute-force against IoT auth','Nmap-based device discovery','Sensor targeting: temperature, heat sensors','Goal: network access via vulnerable IoT node']},
-  {icon:'🚂',label:'Train System\nResurgo Place',title:'Train System — Resurgo Place, Moncton NB',
-   points:['4 Raspberry Pi nodes networked together','Joystick-based control interface','Heavy-duty motors and switching logic','Public display installation — live at Resurgo Place','Full embedded systems + networking integration']},
-  {icon:'🔗',label:'Network\nOverhaul',title:'Network Infrastructure Overhaul',
-   points:['3 routers, 2 switches — full enterprise layout','EtherChannel (LACP) for link aggregation','VLAN segmentation by department/function','Static + dynamic routing with redundancy','Failover testing and baseline documentation']}
+  {icon:'🚂',label:'Train System\nResurgo Place',title:'Train System - Resurgo Place, Moncton NB',
+   points:['4 Raspberry Pi nodes networked together','Joystick-based control interface','Heavy-duty motors and switching logic','Public display installation - live at Resurgo Place','Full embedded systems + networking integration']},
+  {icon:'🔗',label:'Network\nOverhaul',title:'Network Infrastructure Overhaul - DataCore Solutions',
+   points:['VLSM addressing across 8 departments on 2 floors (10.160.x.0/23)','VLAN segmentation per department with inter-VLAN routing','EtherChannel (x3 bandwidth) for cross-floor redundancy','Primary ISP (Rogers) + backup ISP (Bell) with floating static routes','DHCPv4 for IT and HR departments','L2 security: port security, BPDU Guard, DHCP snooping, Dynamic ARP Inspection','Built on physical lab equipment - no Packet Tracer']},
+  {icon:'📋',label:'ITIL\nStrategic Plan',title:'ITIL4 Strategic Plan - TechVille University',
+   points:['Full ITIL4 implementation plan for a 2,000-student university','Change Enablement: change types, CAB structure, VirtualBox → VMware migration plan','Incident Management: prioritization matrix, categorization, knowledge base articles','Service Level Management: SLA design for core IT services, satisfaction survey template','Service Desk: staffing model, channel selection, on-campus vs remote justification']}
 ];
 
 function buildAcGraph(){
@@ -924,13 +941,12 @@ function buildAcGraph(){
   const tooltip=document.getElementById('ac-tooltip');
   const ttTitle=document.getElementById('ac-tt-title');
   const ttBody=document.getElementById('ac-tt-body');
-  const positions=[{x:50,y:42},{x:15,y:15},{x:85,y:15},{x:50,y:92}];
-
+  const positions=[{x:50,y:42},{x:15,y:18},{x:85,y:18},{x:20,y:80},{x:80,y:80}];
   function drawLines(){
     const W=graph.offsetWidth||600;const H=graph.offsetHeight||260;
     const pts=positions.map(p=>({px:p.x/100*W,py:p.y/100*H}));
     svg.innerHTML='';
-    for(let i=1;i<4;i++){
+    for(let i=1;i<5;i++){
       const line=document.createElementNS('http://www.w3.org/2000/svg','line');
       line.setAttribute('x1',pts[0].px);line.setAttribute('y1',pts[0].py);
       line.setAttribute('x2',pts[i].px);line.setAttribute('y2',pts[i].py);
@@ -943,7 +959,7 @@ function buildAcGraph(){
       anim.setAttribute('begin',(i*0.3)+'s');anim.setAttribute('path',`M${pts[0].px},${pts[0].py} L${pts[i].px},${pts[i].py}`);
       circle.appendChild(anim);svg.appendChild(circle);
     }
-    for(let i=1;i<4;i++)for(let j=i+1;j<4;j++){
+    for(let i=1;i<5;i++)for(let j=i+1;j<5;j++){
       const line=document.createElementNS('http://www.w3.org/2000/svg','line');
       line.setAttribute('x1',pts[i].px);line.setAttribute('y1',pts[i].py);
       line.setAttribute('x2',pts[j].px);line.setAttribute('y2',pts[j].py);
@@ -981,22 +997,19 @@ buildAcGraph();
 /* ECOSYSTEM PIE GRAPH */
 const ECO_CLUSTERS=[
   {label:'Recon\nCluster',color:'rgba(74,158,255,0.85)',tools:[
-    {name:'NetSweep',desc:'Network-wide host discovery and enumeration. Maps live hosts, OS fingerprints, and reachability.'},
-    {name:'PortHawk',desc:'Deep port scanning and service detection. Identifies open ports, banners, and running services.'},
-    {name:'DNSTalon',desc:'DNS monitoring and anomaly detection. Flags suspicious lookups, DGA patterns, and unusual zone transfers.'},
-    {name:'WhoKnocks',desc:'Access probe detection. Monitors authentication attempts and flags abnormal access patterns.'}
+    {name:'NetSweep',desc:'Network-wide host discovery and port enumeration - covers both recon layers. PortHawk is merged into NetSweep; one tool, full coverage. Maps live hosts, OS fingerprints, open ports, and service banners.'},
+    {name:'DNSTalon',desc:'DNS monitoring and anomaly detection. Flags suspicious lookups, DGA patterns, and unusual zone transfers. Standalone - focused enough to stand alone.'},
+    {name:'CVECheck',desc:'CVE lookup and vulnerability correlation. Extracted clean from NetSweep\'s NVD API integration. Cross-references discovered services against known CVEs and returns structured risk data.'}
   ]},
   {label:'Analysis\nCluster',color:'rgba(0,212,170,0.85)',tools:[
-    {name:'PacketStrike',desc:'Deep packet capture and protocol dissection. Reconstructs sessions and identifies anomalous traffic patterns.'},
-    {name:'LogClaw',desc:'Structured log parsing and correlation engine. Normalizes logs from multiple sources for unified analysis.'},
-    {name:'SIEMulate',desc:'SIEM simulation layer. Aggregates events, applies correlation rules, and generates prioritized alerts.'},
-    {name:'SigmaParser',desc:'Sigma rule integration. Parses and evaluates detection rules against collected event data in real time.'}
+    {name:'PacketStrike',desc:'Deep packet capture and protocol dissection. Reconstructs sessions and identifies anomalous traffic patterns. Distinct enough to stand alone - packet capture is its own domain.'},
+    {name:'LogClaw',desc:'Unified log parsing and correlation engine. Multi-source normalisation plus a dedicated Windows Event Log mode - WhoKnocks merged in. Every log entry explained with the four-layer AI format: what it is, why it matters, real risk, how to fix.'},
+    {name:'SIEMulate',desc:'SIEM simulation with integrated Sigma rule engine. SigmaParser is the rule input layer - one repo, one system. Aggregates events, evaluates Sigma rules, generates prioritized alerts with AI-explained context.'}
   ]},
   {label:'Response\nCluster',color:'rgba(255,59,59,0.85)',tools:[
-    {name:'ThreatMapper',desc:'Threat correlation and lateral movement visualization. Maps attack paths and identifies blast radius.'},
-    {name:'TalonResponse',desc:'Automated incident response. Executes playbooks, isolates hosts, and logs all response actions.'},
-    {name:'StrikeMap',desc:'Attack timeline reconstruction. Builds chronological event chains from disparate log sources.'},
-    {name:'LogClaw Pro',desc:'Extended log analysis with ML-assisted anomaly scoring. Prioritizes events by threat likelihood.'}
+    {name:'ThreatMapper',desc:'IOC scanning and threat correlation. Maps attack paths, flags indicators of compromise, and identifies lateral movement. Standalone - IOC scanning is a distinct domain.'},
+    {name:'TalonResponse',desc:'Unified incident response tool - TalonResponse and StrikeMap merged into one workflow. Collect evidence with one command, generate the attack timeline with another. Executes playbooks, isolates hosts, reconstructs chronological event chains.'},
+    {name:'LogClaw Pro',desc:'Extended log analysis with ML-assisted anomaly scoring. Prioritizes events by threat likelihood across unified multi-source data.'}
   ]}
 ];
 
@@ -1011,9 +1024,9 @@ function buildEcoGraph(){
   };
 
   const toolTags={
-    'NetSweep':'Discovery','PortHawk':'Scanning','DNSTalon':'DNS','WhoKnocks':'Auth',
-    'PacketStrike':'Packets','LogClaw':'Logs','SIEMulate':'SIEM','SigmaParser':'Rules',
-    'ThreatMapper':'Mapping','TalonResponse':'Response','StrikeMap':'Timeline','LogClaw Pro':'ML'
+    'NetSweep':'Recon','DNSTalon':'DNS','CVECheck':'CVE',
+    'PacketStrike':'Packets','LogClaw':'Logs + Auth','SIEMulate':'SIEM + Rules',
+    'ThreatMapper':'IOC','TalonResponse':'IR + Timeline','LogClaw Pro':'ML'
   };
 
   ECO_CLUSTERS.forEach((cluster,ci)=>{
