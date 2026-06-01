@@ -6,7 +6,7 @@ index.html - Main Entry Point
 Author  : Rayyan Umair
 Date    : 04 May, 2026
 Purpose : Single-file portfolio. Boot sequence, animated globe, interactive
-          academic node graph, NetRaptor ecosystem accordion. Zero dependencies.
+          academic node graph, REXDR ecosystem accordion. Zero dependencies.
 Contact : rayyanxumair@gmail.com
 GitHub  : github.com/rayyan-umair
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -196,7 +196,7 @@ decisions in this file reflect the author's original work.
       flex-direction:column;
     }
 
-    /* NetRaptor */
+    /* REXDR */
     .netraptor-card{background:var(--surface);border:1px solid rgba(74,158,255,0.3);border-radius:6px;padding:2.8rem;position:relative;overflow:hidden}
     .netraptor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--blue),var(--teal))}
     .netraptor-card::after{content:'';position:absolute;top:3px;right:0;width:220px;height:220px;background:radial-gradient(circle at top right,rgba(74,158,255,0.07),transparent 70%);pointer-events:none}
@@ -428,7 +428,7 @@ decisions in this file reflect the author's original work.
       .proj-grid{grid-template-columns:1fr;gap:1.2rem}
       .proj-full{grid-column:1}
 
-      /* NetRaptor: stack body columns */
+      /* REXDR: stack body columns */
       .netraptor-card{padding:1.6rem}
       .nr-body{grid-template-columns:1fr;gap:2rem}
 
@@ -618,14 +618,14 @@ decisions in this file reflect the author's original work.
 
     <div class="proj-grid">
 
-      <!-- 1. NetRaptor - full width -->
+      <!-- 1. REXDR - full width -->
       <div class="proj-full netraptor-card reveal">
         <div class="nr-badge">Flagship Project</div>
         <div class="nr-title">Net<span>Raptor</span></div>
         <div class="nr-sub">Integrated Network Intelligence &amp; Threat Hunting System</div>
         <div class="nr-body">
           <div>
-            <p class="nr-desc">NetRaptor is an <strong>active development project</strong> - a modular, offensive-security-grade network intelligence platform built from the ground up. The concept: a unified system that doesn't just observe a network, it understands it. Combines real-time scanning, packet-level analysis, threat correlation, and automated incident response into a single cohesive engine.</p>
+            <p class="nr-desc">REXDR is an <strong>active development project</strong> - a modular, offensive-security-grade network intelligence platform built from the ground up. The concept: a unified system that doesn't just observe a network, it understands it. Combines real-time scanning, packet-level analysis, threat correlation, and automated incident response into a single cohesive engine.</p>
             <p class="nr-desc">The architecture is designed around the idea that <strong>every tool should feed every other tool</strong>. Scanner output feeds the threat mapper. Log analysis informs the SIEM simulator. Incident response draws from everything. No siloed dashboards - one predator-instinct system.</p>
             <ul class="nr-features">
               <li>Network-wide host discovery and port enumeration (NetSweep - covers both recon layers)</li>
@@ -667,7 +667,7 @@ decisions in this file reflect the author's original work.
     <div class="proj-full ecosystem-card reveal" id="eco-card">
       <div class="eco-header">
         <div class="eco-title">Tools in Development</div>
-        <div class="eco-sub">The NetRaptor ecosystem - 8 tools across 3 clusters.</div>
+        <div class="eco-sub">The REXDR ecosystem - 8 tools across 3 clusters.</div>
       </div>
       <div class="eco-accordion" id="eco-accordion"></div>
     </div>

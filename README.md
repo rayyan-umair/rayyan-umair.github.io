@@ -51,7 +51,7 @@ own it, and make it credible it won't happen again. That's the role I'm building
 location:     Canada
 studying:     Bachelor of IT (Information Security) @ Ontario Tech University
 practicing:   CTF challenges -  HackTheBox & TryHackMe
-building:     NetRaptor -  modular network intelligence & threat hunting system
+building:     REXDR -  modular network intelligence & threat hunting system
 reading:      Security architecture, AI in cybersecurity, risk frameworks
 available:    Full-time & hybrid roles in IT support, security ops, or security engineering
 ```
@@ -187,7 +187,7 @@ End-to-end hardware, software, and network support for small businesses and home
 
 | Project | What it actually is | Stack | Status |
 |:---|:---|:---|:---:|
-| NetRaptor | Modular network intelligence & threat hunting system. 8 integrated tools across 3 clusters -  recon, analysis, and response. Architecture-first build, no SaaS dependencies. | Python · Scapy · Nmap API · Sigma · SQLite · REST · MITRE ATT&CK |  Active |
+| REXDR | Modular network intelligence & threat hunting system. 8 integrated tools across 3 clusters -  recon, analysis, and response. Architecture-first build, no SaaS dependencies. | Python · Scapy · Nmap API · Sigma · SQLite · REST · MITRE ATT&CK |  Active |
 | CTF Writeups & Labs | HackTheBox & TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python |  Active |
 | IT Automation Scripts | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash |  Active |
 | Academic Security Labs | Network segmentation, firewall config, IoT pentesting device, train system (Resurgo Place), network overhaul. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi |  Complete |
