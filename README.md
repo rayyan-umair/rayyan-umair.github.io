@@ -15,17 +15,21 @@
 
 ## A bit about me
 
-I'm young. I didn't get here through a straight line, and I think that's actually the point.
+I am learning something new every day.
 
-Growing up, I bounced between three different worlds out of pure curiosity: medicine, engineering, and eventually technology. Nobody mapped that out for me. I just couldn't help wanting to understand how things worked and, more importantly, why they failed. That instinct never switched off.
+I’ve always been the person people call when something breaks and nobody knows why. I do not claim to know every tool/skill out there. I do not claim to be a master of the tools/skills I have mentioned in my profile. 
 
-**7 years** of self-directed learning across those three fields before most people my age had figured out what they wanted to do with one. Not formal degrees across all three. Just the kind of obsession that follows you past school hours and into every rabbit hole you can find.
+I just do not like problems that remain unsolved. Hence I do not give up. Regardless of how many hours I have to put in, of how many tools I need to learn, I just keep adapting. That’s a superpower.
 
-Each field gave me something different. Medicine showed me that the gap between a system functioning and a system failing is almost always smaller than it looks from the outside. Engineering taught me to think in structures: what depends on what, what carries the load, what breaks when one piece doesn't hold. IT is where both of those instincts finally had somewhere useful to go.
+That mindset pulled me into the intersection of IT & Business, specifically AI, Cybersecurity and Cloud Technology. I’m building toward that responsibility through hands-on experience, certifications, and a degree in Information Security.
 
-AI pulled me in first. I was fascinated by systems that could find patterns in data and make decisions faster than any human team. Then I started asking the obvious follow-up: **what happens when the pattern is wrong, and who owns that call?** That question led me directly to security. Not as a detour, but as the natural place where AI and accountability collide.
+I’m not interested in fixing the same problem forever. I’d rather understand the root cause and build systems where failure is harder to create in the first place.
 
-> *"Technology evolves quickly. Responsibility does not."*
+Outside of tech, I value calmness, discipline and precision. Whether that’s in the gym, at a shooting range, at a race track, in the sky, in deep waters or somewhere quiet in nature.
+
+Technology evolves.
+
+Responsibility doesn’t.
 
 ---
 
