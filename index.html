@@ -197,9 +197,9 @@ decisions in this file reflect the author's original work.
     }
 
     /* REXDR */
-    .netraptor-card{background:var(--surface);border:1px solid rgba(74,158,255,0.3);border-radius:6px;padding:2.8rem;position:relative;overflow:hidden}
-    .netraptor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--blue),var(--teal))}
-    .netraptor-card::after{content:'';position:absolute;top:3px;right:0;width:220px;height:220px;background:radial-gradient(circle at top right,rgba(74,158,255,0.07),transparent 70%);pointer-events:none}
+    .REXDR-card{background:var(--surface);border:1px solid rgba(74,158,255,0.3);border-radius:6px;padding:2.8rem;position:relative;overflow:hidden}
+    .REXDR-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--blue),var(--teal))}
+    .REXDR-card::after{content:'';position:absolute;top:3px;right:0;width:220px;height:220px;background:radial-gradient(circle at top right,rgba(74,158,255,0.07),transparent 70%);pointer-events:none}
     .nr-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--fm);font-size:0.65rem;color:var(--red);border:1px solid rgba(255,59,59,0.4);background:rgba(255,59,59,0.07);padding:0.25rem 0.75rem;border-radius:2px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem}
     .nr-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse-red 2s infinite}
     @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(255,59,59,0.7)}50%{box-shadow:0 0 0 8px rgba(255,59,59,0)}}
@@ -429,7 +429,7 @@ decisions in this file reflect the author's original work.
       .proj-full{grid-column:1}
 
       /* REXDR: stack body columns */
-      .netraptor-card{padding:1.6rem}
+      .REXDR-card{padding:1.6rem}
       .nr-body{grid-template-columns:1fr;gap:2rem}
 
       /* Interactive graphs: reduce height so they fit */
@@ -444,7 +444,7 @@ decisions in this file reflect the author's original work.
     @media(max-width:480px){
       section{padding:4rem 1.2rem}
       .proj-grid{gap:1rem}
-      .netraptor-card{padding:1.2rem}
+      .REXDR-card{padding:1.2rem}
       .eco-graph{height:220px}
       .ac-graph{height:200px}
       .eco-circle-label{font-size:0.5rem}
@@ -619,7 +619,7 @@ decisions in this file reflect the author's original work.
     <div class="proj-grid">
 
       <!-- 1. REXDR - full width -->
-      <div class="proj-full netraptor-card reveal">
+      <div class="proj-full REXDR-card reveal">
         <div class="nr-badge">Flagship Project</div>
         <div class="nr-title">Net<span>Raptor</span></div>
         <div class="nr-sub">Integrated Network Intelligence &amp; Threat Hunting System</div>
