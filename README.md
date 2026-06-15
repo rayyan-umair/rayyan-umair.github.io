@@ -169,23 +169,30 @@ available:    Full-time & hybrid roles in IT support, security ops, or security 
 
 ## Experience
 
-**IT Support & Jr. Cybersecurity Analyst @ SecureLogix** &nbsp;`Jan 2024 -  Jun 2025`
+**Cybersecurity Intern @ Tool-Go Inc.** &nbsp;`Mar 2025 - Aug 2025`
 
-Tier 1/2 support for enterprise users across hardware, software, authentication, and access issues. Monitored SIEM alerts and followed anything unusual until I understood it. Contributed to vulnerability scans, risk assessments, and compliance work. Managed user access lifecycle under least-privilege principles. Kept detailed incident records so every ticket told the full story.
-
----
-
-**Cybersecurity Intern @ Tool-Go Inc.** &nbsp;`May 2024 -  Jun 2025`
-
-Assisted with supervised penetration testing and vulnerability assessments across web apps and network environments. Supported attack surface analysis and DoS stress testing. Helped identify indicators of compromise. Wrote sections of technical reports covering findings, risk, and remediation.
+Assisted with supervised penetration testing and vulnerability assessments across web apps and network environments. Supported attack surface analysis and DoS stress testing. Helped identify indicators of compromise. Wrote sections of technical reports covering findings, risk, and remediation. New Brunswick, Canada · Hybrid.
 
 ---
 
-**IT Support Technician @ Freelance** &nbsp;`Feb 2023 -  Present`
+**IT Support Technician @ SecureLogix** &nbsp;`Mar 2024 - Jan 2025`
 
-End-to-end hardware, software, and network support for small businesses and home users. Built a consistent base of repeat clients through reliable follow-through.
+Delivered Tier 1 and Tier 2 technical support for end users across Windows environments - hardware, software, authentication, and access issues. Monitored SIEM alerts and followed anything unusual until I understood it. Contributed to vulnerability scans, risk assessments, and compliance work. Managed user access lifecycle under least-privilege principles. Kept detailed incident records so every ticket told the full story. Canada · Remote.
 
 ---
+
+**Operations & Customer-Facing Roles @ Various Employers** &nbsp;`Sep 2023 - Aug 2024`
+
+Worked in fast-paced, shift-based environments requiring accuracy and reliability across customer-facing and operational roles. Built consistent habits around communication, accountability, and performing under pressure - directly transferable to support and security operations work. Greater Toronto Area, Canada · Hybrid.
+
+---
+
+**IT Support Technician @ Freelance** &nbsp;`Feb 2023 - Mar 2024`
+
+End-to-end hardware, software, and network support for small businesses and home users. Built a consistent base of repeat clients through reliable follow-through. Canada · Hybrid.
+
+---
+
 
 ## Projects
 
