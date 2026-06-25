@@ -15,39 +15,27 @@
 
 ## A bit about me
 
-I am learning something new every day.
+I've always been the person people call when something goes wrong, technical or not. I do not claim to have mastered every tool I've used or every skill listed in this profile. I am still learning something new every day — and that's never been a setback. It's the habit that gets me to the answer everyone else gave up looking for.
 
-I’ve always been the person people call when something breaks and nobody knows why. I do not claim to know every tool/skill out there. I do not claim to be a master of the tools/skills I have mentioned in my profile. 
+The reason: I just do not like problems that remain unsolved. I do not chase the same fix again and again, patch the same symptom twice, or call something "done" just because it stopped breaking for now. I'd rather understand why it broke in the first place and build something where that failure is structurally harder to create again.
 
-I just do not like problems that remain unsolved. Hence I do not give up. Regardless of how many hours I have to put in, of how many tools I need to learn, I just keep adapting. That’s a superpower.
+That mindset pulled me into the intersection of IT & Business — AI, Cybersecurity, and Cloud Technology, to be specific. AI is changing how fast problems get found, but it doesn't change who's accountable when something goes wrong. That gap between speed and accountability is what I find genuinely interesting, and it's the direction I'm building my entire skill set around.
 
-That mindset pulled me into the intersection of IT & Business, specifically AI, Cybersecurity and Cloud Technology. I’m building toward that responsibility through hands-on experience, certifications, and a degree in Information Security.
+**My core interests:**
 
-I’m not interested in fixing the same problem forever. I’d rather understand the root cause and build systems where failure is harder to create in the first place.
+◈ **Security Architecture & Risk** — systems that hold up by principle, not ones that survive because someone remembered to patch them in time.
 
-Outside of tech, I value calmness, discipline and precision. Whether that’s in the gym, at a shooting range, at a race track, in the sky, in deep waters or somewhere quiet in nature.
+◈ **AI-Augmented Decision Making** — AI handles execution well. Judgment calls in ambiguous, high-stakes situations still need a human in the room.
 
-Technology evolves.
+◈ **Human Accountability in Systems** — when something breaks at scale, someone has to walk into that room, own it, and make the fix credible.
 
-Responsibility doesn’t.
+I'm building toward these through hands-on projects, certifications, and a degree in Information Security — and whatever I learn along the way gets tested directly on **REXDR**, a modular network intelligence & threat-hunting platform I'm actively building. Most of what's in my pinned repos exists because I needed to actually use a concept, not just read about it.
 
----
+Outside of tech, I chase the same things: calmness, discipline, precision. In the gym. At the range. On the track. In the sky. In deep water. Somewhere quiet in nature.
 
-## What I'm working toward
+**Technology evolves.**
 
-◈  Security Architecture & Risk
-Design systems that hold up by principle, not ones that survive
-because someone remembered to patch them in time.
-
-◈  AI-Augmented Decision Making
-AI handles execution well. Judgment calls in ambiguous situations
-with real consequences need a human in the right seat.
-
-◈  Human Accountability in Systems
-When something goes wrong at scale, someone has to walk into that room,
-own it, and make it credible it won't happen again. That's the role I'm building toward.
-
----
+**Responsibility doesn't.**
 
 ## Right now
 
