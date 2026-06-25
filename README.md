@@ -15,21 +15,21 @@
 
 ## A bit about me
 
-I've always been the person people call when something goes wrong, technical or not. I do not claim to have mastered every tool I've used or every skill listed in this profile. I am still learning something new every day — and that's never been a setback. It's the habit that gets me to the answer everyone else gave up looking for.
+I've always been the person people call when something goes wrong, technical or not. I do not claim to have mastered every tool I've used or every skill listed in this profile. I am still learning something new every day - and that's never been a setback. It's the habit that gets me to the answer everyone else gave up looking for.
 
 The reason: I just do not like problems that remain unsolved. I do not chase the same fix again and again, patch the same symptom twice, or call something "done" just because it stopped breaking for now. I'd rather understand why it broke in the first place and build something where that failure is structurally harder to create again.
 
-That mindset pulled me into the intersection of IT & Business — AI, Cybersecurity, and Cloud Technology, to be specific. AI is changing how fast problems get found, but it doesn't change who's accountable when something goes wrong. That gap between speed and accountability is what I find genuinely interesting, and it's the direction I'm building my entire skill set around.
+That mindset pulled me into the intersection of IT & Business - AI, Cybersecurity, and Cloud Technology, to be specific. AI is changing how fast problems get found, but it doesn't change who's accountable when something goes wrong. That gap between speed and accountability is what I find genuinely interesting, and it's the direction I'm building my entire skill set around.
 
 **My core interests:**
 
-◈ **Security Architecture & Risk** — systems that hold up by principle, not ones that survive because someone remembered to patch them in time.
+◈ **Security Architecture & Risk** - systems that hold up by principle, not ones that survive because someone remembered to patch them in time.
 
-◈ **AI-Augmented Decision Making** — AI handles execution well. Judgment calls in ambiguous, high-stakes situations still need a human in the room.
+◈ **AI-Augmented Decision Making** - AI handles execution well. Judgment calls in ambiguous, high-stakes situations still need a human in the room.
 
-◈ **Human Accountability in Systems** — when something breaks at scale, someone has to walk into that room, own it, and make the fix credible.
+◈ **Human Accountability in Systems** - when something breaks at scale, someone has to walk into that room, own it, and make the fix credible.
 
-I'm building toward these through hands-on projects, certifications, and a degree in Information Security — and whatever I learn along the way gets tested directly on **REXDR**, a modular network intelligence & threat-hunting platform I'm actively building. Most of what's in my pinned repos exists because I needed to actually use a concept, not just read about it.
+I'm building toward these through hands-on projects, certifications, and a degree in Information Security - and whatever I learn along the way gets tested directly on **REXDR**, a modular network intelligence & threat-hunting platform I'm actively building. Most of what's in my pinned repos exists because I needed to actually use a concept, not just read about it.
 
 Outside of tech, I chase the same things: calmness, discipline, precision. In the gym. At the range. On the track. In the sky. In deep water. Somewhere quiet in nature.
 
@@ -45,7 +45,6 @@ studying:     Bachelor of IT (Information Security) @ Ontario Tech University
 practicing:   CTF challenges -  HackTheBox & TryHackMe
 building:     REXDR -  modular network intelligence & threat hunting system
 reading:      Security architecture, AI in cybersecurity, risk frameworks
-available:    Full-time & hybrid roles in IT support, security ops, or security engineering
 ```
 
 ---
@@ -202,12 +201,6 @@ If you need someone who thinks in systems and stays in the room when things get 
 
 [rayyanxumair@gmail.com](mailto:rayyanxumair@gmail.com) &nbsp;·&nbsp; [linkedin.com/in/rayyanumair](https://www.linkedin.com/in/rayyanumair/) &nbsp;·&nbsp; 
 [rayyan-umair.github.io](https://rayyan-umair.github.io/)
-
-<br/>
-
-<sub>Canada &nbsp;·&nbsp; English · Urdu/Hindi · Punjabi &nbsp;·&nbsp; Open to hybrid & full-time</sub>
-
-<br/>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=80&section=footer" width="100%"/>
 
