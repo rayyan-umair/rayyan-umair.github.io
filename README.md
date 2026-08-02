@@ -124,11 +124,13 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 
 | Certification | Issuer | Status |
 |:---|:---|:---:|
+| ITIL Foundation | Axelos | Complete |
+| Google Cybersecurity Certificate | Google | Complete |
 | CompTIA Security+ | CompTIA | Active |
 | CompTIA Network+ | CompTIA | Active |
 | CompTIA CySA+ | CompTIA | In Progress |
-| Google Cybersecurity Certificate | Google | Complete |
-| ITIL Foundation | Axelos | Complete |
+
+
 
 </div>
 
