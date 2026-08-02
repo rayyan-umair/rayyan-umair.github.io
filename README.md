@@ -189,7 +189,7 @@ Provided remote and onsite IT support for home users and small businesses. Diagn
 
 | Project | What it actually is | Stack | Status |
 |:---|:---|:---|:---:|
-| **REXDR** | Self-hosted detection and response platform. Eight engines - Windows events, network flow, DNS, Active Directory, correlation, response, asset discovery, vulnerability - share one entity model and correlate into single investigations with narratives, MITRE mapping, and automated case files. | Python · Go · DuckDB · Docker · React · LDAP · Scapy · MITRE ATT&amp;CK | Working |
+| **REXDR** | Self-hosted detection and response platform. Eight engines - Windows events, network flow, DNS, Active Directory, correlation, response, asset discovery, vulnerability - share one entity model and correlate into single investigations with narratives, MITRE mapping, and automated case files. | Python · Go · DuckDB · Docker · React · LDAP · Scapy · MITRE ATT&amp;CK | Complete |
 | **CTF Writeups &amp; Labs** | HackTheBox and TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python | Active |
 | **IT Automation Scripts** | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash | Active |
 | **Academic Security Labs** | Network segmentation, firewall configuration, IoT pentesting device, embedded train system (Resurgo Place), enterprise network overhaul, ITIL service management plan. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi | Complete |
