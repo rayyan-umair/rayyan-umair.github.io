@@ -134,7 +134,9 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 
 ### Roadmap
 
-Network+ → Security+ → **CySA+** → CCNA → CISSP
+Foundation: Network+, Security+
+Operations: CySA+ (in progress)
+Next: Cloud Security, Governance and Risk
 
 ---
 
