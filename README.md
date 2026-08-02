@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=140&section=header&text=Rayyan%20Umair&fontSize=48&fontColor=ffffff&fontAlignY=65&desc=IT%20Support%20%C2%B7%20Cybersecurity%20%C2%B7%20Building%20toward%20Security%20Architecture&descSize=14&descAlignY=85&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=140&amp;section=header&amp;text=Rayyan%20Umair&amp;fontSize=48&amp;fontColor=ffffff&amp;fontAlignY=65&amp;desc=IT%20Support%20%C2%B7%20Cybersecurity%20%C2%B7%20Building%20toward%20Security%20Architecture&amp;descSize=14&amp;descAlignY=85&amp;animation=fadeIn" width="100%"/>
 
 <br/>
 
@@ -13,37 +13,35 @@
 
 ---
 
-## A bit about me
+## About
 
-I've always been the person people call when something goes wrong, technical or not. I do not claim to have mastered every tool I've used or every skill listed in this profile. I am still learning something new every day - and that's never been a setback. It's the habit that gets me to the answer everyone else gave up looking for.
+I am constantly learning. The intersection of AI, cybersecurity, and cloud has my full attention.
 
-The reason: I just do not like problems that remain unsolved. I do not chase the same fix again and again, patch the same symptom twice, or call something "done" just because it stopped breaking for now. I'd rather understand why it broke in the first place and build something where that failure is structurally harder to create again.
-
-That mindset pulled me into the intersection of IT & Business - AI, Cybersecurity, and Cloud Technology, to be specific. AI is changing how fast problems get found, but it doesn't change who's accountable when something goes wrong. That gap between speed and accountability is what I find genuinely interesting, and it's the direction I'm building my entire skill set around.
+I prefer finding the root cause and engineering systems where failure is harder to create in the first place.
 
 **My core interests:**
 
-◈ **Security Architecture & Risk** - systems that hold up by principle, not ones that survive because someone remembered to patch them in time.
+◈ **Security Architecture &amp; Risk** - systems that hold up by principle.
 
-◈ **AI-Augmented Decision Making** - AI handles execution well. Judgment calls in ambiguous, high-stakes situations still need a human in the room.
+◈ **AI-Augmented Decision Making** - high-stakes situations still need a human in the room.
 
-◈ **Human Accountability in Systems** - when something breaks at scale, someone has to walk into that room, own it, and make the fix credible.
+◈ **Human Accountability in Systems** - someone has to own errors and make the fix credible.
 
-I'm building toward these through hands-on projects, certifications, and a degree in Information Security - and whatever I learn along the way gets tested directly on **REXDR**, a modular network intelligence & threat-hunting platform I'm actively building. Most of what's in my pinned repos exists because I needed to actually use a concept, not just read about it.
+I am building toward these through hands-on projects, certifications, and a degree in Information Security. Whatever I learn, I test as I continue building **REXDR** - a self-hosted detection and response platform where eight engines correlate into single investigations.
 
-Outside of tech, I chase the same things: calmness, discipline, precision. In the gym. At the range. On the track. In the sky. In deep water. Somewhere quiet in nature.
+My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments, but the same pattern for how systems fail when you spend enough time watching them.
 
-**Technology evolves.**
+Outside of study and work I chase pretty much the same things: calmness, discipline, precision. In the gym. At the range. On the track. In the sky. In deep water. Environments where I can think critically. That balance matters more to me than most things.
 
-**Responsibility doesn't.**
+Always open to discussing opportunities.
 
 ## Right now
 
 ```yaml
 location:     Canada
 studying:     Bachelor of IT (Information Security) @ Ontario Tech University
-practicing:   CTF challenges -  HackTheBox & TryHackMe
-building:     REXDR -  modular network intelligence & threat hunting system
+practicing:   CTF challenges - HackTheBox & TryHackMe
+building:     REXDR - self-hosted detection and response platform
 reading:      Security architecture, AI in cybersecurity, risk frameworks
 ```
 
@@ -55,64 +53,64 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 <tr>
 <td valign="top" width="50%">
 
-**Support & Operations**
+**Support &amp; Operations**
 - Tier 1 / Tier 2 IT Support
-- Incident Management & Escalation
-- ITIL Framework & SLA Adherence
+- Incident Management &amp; Escalation
+- ITIL Framework &amp; SLA Adherence
 - Ticketing Systems (ServiceNow / Jira)
-- User Onboarding, Offboarding & Access Reviews
+- Technical Documentation &amp; Reporting
 
 </td>
 <td valign="top" width="50%">
 
-**Security**
-- SIEM Monitoring & Log Analysis (Splunk)
-- Vulnerability Scanning & Remediation
-- Penetration Testing Support (Kali, Burp Suite, Nmap)
-- Indicator of Compromise (IOC) Analysis
-- Endpoint Hardening & Compliance
+**Security Operations**
+- SIEM Monitoring (Splunk, Microsoft Sentinel)
+- Alert Triage &amp; Escalation
+- Vulnerability Scanning &amp; Remediation (Nessus)
+- Indicator of Compromise Analysis
+- Endpoint Hardening &amp; Baseline Compliance
 
 </td>
 </tr>
 <tr>
 <td valign="top">
 
-**Systems & Networking**
-- Windows OS & Active Directory (IAM, MFA)
+**Systems &amp; Identity**
+- Windows OS &amp; Active Directory
+- Microsoft Entra ID, MFA, Conditional Access
+- User Lifecycle &amp; Least-Privilege Access Reviews
 - LAN / WAN / TCP-IP Fundamentals
-- Linux CLI & System Administration
-- Virtualization (VMware, VirtualBox)
-- Network Segmentation & Firewall Config (pfSense)
+- Linux CLI &amp; Virtualization (VMware, VirtualBox)
 
 </td>
 <td valign="top">
 
-**Scripting & Tools**
-- Python, PowerShell, Bash
-- Wireshark, Nmap, Metasploit, Burp Suite
-- Scapy, Sigma Rules, MITRE ATT&CK
-- Git & Version Control
-- Technical Documentation & Report Writing
+**Governance, Risk &amp; Compliance**
+- Risk Assessment &amp; Remediation Tracking
+- Access Review &amp; Audit Support
+- Security Policy &amp; Control Documentation
+- Incident Reporting &amp; Post-Incident Review
+- MITRE ATT&amp;CK Mapping
 
 </td>
 </tr>
 <tr>
 <td valign="top">
 
-**Offensive Security**
-- Metasploit Framework
-- Burp Suite (web app testing)
-- OSINT & Reconnaissance
-- Network Traffic Analysis & Anomaly Detection
+**Scripting &amp; Automation**
+- Python, PowerShell, Bash
+- Security Automation &amp; Log Parsing
+- Git &amp; Version Control
+- Docker &amp; Containerized Deployment
 
 </td>
 <td valign="top">
 
-**Cloud & AI/ML**
-- AWS & Azure Fundamentals (IAM, storage, infra)
-- AI/ML Concepts & Model Evaluation
-- Security Automation
-- Threat Intelligence & MITRE ATT&CK Mapping
+**Assessment &amp; Cloud**
+- Supervised Penetration Testing (Kali, Burp Suite, Nmap)
+- Network Traffic Analysis (Wireshark)
+- AWS &amp; Azure Fundamentals (IAM, storage, infra)
+- AI/ML Concepts &amp; Model Evaluation
 
 </td>
 </tr>
@@ -126,18 +124,21 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 
 | Certification | Issuer | Status |
 |:---|:---|:---:|
-| CompTIA Security+ | CompTIA |  Active |
-| CompTIA Network+ | CompTIA |  Active |
-| CompTIA A+ | CompTIA |  Active |
-| Cisco Certified Support Technician (CCST) | Cisco |  Active |
-| Google Cybersecurity Certificate | Google |  Complete |
-| ITIL Foundation | Axelos |  Complete |
+| ITIL Foundation | Axelos | Complete |
+| Google Cybersecurity Certificate | Google | Complete |
+| CompTIA Security+ | CompTIA | Active |
+| CompTIA Network+ | CompTIA | Active |
+| CompTIA CySA+ | CompTIA | In Progress |
+
+
 
 </div>
 
 ### Roadmap
 
-✅ A+  →  ✅ N+  →  ✅ S+  →  ✅ CCST  →  ⏳ CySA+  →  📋 CCNA  →  🔭 CISSP
+Foundation: Network+, Security+
+Operations: CySA+ (in progress)
+Next: Cloud Security, Governance and Risk
 
 ---
 
@@ -147,8 +148,8 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 
 | Degree | Institution | Status |
 |:---|:---|:---:|
-| Bachelor of IT (Information Security) | Ontario Tech University |  In Progress |
-| Diploma in Systems Management & Cybersecurity | Oulton College |  Graduated with Honors · GPA 3.9 |
+| Bachelor of IT (Information Security) | Ontario Tech University | In Progress |
+| Diploma in Systems Management &amp; Cybersecurity | Oulton College | Graduated with Honors · GPA 3.9 |
 
 </div>
 
@@ -156,40 +157,47 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 
 ## Experience
 
+**Operations, Logistics, Security &amp; Risk Management** &nbsp;`Sep 2023 - Present`
+
+Various Employers · Greater Toronto Area, Canada · Hybrid
+
+Worked across operations, warehousing, logistics, security, and investigations in fast-paced environments including H&amp;M, Purolator, Fable Home, Armour Transport, Allied Universal, Securitas, Blackbird Security, and Xpera Risk Mitigation &amp; Investigation. Supported warehouse operations, inventory management, and process workflows while maintaining accuracy, safety, and efficiency. Licensed Security Guard and Private Investigator with experience in access control, CCTV monitoring, loss prevention, incident response, and investigative support. Prepared incident reports, monitored risks, and responded to security events while maintaining detailed documentation.
+
+---
+
 **Cybersecurity Intern @ Tool-Go Inc.** &nbsp;`Mar 2025 - Aug 2025`
 
-Assisted with supervised penetration testing and vulnerability assessments across web apps and network environments. Supported attack surface analysis and DoS stress testing. Helped identify indicators of compromise. Wrote sections of technical reports covering findings, risk, and remediation. New Brunswick, Canada · Hybrid.
+Internship · New Brunswick, Canada · Hybrid
+
+Assisted with penetration testing and vulnerability assessments on web applications and internal networks using Kali Linux, Nmap, Burp Suite, and Nessus. Helped monitor security alerts in Splunk and Microsoft Sentinel, investigating and escalating suspicious activity. Performed stress testing and basic DoS evaluations to identify potential performance and security issues. Wrote technical reports outlining findings, risks, and recommended fixes. Helped maintain asset inventories, validate security controls, and support vulnerability remediation.
 
 ---
 
 **IT Support Technician @ SecureLogix** &nbsp;`Mar 2024 - Jan 2025`
 
-Delivered Tier 1 and Tier 2 technical support for end users across Windows environments - hardware, software, authentication, and access issues. Monitored SIEM alerts and followed anything unusual until I understood it. Contributed to vulnerability scans, risk assessments, and compliance work. Managed user access lifecycle under least-privilege principles. Kept detailed incident records so every ticket told the full story. Canada · Remote.
+Permanent Full-time · Canada · Remote
 
----
-
-**Operations & Customer-Facing Roles @ Various Employers** &nbsp;`Sep 2023 - Aug 2024`
-
-Worked in fast-paced, shift-based environments requiring accuracy and reliability across customer-facing and operational roles. Built consistent habits around communication, accountability, and performing under pressure - directly transferable to support and security operations work. Greater Toronto Area, Canada · Hybrid.
+Provided Tier 1 and Tier 2 IT support for Windows users, resolving hardware, software, and account-related issues. Imaged, patched, and troubleshot Windows devices while assisting with system hardening. Monitored security alerts in Microsoft Sentinel and Splunk, escalating potential threats when needed. Assisted with vulnerability scans using Nessus and supported remediation efforts. Managed user accounts, password resets, Active Directory, Microsoft Entra ID, and MFA requests. Documented support tickets, troubleshooting steps, and resolutions in ServiceNow.
 
 ---
 
 **IT Support Technician @ Freelance** &nbsp;`Feb 2023 - Mar 2024`
 
-End-to-end hardware, software, and network support for small businesses and home users. Built a consistent base of repeat clients through reliable follow-through. Canada · Hybrid.
+Self-employed · Canada · Hybrid
+
+Provided remote and onsite IT support for home users and small businesses. Diagnosed and repaired Windows PCs, laptops, peripherals, and software issues. Installed and configured Windows, drivers, applications, and system updates. Set up routers, Wi-Fi networks, printers, shared drives, and basic network security. Helped users with account setup, troubleshooting, and everyday cybersecurity practices.
 
 ---
-
 
 ## Projects
 
 | Project | What it actually is | Stack | Status |
 |:---|:---|:---|:---:|
-| REXDR | Modular network intelligence & threat hunting system. 8 integrated tools across 3 clusters -  recon, analysis, and response. Architecture-first build, no SaaS dependencies. | Python · Scapy · Nmap API · Sigma · SQLite · REST · MITRE ATT&CK |  Active |
-| CTF Writeups & Labs | HackTheBox & TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python |  Active |
-| IT Automation Scripts | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash |  Active |
-| Academic Security Labs | Network segmentation, firewall config, IoT pentesting device, train system (Resurgo Place), network overhaul. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi |  Complete |
-| Portfolio Website | Built from scratch. Boot sequence, animated globe, interactive node graphs, pie-chart ecosystem. Zero dependencies, zero frameworks. | HTML · CSS · JS · Canvas API · GitHub Pages |  Live |
+| **REXDR** | Self-hosted detection and response platform. Eight engines - Windows events, network flow, DNS, Active Directory, correlation, response, asset discovery, vulnerability - share one entity model and correlate into single investigations with narratives, MITRE mapping, and automated case files. | Python · Go · DuckDB · Docker · React · LDAP · Scapy · MITRE ATT&amp;CK | Complete |
+| **CTF Writeups &amp; Labs** | HackTheBox and TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python | Active |
+| **IT Automation Scripts** | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash | Active |
+| **Academic Security Labs** | Network segmentation, firewall configuration, IoT pentesting device, embedded train system (Resurgo Place), enterprise network overhaul, ITIL service management plan. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi | Complete |
+| **Portfolio Website** | Built from scratch. Scroll-driven 3D camera engine, interactive node graphs, zero frameworks. | HTML · CSS · JS · Three.js · GitHub Pages | Live |
 
 ---
 
@@ -197,11 +205,8 @@ End-to-end hardware, software, and network support for small businesses and home
 
 **Want to connect?**
 
-If you need someone who thinks in systems and stays in the room when things get hard, reach out.
+[rayyanxumair@gmail.com](mailto:rayyanxumair@gmail.com) &nbsp;·&nbsp; [linkedin.com/in/rayyanumair](https://www.linkedin.com/in/rayyanumair/) &nbsp;·&nbsp; [rayyan-umair.github.io](https://rayyan-umair.github.io/)
 
-[rayyanxumair@gmail.com](mailto:rayyanxumair@gmail.com) &nbsp;·&nbsp; [linkedin.com/in/rayyanumair](https://www.linkedin.com/in/rayyanumair/) &nbsp;·&nbsp; 
-[rayyan-umair.github.io](https://rayyan-umair.github.io/)
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=80&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=80&amp;section=footer" width="100%"/>
 
 </div>
