@@ -21,13 +21,13 @@ I prefer finding the root cause and engineering systems where failure is harder 
 
 **My core interests:**
 
-◈ **Security Architecture &amp; Risk** — systems that hold up by principle.
+◈ **Security Architecture &amp; Risk** - systems that hold up by principle.
 
-◈ **AI-Augmented Decision Making** — high-stakes situations still need a human in the room.
+◈ **AI-Augmented Decision Making** - high-stakes situations still need a human in the room.
 
-◈ **Human Accountability in Systems** — someone has to own errors and make the fix credible.
+◈ **Human Accountability in Systems** - someone has to own errors and make the fix credible.
 
-I am building toward these through hands-on projects, certifications, and a degree in Information Security. Whatever I learn, I test as I continue building **REXDR** — a self-hosted detection and response platform where eight engines correlate into single investigations.
+I am building toward these through hands-on projects, certifications, and a degree in Information Security. Whatever I learn, I test as I continue building **REXDR** - a self-hosted detection and response platform where eight engines correlate into single investigations.
 
 My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments, but the same pattern for how systems fail when you spend enough time watching them.
 
@@ -189,7 +189,7 @@ Provided remote and onsite IT support for home users and small businesses. Diagn
 
 | Project | What it actually is | Stack | Status |
 |:---|:---|:---|:---:|
-| **REXDR** | Self-hosted detection and response platform. Eight engines — Windows events, network flow, DNS, Active Directory, correlation, response, asset discovery, vulnerability — share one entity model and correlate into single investigations with narratives, MITRE mapping, and automated case files. | Python · Go · DuckDB · Docker · React · LDAP · Scapy · MITRE ATT&amp;CK | Working |
+| **REXDR** | Self-hosted detection and response platform. Eight engines - Windows events, network flow, DNS, Active Directory, correlation, response, asset discovery, vulnerability - share one entity model and correlate into single investigations with narratives, MITRE mapping, and automated case files. | Python · Go · DuckDB · Docker · React · LDAP · Scapy · MITRE ATT&amp;CK | Working |
 | **CTF Writeups &amp; Labs** | HackTheBox and TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python | Active |
 | **IT Automation Scripts** | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash | Active |
 | **Academic Security Labs** | Network segmentation, firewall configuration, IoT pentesting device, embedded train system (Resurgo Place), enterprise network overhaul, ITIL service management plan. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi | Complete |
