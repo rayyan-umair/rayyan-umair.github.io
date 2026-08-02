@@ -27,7 +27,7 @@ I prefer finding the root cause and engineering systems where failure is harder 
 
 ◈ **Human Accountability in Systems** - someone has to own errors and make the fix credible.
 
-I am building toward these through hands-on projects, certifications, and a degree in Information Security. Whatever I learn, I test as I continue building **REXDR** - a self-hosted detection and response platform where eight engines correlate into single investigations.
+I am building toward this through hands-on projects, certifications, and a degree in Information Security. Whatever I learn, I test as I continue building thesis and projects including REXDR - a self-hosted detection and response platform where eight engines correlate into single investigations.
 
 My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments, but the same pattern for how systems fail when you spend enough time watching them.
 
