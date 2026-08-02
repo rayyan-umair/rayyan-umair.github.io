@@ -203,8 +203,6 @@ Provided remote and onsite IT support for home users and small businesses. Diagn
 
 **Want to connect?**
 
-If you need someone who thinks in systems and stays in the room when things get hard, reach out.
-
 [rayyanxumair@gmail.com](mailto:rayyanxumair@gmail.com) &nbsp;·&nbsp; [linkedin.com/in/rayyanumair](https://www.linkedin.com/in/rayyanumair/) &nbsp;·&nbsp; [rayyan-umair.github.io](https://rayyan-umair.github.io/)
 
 <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=80&amp;section=footer" width="100%"/>
