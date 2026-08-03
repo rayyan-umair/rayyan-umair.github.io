@@ -161,7 +161,7 @@ Next: Cloud Security, Governance and Risk
 
 Various Employers · Greater Toronto Area, Canada · Hybrid
 
-Worked across operations, warehousing, logistics, security, and investigations in fast-paced environments including H&amp;M, Purolator, Fable Home, Armour Transport, Allied Universal, Securitas, Blackbird Security, and Xpera Risk Mitigation &amp; Investigation. Supported warehouse operations, inventory management, and process workflows while maintaining accuracy, safety, and efficiency. Licensed Security Guard and Private Investigator with experience in access control, CCTV monitoring, loss prevention, incident response, and investigative support. Prepared incident reports, monitored risks, and responded to security events while maintaining detailed documentation.
+Worked across operations, warehousing, logistics, security, and investigations in fast-paced environments including H&amp;M, Purolator, Fable Home, Armour Transport, Allied Universal, Securitas, Blackbird Security, and Xpera Risk Mitigation &amp; Investigation. Supported warehouse operations, inventory management, and process workflows while maintaining accuracy, safety, and efficiency. Prepared incident reports, monitored risks, and responded to security events while maintaining detailed documentation.
 
 ---
 
