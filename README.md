@@ -25,11 +25,11 @@ I prefer finding the root cause, asking why a control failed &amp; engineering s
 
 ◈ **Accountability in Systems** - when something breaks, someone has to own it and make the fix credible.
 
-I am building towards these through hands-on work to complement the frameworks on paper, certifications, and a degree in Information Security and ongoing projects including REXDR - a modular network intelligence & threat-hunting platform.
+I am building towards these through hands-on work to complement the frameworks on paper, certifications, and a degree in Information Security and ongoing projects including REXDR - a modular network intelligence &amp; threat-hunting platform.
 
 My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments have the same pattern for systems failure when you spend enough time watching them. The pattern recognition is real part of what governance and risk work actually is.
 
-Outside of study & work, I chase pretty much the same things - calmness, discipline, precision - in different settings. The gym, the range, the track, the sky, the deep waters. 
+Outside of study &amp; work, I chase pretty much the same things - calmness, discipline, precision - in different settings. The gym, the range, the track, the sky, the deep waters. 
 
 Always open to discussing conversations about GRC, security governance, or where AI risk is heading.
 
