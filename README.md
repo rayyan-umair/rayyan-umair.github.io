@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=140&amp;section=header&amp;text=Rayyan%20Umair&amp;fontSize=48&amp;fontColor=ffffff&amp;fontAlignY=65&amp;desc=GRC&amp;Cybersecurity%20%20%C2%B7%Governance, Risk & Compliance&amp;descSize=14&amp;descAlignY=85&amp;animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=140&amp;section=header&amp;text=Rayyan%20Umair&amp;fontSize=48&amp;fontColor=ffffff&amp;fontAlignY=65&amp;desc=IT%20Support%20%C2%B7%20Cybersecurity%20%C2%B7%20Building%20toward%20Security%20Architecture&amp;descSize=14&amp;descAlignY=85&amp;animation=fadeIn" width="100%"/>
 
 <br/>
 
