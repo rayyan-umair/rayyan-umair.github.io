@@ -1,4 +1,6 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=140&section=header&text=Rayyan%20Umair&fontSize=48&fontColor=ffffff&fontAlignY=65&desc=GRC%20%26%20Cybersecurity%20%7C%20Governance%2C%20Risk%20%26%20Compliance%20%7C%20Systems%2C%20Identity%20%26%20Security%20Background&descSize=14&descAlignY=85&animation=fadeIn" width="100%" />
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=140&section=header&text=Rayyan%20Umair&fontSize=48&fontColor=ffffff&fontAlignY=65&desc=GRC%20%26%20Cybersecurity%20%7C%20Governance%2C%20Risk%20%26%20Compliance%20%7C%20Systems%2C%20Identity%20%26%20Security%20Background&descSize=14&descAlignY=85&animation=fadeIn" width="100%" />
+</div>
 
 ## About
 
