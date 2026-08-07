@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=140&amp;section=header&amp;text=Rayyan%20Umair&amp;fontSize=48&amp;fontColor=ffffff&amp;fontAlignY=65&amp;desc=IT%20Support%20%C2%B7%20Cybersecurity%20%C2%B7%20Building%20toward%20Security%20Architecture&amp;descSize=14&amp;descAlignY=85&amp;animation=fadeIn" width="100%"/>
-
-<br/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=140&section=header&text=Rayyan%20Umair&fontSize=48&fontColor=ffffff&fontAlignY=65&desc=GRC%20%26%20Cybersecurity%20%7C%20Governance%2C%20Risk%20%26%20Compliance%20%7C%20Systems%2C%20Identity%20%26%20Security%20Background&descSize=14&descAlignY=85&animation=fadeIn" width="100%"/>
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-rayyan--umair.github.io-4a9eff?style=for-the-badge&logoColor=white)](https://rayyan-umair.github.io/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rayyanumair/)
