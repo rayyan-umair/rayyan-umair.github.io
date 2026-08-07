@@ -15,25 +15,25 @@
 
 ## About
 
-I am constantly learning. The intersection of AI, cybersecurity, and cloud has my full attention.
+I am constantly learning. I am shaping my career where security risk, governance and business strategy meet, with a focus on how organizations govern AI & vice versa.
 
-I prefer finding the root cause and engineering systems where failure is harder to create in the first place.
+I prefer finding the root cause, asking why a control failed & engineering systems where failure is harder to create in the first place.
 
 **My core interests:**
 
-◈ **Security Architecture &amp; Risk** - systems that hold up by principle.
+◈ **Governance &amp; Risk Management** - frameworks and controls that hold up by principle, not by luck.
 
-◈ **AI-Augmented Decision Making** - high-stakes situations still need a human in the room.
+◈ **AI Governance & Risk** - as organizations adopt AI, someone has to own the risk decisions around it.
 
-◈ **Human Accountability in Systems** - someone has to own errors and make the fix credible.
+◈ **Accountability in Systems** - when something breaks, someone has to own it and make the fix credible.
 
-I am building toward this through hands-on projects, certifications, and a degree in Information Security. Whatever I learn, I test as I continue building thesis and projects including REXDR - a self-hosted detection and response platform where eight engines correlate into single investigations.
+I am building towards these through hands-on work to complement the frameworks on paper, certifications, and a degree in Information Security and ongoing projects including REXDR - a modular network intelligence & threat-hunting platform.
 
-My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments, but the same pattern for how systems fail when you spend enough time watching them.
+My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments have the same pattern for systems failure when you spend enough time watching them. The pattern recognition is real part of what governance and risk work actually is.
 
-Outside of study and work I chase pretty much the same things: calmness, discipline, precision. In the gym. At the range. On the track. In the sky. In deep water. Environments where I can think critically. That balance matters more to me than most things.
+Outside of study & work, I chase pretty much the same things - calmness, discipline, precision - in different settings. The gym, the range, the track, the sky, the deep waters. 
 
-Always open to discussing opportunities.
+Always open to discussing conversations about GRC, security governance, or where AI risk is heading.
 
 ## Right now
 
