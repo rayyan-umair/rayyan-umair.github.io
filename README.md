@@ -15,7 +15,7 @@
 
 I am constantly learning. I am shaping my career where security risk, governance and business strategy meet, with a focus on how organizations govern AI &amp; vice versa.
 
-I prefer finding the root cause, asking why a control failed & engineering systems where failure is harder to create in the first place.
+I prefer finding the root cause, asking why a control failed &amp; engineering systems where failure is harder to create in the first place.
 
 **My core interests:**
 
