@@ -21,7 +21,7 @@ I prefer finding the root cause, asking why a control failed & engineering syste
 
 ◈ **Governance &amp; Risk Management** - frameworks and controls that hold up by principle, not by luck.
 
-◈ **AI Governance & Risk** - as organizations adopt AI, someone has to own the risk decisions around it.
+◈ **AI Governance &amp; Risk** - as organizations adopt AI, someone has to own the risk decisions around it.
 
 ◈ **Accountability in Systems** - when something breaks, someone has to own it and make the fix credible.
 
