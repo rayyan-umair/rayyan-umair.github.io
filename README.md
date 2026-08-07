@@ -1,15 +1,4 @@
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=140&section=header&text=Rayyan%20Umair&fontSize=48&fontColor=ffffff&fontAlignY=65&desc=GRC%20%26%20Cybersecurity%20%7C%20Governance%2C%20Risk%20%26%20Compliance%20%7C%20Systems%2C%20Identity%20%26%20Security%20Background&descSize=14&descAlignY=85&animation=fadeIn" width="100%"/>
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-rayyan--umair.github.io-4a9eff?style=for-the-badge&logoColor=white)](https://rayyan-umair.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rayyanumair/)
-[![Email](https://img.shields.io/badge/Email-rayyanxumair%40gmail.com-00d4aa?style=for-the-badge)](mailto:rayyanxumair@gmail.com)
-[![Open to Work](https://img.shields.io/badge/Status-Open%20to%20Roles-22c55e?style=for-the-badge)](/)
-
-</div>
-
----
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=140&section=header&text=Rayyan%20Umair&fontSize=48&fontColor=ffffff&fontAlignY=65&desc=GRC%20%26%20Cybersecurity%20%7C%20Governance%2C%20Risk%20%26%20Compliance%20%7C%20Systems%2C%20Identity%20%26%20Security%20Background&descSize=14&descAlignY=85&animation=fadeIn" width="100%" />
 
 ## About
 
