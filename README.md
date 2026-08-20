@@ -1,47 +1,58 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=140&amp;section=header&amp;text=Rayyan%20Umair&amp;fontSize=48&amp;fontColor=ffffff&amp;fontAlignY=65&amp;desc=GRC%20and%20Cybersecurity%20-%20Governance%2C%20Risk%20and%20Compliance%20-%20Systems%2C%20Identity%20and%20Security%20Background&amp;descSize=14&amp;descAlignY=85&amp;animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=140&section=header&text=Rayyan%20Umair&fontSize=48&fontColor=ffffff&fontAlignY=65&desc=GRC%20and%20Cybersecurity%20-%20Governance%2C%20Risk%20and%20Compliance%20-%20Systems%2C%20Identity%20and%20Security%20Background&descSize=14&descAlignY=85&animation=fadeIn" width="100%"/>
 
 <br/>
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-rayyan--umair.github.io-4a9eff?style=for-the-badge&amp;logoColor=white)](https://rayyan-umair.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white)](https://www.linkedin.com/in/rayyanumair/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-rayyan--umair.github.io-4a9eff?style=for-the-badge&logoColor=white)](https://rayyan-umair.github.io/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rayyanumair/)
 [![Email](https://img.shields.io/badge/Email-rayyanxumair%40gmail.com-00d4aa?style=for-the-badge)](mailto:rayyanxumair@gmail.com)
 [![Open to Work](https://img.shields.io/badge/Status-Open%20to%20Roles-22c55e?style=for-the-badge)](/)
 
 </div>
 
+<br/>
+
+```
+rayyan@umair
+────────────────────────────────────────────────────────────────
+OS ................... Windows 11, Kali Linux, Ubuntu Server
+Host .................. Greater Toronto Area, Canada
+Uptime ................ 2+ yrs hands-on (IT Support → SecOps → GRC)
+Shell ................. PowerShell / Bash / Python
+Studying .............. B.IT (Information Security), Ontario Tech University
+Certs ................. Security+, Network+, CySA+ (in progress),
+                         Google Cybersecurity, ITIL Foundation
+Building .............. REXDR — self-hosted XDR
+                         8 engines · 21 detections · 11 services
+Focus ................. AI Governance & Risk, Accountability in Systems
+────────────────────────────────────────────────────────────────
+Email ................. rayyanxumair@gmail.com
+LinkedIn .............. linkedin.com/in/rayyanumair
+Portfolio ............. rayyan-umair.github.io
+```
+
+---
+
 ## About
 
-I am constantly learning. I am shaping my career where security risk, governance and business strategy meet, with a focus on how organizations govern AI &amp; vice versa.
+I am constantly learning, and shaping my career where security risk, governance, and business strategy meet — with a focus on how organizations govern AI, and vice versa.
 
-I prefer finding the root cause, asking why a control failed &amp; engineering systems where failure is harder to create in the first place.
+I prefer finding the root cause: asking why a control failed, and engineering systems where failure is harder to create in the first place.
 
-**My core interests:**
+**Core interests**
 
-◈ **Governance &amp; Risk Management** - frameworks and controls that hold up by principle, not by luck.
+◈ **Governance & Risk Management** — frameworks and controls that hold up by principle, not by luck.
+◈ **AI Governance & Risk** — as organizations adopt AI, someone has to own the risk decisions around it.
+◈ **Accountability in Systems** — when something breaks, someone has to own it and make the fix credible.
 
-◈ **AI Governance &amp; Risk** - as organizations adopt AI, someone has to own the risk decisions around it.
+I'm building toward this through hands-on work that complements the frameworks on paper — certifications, a degree in Information Security, and ongoing projects including REXDR, a modular network intelligence and threat-hunting platform.
 
-◈ **Accountability in Systems** - when something breaks, someone has to own it and make the fix credible.
+My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments show the same pattern for how systems fail once you've watched them long enough — pattern recognition is a real part of what governance and risk work actually is.
 
-I am building towards these through hands-on work to complement the frameworks on paper, certifications, and a degree in Information Security and ongoing projects including REXDR - a modular network intelligence &amp; threat-hunting platform.
+Outside of study and work, I chase the same things — calmness, discipline, precision. The gym, the range, the track, the sky, the deep water.
 
-My experience so far has been scattered across IT support, logistics, operations, and investigative work. Different environments have the same pattern for systems failure when you spend enough time watching them. The pattern recognition is real part of what governance and risk work actually is.
-
-Outside of study &amp; work, I chase pretty much the same things - calmness, discipline, precision. Be it the gym, the range, the track, the sky, the deep waters. 
-
-Always open to discussing conversations about GRC, security governance, or where AI risk is heading.
-
-## Right now
-
-```yaml
-location:     Canada
-studying:     Bachelor of IT (Information Security) @ Ontario Tech University
-practicing:   CTF challenges - HackTheBox & TryHackMe
-building:     REXDR - self-hosted detection and response platform
-reading:      Security architecture, AI in cybersecurity, risk frameworks
-```
+*Always open to conversations about GRC, security governance, or where AI risk is heading.*
 
 ---
 
@@ -51,64 +62,64 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 <tr>
 <td valign="top" width="50%">
 
-**Support &amp; Operations**
+**🛠 Support & Operations**
 - Tier 1 / Tier 2 IT Support
-- Incident Management &amp; Escalation
-- ITIL Framework &amp; SLA Adherence
+- Incident Management & Escalation
+- ITIL Framework & SLA Adherence
 - Ticketing Systems (ServiceNow / Jira)
-- Technical Documentation &amp; Reporting
+- Technical Documentation & Reporting
 
 </td>
 <td valign="top" width="50%">
 
-**Security Operations**
+**🛡 Security Operations**
 - SIEM Monitoring (Splunk, Microsoft Sentinel)
-- Alert Triage &amp; Escalation
-- Vulnerability Scanning &amp; Remediation (Nessus)
+- Alert Triage & Escalation
+- Vulnerability Scanning & Remediation (Nessus)
 - Indicator of Compromise Analysis
-- Endpoint Hardening &amp; Baseline Compliance
+- Endpoint Hardening & Baseline Compliance
 
 </td>
 </tr>
 <tr>
 <td valign="top">
 
-**Systems &amp; Identity**
-- Windows OS &amp; Active Directory
+**🔐 Systems & Identity**
+- Windows OS & Active Directory
 - Microsoft Entra ID, MFA, Conditional Access
-- User Lifecycle &amp; Least-Privilege Access Reviews
+- User Lifecycle & Least-Privilege Access Reviews
 - LAN / WAN / TCP-IP Fundamentals
-- Linux CLI &amp; Virtualization (VMware, VirtualBox)
+- Linux CLI & Virtualization (VMware, VirtualBox)
 
 </td>
 <td valign="top">
 
-**Governance, Risk &amp; Compliance**
-- Risk Assessment &amp; Remediation Tracking
-- Access Review &amp; Audit Support
-- Security Policy &amp; Control Documentation
-- Incident Reporting &amp; Post-Incident Review
-- MITRE ATT&amp;CK Mapping
+**📋 Governance, Risk & Compliance**
+- Risk Assessment & Remediation Tracking
+- Access Review & Audit Support
+- Security Policy & Control Documentation
+- Incident Reporting & Post-Incident Review
+- MITRE ATT&CK Mapping
 
 </td>
 </tr>
 <tr>
 <td valign="top">
 
-**Scripting &amp; Automation**
+**⚙️ Scripting & Automation**
 - Python, PowerShell, Bash
-- Security Automation &amp; Log Parsing
-- Git &amp; Version Control
-- Docker &amp; Containerized Deployment
+- Security Automation & Log Parsing
+- Git & Version Control
+- Docker & Containerized Deployment
 
 </td>
 <td valign="top">
 
-**Assessment &amp; Cloud**
+**☁️ Assessment & Cloud**
 - Supervised Penetration Testing (Kali, Burp Suite, Nmap)
 - Network Traffic Analysis (Wireshark)
-- AWS &amp; Azure Fundamentals (IAM, storage, infra)
-- AI/ML Concepts &amp; Model Evaluation
+- AWS & Azure Fundamentals (IAM, storage, infra)
+- AI/ML Concepts & Model Evaluation
 
 </td>
 </tr>
@@ -122,21 +133,15 @@ reading:      Security architecture, AI in cybersecurity, risk frameworks
 
 | Certification | Issuer | Status |
 |:---|:---|:---:|
-| ITIL Foundation | Axelos | Complete |
-| Google Cybersecurity Certificate | Google | Complete |
-| CompTIA Security+ | CompTIA | Active |
-| CompTIA Network+ | CompTIA | Active |
-| CompTIA CySA+ | CompTIA | In Progress |
-
-
+| ITIL Foundation | Axelos | ✅ Complete |
+| Google Cybersecurity Certificate | Google | ✅ Complete |
+| CompTIA Security+ | CompTIA | ✅ Active |
+| CompTIA Network+ | CompTIA | ✅ Active |
+| CompTIA CySA+ | CompTIA | 🔄 In Progress |
 
 </div>
 
-### Roadmap
-
-Foundation: Network+, Security+
-Operations: CySA+ (in progress)
-Next: Cloud Security, Governance and Risk
+**Roadmap:** Network+, Security+ *(foundation)* → CySA+ *(in progress)* → Cloud Security, Governance & Risk *(next)*
 
 ---
 
@@ -146,8 +151,8 @@ Next: Cloud Security, Governance and Risk
 
 | Degree | Institution | Status |
 |:---|:---|:---:|
-| Bachelor of IT (Information Security) | Ontario Tech University | In Progress |
-| Diploma in Systems Management &amp; Cybersecurity | Oulton College | Graduated with Honors · GPA 3.9 |
+| Bachelor of IT (Information Security) | Ontario Tech University | 🔄 In Progress |
+| Diploma in Systems Management & Cybersecurity | Oulton College | 🎓 Graduated with Honors · GPA 3.9 |
 
 </div>
 
@@ -155,47 +160,65 @@ Next: Cloud Security, Governance and Risk
 
 ## Experience
 
-**Operations, Logistics, Security &amp; Risk Management** &nbsp;`Sep 2023 - Present`
+**Cybersecurity Intern @ Tool-Go Inc.**   `Mar 2025 – Aug 2025`
+*Internship · New Brunswick, Canada · Hybrid*
+- Assisted with penetration testing and vulnerability assessments on web apps and internal networks using Kali Linux, Nmap, Burp Suite, and Nessus
+- Monitored security alerts in Splunk and Microsoft Sentinel, investigating and escalating suspicious activity
+- Performed stress testing and basic DoS evaluations to identify performance and security issues
+- Wrote technical reports on findings, risks, and recommended fixes; maintained asset inventories and validated security controls
 
-Various Employers · Greater Toronto Area, Canada · Hybrid
+**IT Support Technician @ SecureLogix**   `Mar 2024 – Jan 2025`
+*Permanent Full-time · Canada · Remote*
+- Provided Tier 1/Tier 2 support for Windows users; imaged, patched, and hardened devices
+- Monitored security alerts in Microsoft Sentinel and Splunk, escalating potential threats
+- Assisted with Nessus vulnerability scans and supported remediation efforts
+- Managed accounts, Active Directory, Microsoft Entra ID, and MFA; documented all work in ServiceNow
 
-Worked across operations, warehousing, logistics, security, and investigations in fast-paced environments including H&amp;M, Purolator, Fable Home, Armour Transport, Allied Universal, Securitas, Blackbird Security, and Xpera Risk Mitigation &amp; Investigation. Supported warehouse operations, inventory management, and process workflows while maintaining accuracy, safety, and efficiency. Prepared incident reports, monitored risks, and responded to security events while maintaining detailed documentation.
+**IT Support Technician @ Freelance**   `Feb 2023 – Mar 2024`
+*Self-employed · Canada · Hybrid*
+- Provided remote and onsite IT support for home users and small businesses
+- Diagnosed and repaired Windows PCs, laptops, peripherals, and software issues
+- Set up routers, Wi-Fi networks, printers, shared drives, and basic network security
+- Helped users with account setup and everyday cybersecurity practices
 
----
+<details>
+<summary><b>Operations, Logistics, Security & Risk Management</b> — Sep 2023 – Present (multiple employers, GTA)</summary>
+<br/>
 
-**Cybersecurity Intern @ Tool-Go Inc.** &nbsp;`Mar 2025 - Aug 2025`
+Worked across operations, warehousing, logistics, security, and investigations at H&M, Purolator, Fable Home, Armour Transport, Allied Universal, Securitas, Blackbird Security, and Xpera Risk Mitigation & Investigation.
+- Supported warehouse operations, inventory management, and process workflows while maintaining accuracy, safety, and efficiency
+- Prepared incident reports and monitored risk in fast-paced, hybrid environments
+- Responded to security events while maintaining detailed documentation
 
-Internship · New Brunswick, Canada · Hybrid
-
-Assisted with penetration testing and vulnerability assessments on web applications and internal networks using Kali Linux, Nmap, Burp Suite, and Nessus. Helped monitor security alerts in Splunk and Microsoft Sentinel, investigating and escalating suspicious activity. Performed stress testing and basic DoS evaluations to identify potential performance and security issues. Wrote technical reports outlining findings, risks, and recommended fixes. Helped maintain asset inventories, validate security controls, and support vulnerability remediation.
-
----
-
-**IT Support Technician @ SecureLogix** &nbsp;`Mar 2024 - Jan 2025`
-
-Permanent Full-time · Canada · Remote
-
-Provided Tier 1 and Tier 2 IT support for Windows users, resolving hardware, software, and account-related issues. Imaged, patched, and troubleshot Windows devices while assisting with system hardening. Monitored security alerts in Microsoft Sentinel and Splunk, escalating potential threats when needed. Assisted with vulnerability scans using Nessus and supported remediation efforts. Managed user accounts, password resets, Active Directory, Microsoft Entra ID, and MFA requests. Documented support tickets, troubleshooting steps, and resolutions in ServiceNow.
-
----
-
-**IT Support Technician @ Freelance** &nbsp;`Feb 2023 - Mar 2024`
-
-Self-employed · Canada · Hybrid
-
-Provided remote and onsite IT support for home users and small businesses. Diagnosed and repaired Windows PCs, laptops, peripherals, and software issues. Installed and configured Windows, drivers, applications, and system updates. Set up routers, Wi-Fi networks, printers, shared drives, and basic network security. Helped users with account setup, troubleshooting, and everyday cybersecurity practices.
+</details>
 
 ---
 
 ## Projects
 
+> **Flagship — REXDR: Real-time Extended Detection & Response**
+> Self-hosted detection and response platform. Eight engines — Windows events, network flow, DNS, Active Directory, correlation, response, asset discovery, and vulnerability intel — share one entity model and correlate into single investigations with narratives, MITRE mapping, and automated case files.
+> `Python` `Go` `DuckDB` `Docker` `React` `LDAP` `Scapy` `MITRE ATT&CK` · **8** engines · **21** detections · **11** services
+
+<br/>
+
 | Project | What it actually is | Stack | Status |
 |:---|:---|:---|:---:|
-| **REXDR** | Self-hosted detection and response platform. Eight engines - Windows events, network flow, DNS, Active Directory, correlation, response, asset discovery, vulnerability - share one entity model and correlate into single investigations with narratives, MITRE mapping, and automated case files. | Python · Go · DuckDB · Docker · React · LDAP · Scapy · MITRE ATT&amp;CK | Complete |
-| **CTF Writeups &amp; Labs** | HackTheBox and TryHackMe documentation. Every dead end written up, not just the solution. Dead ends are where the learning is. | Kali · Nmap · Burp Suite · Python | Active |
-| **IT Automation Scripts** | Scripts built to solve real problems from support work. Account management, log parsing, system health checks. | Python · PowerShell · Bash | Active |
-| **Academic Security Labs** | Network segmentation, firewall configuration, IoT pentesting device, embedded train system (Resurgo Place), enterprise network overhaul, ITIL service management plan. All graded, all documented. | VirtualBox · pfSense · Wireshark · Raspberry Pi | Complete |
-| **Portfolio Website** | Built from scratch. Scroll-driven 3D camera engine, interactive node graphs, zero frameworks. | HTML · CSS · JS · Three.js · GitHub Pages | Live |
+| **CTF Writeups & Labs** | HackTheBox and TryHackMe documentation. Every dead end written up, not just the solution — that's where the learning is. | Kali · Nmap · Burp Suite · Python | Active |
+| **IT Automation Scripts** | Scripts built to solve real problems from support work: account management, log parsing, system health checks. | Python · PowerShell · Bash | Active |
+| **Academic Security Labs** | Network segmentation, firewall configuration, IoT pentesting device, embedded train system (Resurgo Place), enterprise network overhaul, ITIL service management plan. | VirtualBox · pfSense · Wireshark · Raspberry Pi | Complete |
+| **Portfolio Website** | Built from scratch — scroll-driven 3D camera engine, interactive node graphs, zero frameworks. | HTML · CSS · JS · Three.js · GitHub Pages | Live |
+
+---
+
+## GitHub Stats
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=rayyan-umair&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=4a9eff&icon_color=00d4aa" height="165"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rayyan-umair&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=4a9eff" height="165"/>
+
+</div>
 
 ---
 
@@ -205,6 +228,6 @@ Provided remote and onsite IT support for home users and small businesses. Diagn
 
 [rayyanxumair@gmail.com](mailto:rayyanxumair@gmail.com) &nbsp;·&nbsp; [linkedin.com/in/rayyanumair](https://www.linkedin.com/in/rayyanumair/) &nbsp;·&nbsp; [rayyan-umair.github.io](https://rayyan-umair.github.io/)
 
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;customColorList=2,12,20&amp;height=80&amp;section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,20&height=80&section=footer" width="100%"/>
 
 </div>
